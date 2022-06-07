@@ -1,0 +1,185 @@
+guiTypes = {
+	containerWindowType = {
+		name = "equipment_designer_power_armor_equipment_4"
+		# NOTE: to keep aligned with the window "equipment_modules" in tank_designer_view.gui
+		position = { x=0 y=0 }
+		size = { width=508 height=248 }
+
+		iconType = {
+			name = "equipment_image_overlay"
+			spriteType = "GFX_TC_power_armor_t51"
+			position = { x=0 y=0 }
+		}
+
+		containerWindowType = {
+			name = "module_slots"
+			position = { x=0 y=0 }
+			size = { width=100% height=100% }
+
+			################# MODULE SLOT: Helmet #################
+			containerWindowType = {
+				name = "Helmet_slot"
+				position = { x=0 y=0 }
+				size = { width=100% height=100% }
+
+				containerWindowType = {
+					name = "Helmet_slot"
+					position = { x=0 y=0 }
+					size = { width=100% height=100% }
+				}
+
+				containerWindowType = {
+					name = "Helmet_slot@highlight"
+					position = { x=0 y=0 }
+					size = { width=100% height=100% }
+
+					iconType = {
+						name = "blueprint_generic"
+						spriteType = "GFX_TM_power_armor_helmet"
+						position = { x=0 y=0 }
+					}
+
+					iconType = {
+						name = "blueprint"
+						spriteType = "GFX_TM_power_armor_chassis_helmet_slot"
+						position = { x=0 y=0 }
+					}
+				}
+
+			}
+
+			################# MODULE SLOT: Servo #################
+			containerWindowType = {
+				name = "servo_type_slot"
+				position = { x=0 y=0 }
+				size = { width=100% height=100% }
+			
+				containerWindowType = {
+					name = "servo_type_slot"
+					position = { x=0 y=0 }
+					size = { width=100% height=100% }
+				}
+			
+				containerWindowType = {
+					name = "servo_type_slot@highlight"
+					position = { x=0 y=0 }
+					size = { width=100% height=100% }
+			
+					iconType = {
+						name = "blueprint_generic"
+						spriteType = "GFX_TM_power_armor_servo"
+						position = { x=0 y=0 }
+					}
+			
+					iconType = {
+						name = "blueprint"
+						spriteType = "GFX_TM_power_armor_chassis_servo_slot"
+						position = { x=0 y=0 }
+					}
+				}
+			
+			}
+			
+			################# MODULE SLOT: Armor plate #################
+			containerWindowType = {
+				name = "armor_type_slot"
+				position = { x=0 y=0 }
+				size = { width=100% height=100% }
+			
+				containerWindowType = {
+					name = "armor_type_slot"
+					position = { x=0 y=0 }
+					size = { width=100% height=100% }
+				}
+			
+				containerWindowType = {
+					name = "armor_type_slot@highlight"
+					position = { x=0 y=0 }
+					size = { width=100% height=100% }
+			
+					iconType = {
+						name = "blueprint_generic"
+						spriteType = "GFX_TM_power_armor_plate"
+						position = { x=0 y=0 }
+					}
+			
+					iconType = {
+						name = "blueprint"
+						spriteType = "GFX_TM_power_armor_chassis_plate_slot"
+						position = { x=0 y=0 }
+					}
+				}
+			
+			}
+			
+			################# MODULE SLOT: Plant #################
+			containerWindowType = {
+				name = "plant_type_slot"
+				position = { x=0 y=0 }
+				size = { width=100% height=100% }
+			
+				containerWindowType = {
+					name = "armour_power_plant_type"
+					position = { x=0 y=0 }
+					size = { width=100% height=100% }
+				}
+			
+				containerWindowType = {
+					name = "armour_power_plant_type@highlight"
+					position = { x=0 y=0 }
+					size = { width=100% height=100% }
+			
+					iconType = {
+						name = "blueprint_generic"
+						spriteType = "GFX_TM_power_armor_plant"
+						position = { x=0 y=0 }
+					}
+			
+					iconType = {
+						name = "blueprint"
+						spriteType = "GFX_TM_power_armor_chassis_plant_slot"
+						position = { x=0 y=0 }
+					}
+				}
+			
+			}
+
+			################# MODULE SLOT: Special #################
+			containerWindowType = {
+				name = "special_type_slot_1"
+				position = { x=0 y=0 }
+				size = { width=100% height=100% }
+
+				#### MODULE: Todo ####
+			}
+			containerWindowType = {
+				name = "special_type_slot_2"
+				position = { x=0 y=0 }
+				size = { width=100% height=100% }
+
+				#### MODULE: Todo ####
+			}
+			containerWindowType = {
+				name = "special_type_slot_3"
+				position = { x=0 y=0 }
+				size = { width=100% height=100% }
+
+				#### MODULE: Todo ####
+			}
+			containerWindowType = {
+				name = "special_type_slot_4"
+				position = { x=0 y=0 }
+				size = { width=100% height=100% }
+
+				#### MODULE: Todo ####
+			}
+			containerWindowType = {
+				name = "special_type_slot_5"
+				position = { x=0 y=0 }
+				size = { width=100% height=100% }
+
+				#### MODULE: Todo ####
+			}
+		}
+	}
+}

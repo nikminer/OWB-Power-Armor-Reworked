@@ -1,0 +1,55 @@
+spriteTypes = {
+	spriteType = {
+		name = "archetype_power_armor_equipment"
+		textureFile = "gfx/interface/archetypes/power_armour_t51.dds"
+		legacy_lazy_load = no
+	}
+
+
+	spriteType = {
+		name = "GFX_TC_power_armor_chassis"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/generic/generic_power_armor_blueprint.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_TC_power_armor_t45"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/generic/t45_power_armor_blueprint.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_TC_power_armor_t51"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/generic/t51_power_armor_blueprint.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_TC_power_armor_x01"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/generic/x01_power_armor_blueprint.dds"
+		legacy_lazy_load = no
+	}
+
+	spriteType = {
+		name = "GFX_TM_power_armor_chassis_plate_slot"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/generic/generic_power_armor_plate.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_TM_power_armor_chassis_plant_slot"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/generic/generic_power_armor_plant.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_TM_power_armor_chassis_helmet_slot"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/generic/generic_power_armor_helmet.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_TM_power_armor_chassis_servo_slot"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/generic/generic_power_armor_servo.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_TM_light_tank_chassis_turret_type_slot"
+		textureFile = "gfx/interface/equipmentdesigner/tanks/generic/generic_light_tank_turret.dds"
+		legacy_lazy_load = no
+	}
+}

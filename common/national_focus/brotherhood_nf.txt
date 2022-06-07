@@ -1,0 +1,8265 @@
+#8     8"""88 8""""8 ""8""    8   8 8  8     8     8""""8
+#8     8    8 8        8      8   8 8  8     8     8
+#8e    8    8 8eeeee   8e     8eee8 8e 8e    8e    8eeeee
+#88    8    8     88   88     88  8 88 88    88        88
+#88    8    8 e   88   88     88  8 88 88    88    e   88
+#88eee 8eeee8 8eee88   88     88  8 88 88eee 88eee 8eee88
+#
+#Original Tree by AntoniusMagnus & Oleg
+#Upkeep work by MrBlazzar
+#4.0 Tree by Zusk & Garnathor
+#
+#Primer Written by Zusk!
+#
+#Original History:
+#Lost Hills ( In older versions of the game, the "Western Brotherhood of Steel", or "Brotherhood of Steel" ) is one
+#of OWB's longest lived trees!
+#Originally, in 2017, the original shell of the tree was designed by one AntoniusMagnus and completed by Oleg. Over the years
+#MrBlazzar did lots of upkeep work for it from launch up to patch 4.0.
+#
+#Back in those patches, due to the mods original start date of 2265 the Brotherhood had a starting position that reflected that. They had
+#quite a bit of territory along California's western coast and fought a relatively equal early war with the NCR, as a bit of a analogue
+#to Germany's Czechoslovakia conquest in base game!
+#
+#4.0:
+#The Tree was changed greatly in patch 4.0 of Old World Blues. Which was the update that renamed the country to "Lost Hills".
+#This was the update the reframed their gameplay to be centered on being a singular, but exceedingly powerful, bunker that interacted
+#with all of the other chapters. This rework was accomplished by Zusk & Garnathor - originally planned out in October of 2020 and implemented across 2021 and 2022.
+#
+#As a designer, I mainly wanted to try out this design of the tree as a way to bring Lost Hills closer to canon as well as still give
+#them a important purpose not just for california, but also for every other chapter on the map - to reflect the importance that all
+#the chapters give the Lost Hills elders in most of the Fallout Games (Fallout: Brotherhood of Steel, Fallout Tactics, Fallout 4, Fallout NV)
+#Garnathor helped out a lot with extremely important systems work to help make the tree feel unique! He was the one that implemented the Paladins, and
+#the one that initialaly designed the core of the Underground Building system!
+
+@BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_TRIGGER = 100
+@BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_EFFECT = -100
+
+focus_tree = {
+	id = nf_brotherhood
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = BOS
+		}
+	}
+	default = no
+	focus = {
+		id = bos_nf_one_fateful_bullet
+		icon = GFX_goal_BOS_generic
+		cost = 7
+		x = 40
+		y = 0
+		completion_reward = {
+			country_event = nf_brotherhood_history.1
+		}
+	}
+	focus = {
+		id = bos_nf_exodus
+		icon = GFX_goal_BOS_generic
+		cost = 7
+		x = 0
+		y = 1
+
+		relative_position_id = bos_nf_one_fateful_bullet
+
+		prerequisite = {
+			focus = bos_nf_one_fateful_bullet
+		}
+
+		completion_reward = {
+			country_event = nf_brotherhood_history.2
+		}
+	}
+	focus = {
+		id = bos_nf_words_have_power
+		icon = GFX_goal_BOS_generic
+		cost = 7
+		x = 0
+		y = 1
+
+		relative_position_id = bos_nf_exodus
+
+		prerequisite = {
+			focus = bos_nf_exodus
+		}
+
+		completion_reward = {
+			country_event = nf_brotherhood_history.3
+		}
+	}
+	focus = {
+		id = bos_nf_chains_that_bind
+		icon = GFX_goal_BOS_generic
+		cost = 7
+		x = 0
+		y = 1
+
+		relative_position_id = bos_nf_words_have_power
+
+		prerequisite = {
+			focus = bos_nf_words_have_power
+		}
+
+		completion_reward = {
+			country_event = nf_brotherhood_history.4
+		}
+	}
+	focus = {
+		id = bos_nf_the_knight_and_the_bear
+		icon = GFX_goal_BOS_generic
+		cost = 7
+		x = 0
+		y = 1
+
+		relative_position_id = bos_nf_chains_that_bind
+
+		prerequisite = {
+			focus = bos_nf_chains_that_bind
+		}
+
+		completion_reward = {
+			country_event = nf_brotherhood_history.5
+		}
+	}
+	focus = {
+		id = bos_nf_the_paladins
+		icon = GFX_goal_MOJ_paladin_thought
+		cost = 7
+		x = 0
+		y = 1
+
+		relative_position_id = bos_nf_the_knight_and_the_bear
+
+		prerequisite = {
+			focus = bos_nf_the_knight_and_the_bear
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = paladins_unlock_tt
+			hidden_effect = {
+				country_event = nf_brotherhood_history.7
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_the_knights
+		icon = GFX_goal_MOJ_know_our_name
+		cost = 15
+		x = -3
+		y = 1
+
+		relative_position_id = bos_nf_the_paladins
+
+		prerequisite = {
+			focus = bos_nf_the_paladins
+		}
+		completion_reward = {
+			custom_effect_tooltip = knights_unlock_tt
+			hidden_effect = {
+				country_event = nf_brotherhood_history.8
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_engineers_of_peace
+		icon = GFX_goal_MOJ_progressive_thought
+		cost = 30
+		x = -1
+		y = 1
+
+		relative_position_id = bos_nf_the_knights
+
+		prerequisite = {
+			focus = bos_nf_the_knights
+		}
+
+		completion_reward = {
+			add_command_power = 25
+			unlock_decision_tooltip = bos_underground_construction_boost_decision
+		}
+	}
+	focus = {
+		id = bos_nf_engineers_of_war
+		icon = GFX_goal_MOJ_aggressive_policy
+		cost = 30
+		x = 1
+		y = 1
+
+		relative_position_id = bos_nf_the_knights
+
+		prerequisite = {
+			focus = bos_nf_the_knights
+		}
+
+		completion_reward = {
+			add_command_power = 25
+			unlock_decision_tooltip = bos_underground_production_boost_decision
+		}
+	}
+	focus = {
+		id = bos_nf_room_to_grow
+		icon = GFX_goal_generic_BOS_focus_surface_outposts
+		cost = 30
+		x = 1
+		y = 1
+
+		relative_position_id = bos_nf_engineers_of_peace
+
+		prerequisite = {
+			focus = bos_nf_engineers_of_peace
+			focus = bos_nf_engineers_of_war
+		}
+
+		completion_reward = {
+			unlock_decision_tooltip = bos_underground_dig_deeper_decision
+		}
+	}
+	focus = {
+		id = bos_nf_empty_suits
+		icon = GFX_goal_generic_BOS_focus_t45d_production
+		cost = 30
+		x = -5
+		y = 2
+
+		relative_position_id = bos_nf_the_knight_and_the_bear
+
+		prerequisite = {
+			focus = bos_nf_the_knight_and_the_bear
+		}
+
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = power_armor_equipment_4
+				amount = 500
+				producer = USA
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_filled_with_purpose
+		icon = GFX_goal_BOS_generic_infantry
+		cost = 30
+		x = -1
+		y = 1
+
+		relative_position_id = bos_nf_empty_suits
+
+		prerequisite = {
+			focus = bos_nf_empty_suits
+		}
+
+		completion_reward = {
+			unlock_decision_tooltip = bos_underground_infantry_boost_decision
+		}
+	}
+	focus = {
+		id = bos_nf_forge_new_paladins
+		icon = GFX_goal_bos_generic_t45_4
+		cost = 15
+		x = -1
+		y = 1
+
+		relative_position_id = bos_nf_the_paladins
+
+		prerequisite = {
+			focus = bos_nf_the_paladins
+		}
+
+		completion_reward = {
+			set_temp_variable = { BOS_train_paladins_num = 1 }
+			bos_train_paladins = yes
+		}
+	}
+
+
+	focus = {
+		id = bos_nf_lifting_the_expeditionary_ban
+		icon = GFX_goal_bos_generic_tank
+		cost = 15
+		x = 2
+		y = 0
+		relative_position_id = bos_nf_forge_new_paladins
+		prerequisite = {
+			focus = bos_nf_the_paladins
+		}
+
+		completion_reward = {
+			BOS = {
+				set_rule = {
+					can_send_volunteers = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_the_scribes
+		icon = GFX_goal_MOJ_scribal_thought
+		cost = 7
+		x = 3
+		y = 1
+
+		relative_position_id = bos_nf_the_paladins
+
+		prerequisite = {
+			focus = bos_nf_the_paladins
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = scribes_unlock_tt
+			hidden_effect = {
+				country_event = nf_brotherhood_history.9
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_bringers_of_progress
+		icon = GFX_goal_MOJ_help_the_needy
+		cost = 30
+		x = 1
+		y = 1
+
+		relative_position_id = bos_nf_the_scribes
+
+		prerequisite = {
+			focus = bos_nf_the_scribes
+		}
+
+		completion_reward = {
+			add_command_power = 25
+			unlock_decision_tooltip = bos_underground_pp_boost_decision
+		}
+	}
+	focus = {
+		id = bos_nf_keepers_of_knowledge
+		icon = GFX_goal_moj_poseidon_relic_circuitry
+		cost = 30
+		x = -1
+		y = 1
+
+		relative_position_id = bos_nf_the_scribes
+
+		prerequisite = {
+			focus = bos_nf_the_scribes
+		}
+
+		completion_reward = {
+			add_command_power = 25
+			unlock_decision_tooltip = bos_underground_research_boost_decision
+		}
+	}
+	focus = {
+		id = bos_nf_new_developments
+		icon = GFX_goal_BOS_generic_research
+		cost = 30
+		x = 1
+		y = 1
+
+		relative_position_id = bos_nf_keepers_of_knowledge
+
+		prerequisite = {
+			focus = bos_nf_keepers_of_knowledge
+			focus = bos_nf_bringers_of_progress
+		}
+
+		completion_reward = {
+			unlock_decision_tooltip = bos_underground_build_simulators_decision
+		}
+	}
+	focus = {
+		id = bos_nf_memories_of_the_fallen
+		icon = GFX_goal_generic_BOS_focus_t51b_production
+		cost = 30
+		x = 5
+		y = 2
+
+		relative_position_id = bos_nf_the_knight_and_the_bear
+
+		prerequisite = {
+			focus = bos_nf_the_knight_and_the_bear
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = bos_nf_memories_of_the_fallen
+				bonus = 0.3
+				uses = 4
+				category = cat_land_doctrine
+				category = spec_force_doctrine_category
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_memories_of_heroes
+		icon = GFX_goal_generic_focus_magazine_gunsandbullets_plasma
+		cost = 30
+		x = 1
+		y = 1
+
+		relative_position_id = bos_nf_memories_of_the_fallen
+
+		prerequisite = {
+			focus = bos_nf_memories_of_the_fallen
+		}
+
+		completion_reward = {
+			unlock_decision_tooltip = bos_underground_power_armour_boost_decision
+		}
+	}
+	focus = {
+		id = bos_nf_back_to_business
+		icon = GFX_goal_BOS_tesla_cannon
+		cost = 15
+		x = 3
+		y = 0
+		prerequisite = {
+			focus = bos_nf_forge_new_paladins
+		}
+		prerequisite = {
+			focus = bos_nf_lifting_the_expeditionary_ban
+		}
+		relative_position_id = bos_nf_room_to_grow
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = bos_nf_blueprints
+		icon = GFX_goal_BOS_generic_research
+		cost = 30
+		x = -40
+		y = 1
+		relative_position_id = bos_nf_back_to_business
+		prerequisite = {
+			focus = bos_nf_back_to_business
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = losthillsdatabase
+				days = 365
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_reactionchambers
+		icon = GFX_goal_generic_ruby_focus #GFX_goal_generic_occupy_start_war
+		cost = 30
+		x = -2
+		y = 1
+		relative_position_id = bos_nf_blueprints
+		prerequisite = {
+			focus = bos_nf_blueprints
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = laserfocusfoundry
+				days = 365
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_simplified
+		icon = GFX_goal_generic_common_energy_weapons_focus
+		cost = 30
+		prerequisite = {
+			focus = bos_nf_reactionchambers
+		}
+		mutually_exclusive = {
+			focus = bos_nf_oldworld
+		}
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_reactionchambers
+		completion_reward = {
+			capital_scope = {
+				add_resource = { type = energy amount = 4 }
+				add_resource = { type = circuitry amount = 6 }
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_oldworld
+		icon = GFX_goal_generic_laser_rifle_1
+		cost = 30
+		prerequisite = {
+			focus = bos_nf_reactionchambers
+		}
+		mutually_exclusive = {
+			focus = bos_nf_simplified
+		}
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_reactionchambers
+		completion_reward = {
+			capital_scope = {
+				add_resource = { type = energy amount = 4 }
+				add_resource = { type = advanced amount = 3 }
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_techreallocation
+		icon = GFX_goal_generic_advanced_technology_focus
+		cost = 30
+		prerequisite = {
+			focus = bos_nf_oldworld
+			focus = bos_nf_simplified
+		}
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_simplified
+		completion_reward = {
+			add_tech_bonus = {
+				name = bos_nf_techreallocation
+				bonus = 0.25
+				uses = 1
+				category = infantry_tech_category
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_scribemaintenance
+		icon = GFX_goal_generic_what_is_plasma_anyway #GFX_goal_generic_military_sphere
+		cost = 30
+		prerequisite = {
+			focus = bos_nf_blueprints
+		}
+		x = 2
+		y = 1
+		relative_position_id = bos_nf_blueprints
+		completion_reward = {
+			add_timed_idea = {
+				idea = maintenanceroutines
+				days = 365
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_superioralloys
+		icon = GFX_icon_steel #GFX_goal_generic_build_tank
+		cost = 30
+		prerequisite = {
+			focus = bos_nf_scribemaintenance
+		}
+		mutually_exclusive = {
+			focus = bos_nf_scraprefinement
+		}
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_scribemaintenance
+		completion_reward = {
+			add_tech_bonus = {
+				name = bos_nf_superioralloys
+				bonus = 0.2
+				uses = 1
+				category = industry
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_scraprefinement
+		icon = GFX_goal_generic_metal_focus #GFX_goal_anti_comintern_pact
+		cost = 30
+		prerequisite = {
+			focus = bos_nf_scribemaintenance
+		}
+		mutually_exclusive = {
+			focus = bos_nf_superioralloys
+		}
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_scribemaintenance
+		completion_reward = {
+			add_tech_bonus = {
+				name = bos_nf_scraprefinement
+				bonus = 0.1
+				uses = 3
+				category = industry
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_powerarmourdevelop
+		icon = GFX_goal_BOS_power_armor_generic #GFX_goal_generic_construction
+		cost = 30
+		prerequisite = {
+			focus = bos_nf_superioralloys
+			focus = bos_nf_scraprefinement
+		}
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_superioralloys
+		completion_reward = {
+			add_tech_bonus = {
+				name = bos_nf_powerarmourdevelop
+				bonus = 0.25
+				uses = 1
+				category = power_armor_tech_category
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_surge
+		icon = GFX_goal_generic_advanced_energy_weapons_focus
+		cost = 30
+		prerequisite = {
+			focus = bos_nf_techreallocation
+		}
+		prerequisite = {
+			focus = bos_nf_powerarmourdevelop
+		}
+		x = 2
+		y = 1
+		relative_position_id = bos_nf_techreallocation
+		completion_reward = {
+			add_tech_bonus = {
+				name = bos_nf_surge
+				bonus = 0.5
+				uses = 1
+				category = energy_weaponry_tech_category
+			}
+		}
+	}
+
+
+	focus = {
+		id = bos_nf_brotherhood_r_n_d
+		icon = GFX_goal_BOS_outsider_recruitment
+		cost = 30
+		x = 10
+		y = 1
+		relative_position_id = bos_nf_surge
+		available = {
+			has_army_experience > 20
+		}
+		completion_reward = {
+			army_experience = -20
+			add_research_slot = 1
+		}
+	}
+	focus = {
+		id = bos_nf_weaponry_research
+		icon = GFX_goal_generic_bb_gun
+		cost = 30
+		x = -10
+		y = 1
+		relative_position_id = bos_nf_brotherhood_r_n_d
+		prerequisite = {
+			focus = bos_nf_brotherhood_r_n_d
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = bos_nf_weaponry_research
+				bonus = 0.25
+				uses = 1
+				category = ballistic_weaponry_tech_category
+			}
+			add_ideas = bos_nf_weaponry_research
+		}
+	}
+	focus = {
+		id = bos_nf_SIG_sauer_weaponry
+		icon = GFX_goal_generic_pistol_deliverer
+		cost = 30
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_weaponry_research
+		prerequisite = {
+			focus = bos_nf_weaponry_research
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = bos_nf_weaponry_research
+				bonus = 0.3
+				uses = 1
+				category = ballistic_weaponry_tech_category
+			}
+			add_ideas = bos_nf_SIG_sauer_weaponry
+		}
+	}
+	focus = {
+		id = bos_nf_heckler_and_koch_weaponry
+		icon = GFX_goal_generic_smg_12.7
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_weaponry_research
+		prerequisite = {
+			focus = bos_nf_weaponry_research
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = bos_nf_weaponry_research
+				bonus = 0.3
+				uses = 1
+				category = ballistic_weaponry_tech_category
+			}
+			add_ideas = bos_nf_heckler_and_koch_weaponry
+		}
+	}
+	focus = {
+		id = bos_nf_wattz_weaponry
+		icon = GFX_goal_generic_laser_rifle_2
+		cost = 30
+		x = 0
+		y = 2
+		relative_position_id = bos_nf_weaponry_research
+		prerequisite = {
+			focus = bos_nf_SIG_sauer_weaponry
+		}
+		prerequisite = {
+			focus = bos_nf_heckler_and_koch_weaponry
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = bos_nf_weaponry_research
+				bonus = 0.5
+				uses = 1
+				category = ballistic_weaponry_tech_category
+			}
+			add_ideas = bos_nf_wattz_weaponry
+		}
+	}
+	focus = {
+		id = bos_nf_vehicle_research
+		icon = GFX_goal_generic_tires
+		cost = 30
+		x = -6
+		y = 1
+		relative_position_id = bos_nf_brotherhood_r_n_d
+		prerequisite = {
+			focus = bos_nf_brotherhood_r_n_d
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = bos_nf_vehicle_research
+				bonus = 0.25
+				uses = 1
+				category = vehicle_tech_category
+			}
+			add_ideas = bos_nf_vehicle_research
+		}
+	}
+	focus = {
+		id = bos_nf_takoma_motors
+		icon = GFX_icon_two_car_circle
+		cost = 30
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_vehicle_research
+		prerequisite = {
+			focus = bos_nf_vehicle_research
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = bos_nf_vehicle_research
+				bonus = 0.3
+				uses = 1
+				category = vehicle_tech_category
+			}
+			add_ideas = bos_nf_takoma_motors
+		}
+	}
+	focus = {
+		id = bos_nf_n_h_and_m_vehicles #NH&M
+		icon = GFX_icon_two_car_rectangle
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_vehicle_research
+		prerequisite = {
+			focus = bos_nf_vehicle_research
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = bos_nf_vehicle_research
+				bonus = 0.3
+				uses = 1
+				category = vehicle_tech_category
+			}
+			add_ideas = bos_nf_n_h_and_m_vehicles
+		}
+	}
+	focus = {
+		id = bos_nf_chryslus_vehicles
+		icon = GFX_icon_two_enginetech
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_takoma_motors
+		prerequisite = {
+			focus = bos_nf_takoma_motors
+		}
+		prerequisite = {
+			focus = bos_nf_n_h_and_m_vehicles
+		}
+
+		completion_reward = {
+			set_technology = { vehicles_tech_level_scientific = 1 }
+			add_ideas = bos_nf_chryslus_vehicles
+		}
+	}
+	focus = {
+		id = bos_nf_industry_research
+		icon = GFX_goal_generic_thing_4
+		cost = 30
+		x = -2
+		y = 1
+		relative_position_id = bos_nf_brotherhood_r_n_d
+		prerequisite = {
+			focus = bos_nf_brotherhood_r_n_d
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = bos_nf_industry_research
+				bonus = 0.25
+				uses = 1
+				category = industry
+			}
+			add_ideas = bos_nf_industry_research
+		}
+	}
+	focus = {
+		id = bos_nf_dunwich_borers
+		icon = GFX_goal_generic_tools
+		cost = 30
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_industry_research
+		prerequisite = {
+			focus = bos_nf_industry_research
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = bos_nf_industry_research
+				bonus = 0.3
+				uses = 1
+				category = industry
+			}
+			add_ideas = bos_nf_dunwich_borers
+		}
+	}
+	focus = {
+		id = bos_nf_hornwright_industrial_mining_company
+		icon = GFX_icon_steel
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_industry_research
+		prerequisite = {
+			focus = bos_nf_industry_research
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = bos_nf_industry_research
+				bonus = 0.3
+				uses = 1
+				category = industry
+			}
+			add_ideas = bos_nf_hornwright_industrial_mining_company
+		}
+	}
+	focus = {
+		id = bos_nf_red_rocket
+		icon = GFX_goal_generic_fuel_focus
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_dunwich_borers
+		prerequisite = {
+			focus = bos_nf_dunwich_borers
+		}
+		prerequisite = {
+			focus = bos_nf_hornwright_industrial_mining_company
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = bos_nf_industry_research
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
+			add_ideas = bos_nf_red_rocket
+		}
+	}
+	focus = {
+		id = bos_nf_air_research
+		icon = GFX_goal_generic_thing_3
+		cost = 30
+		x = 2
+		y = 1
+		relative_position_id = bos_nf_brotherhood_r_n_d
+		prerequisite = {
+			focus = bos_nf_brotherhood_r_n_d
+		}
+
+		completion_reward = {
+			set_technology = { air_tech_level_tribal = 1 }
+			add_ideas = bos_nf_air_research
+		}
+	}
+	focus = {
+		id = bos_nf_lockreed
+		icon = GFX_goal_generic_vehicle_plane
+		cost = 30
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_air_research
+		prerequisite = {
+			focus = bos_nf_air_research
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = bos_nf_air_research
+				bonus = 0.3
+				uses = 1
+				category = air_tech_category
+			}
+			add_ideas = bos_nf_lockreed
+		}
+	}
+	focus = {
+		id = bos_nf_ball_aerospace
+		icon = GFX_goal_generic_mr_tiddles
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_air_research
+		prerequisite = {
+			focus = bos_nf_air_research
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = bos_nf_air_research
+				bonus = 0.3
+				uses = 1
+				category = air_tech_category
+			}
+			add_ideas = bos_nf_ball_aerospace
+		}
+	}
+	focus = {
+		id = bos_nf_repconn
+		icon = GFX_goal_BOS_repconn_hq
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_lockreed
+		prerequisite = {
+			focus = bos_nf_lockreed
+		}
+		prerequisite = {
+			focus = bos_nf_ball_aerospace
+		}
+
+		completion_reward = {
+			set_technology = { air_tech_level_settler = 1 }
+			add_ideas = bos_nf_repconn
+		}
+	}
+	focus = {
+		id = bos_nf_robotics_research
+		icon = GFX_goal_generic_transmitter_2
+		cost = 30
+		x = 6
+		y = 1
+		relative_position_id = bos_nf_brotherhood_r_n_d
+		prerequisite = {
+			focus = bos_nf_brotherhood_r_n_d
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = robotics_tech_category
+				bonus = 0.25
+				uses = 1
+				category = robotics_tech_category
+			}
+			add_ideas = bos_nf_robotics_research
+		}
+	}
+	focus = {
+		id = bos_nf_cerulean_robotics
+		icon = GFX_goal_generic_protectron_conceptart_default
+		cost = 30
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_robotics_research
+		prerequisite = {
+			focus = bos_nf_robotics_research
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = robotics_tech_category
+				bonus = 0.3
+				uses = 1
+				category = robotics_tech_category
+			}
+			add_ideas = bos_nf_cerulean_robotics
+		}
+	}
+	focus = {
+		id = bos_nf_robco
+		icon = GFX_goal_enc_robco_reborn
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_robotics_research
+		prerequisite = {
+			focus = bos_nf_robotics_research
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = robotics_tech_category
+				bonus = 0.3
+				uses = 1
+				category = robotics_tech_category
+			}
+			add_ideas = bos_nf_robco
+		}
+	}
+	focus = {
+		id = bos_nf_acme
+		icon = GFX_goal_generic_humanoid_robots
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_cerulean_robotics
+		prerequisite = {
+			focus = bos_nf_cerulean_robotics
+		}
+		prerequisite = {
+			focus = bos_nf_robco
+		}
+
+		completion_reward = {
+			set_technology = { robotics_tech_level_scientific = 1 }
+			add_ideas = bos_nf_acme
+		}
+	}
+	focus = {
+		id = bos_nf_theoretical_research
+		icon = GFX_goal_generic_transmitter_1
+		cost = 30
+		x = 10
+		y = 1
+		relative_position_id = bos_nf_brotherhood_r_n_d
+		prerequisite = {
+			focus = bos_nf_brotherhood_r_n_d
+		}
+
+		completion_reward = {
+			army_experience = 5
+			add_ideas = bos_nf_theoretical_research
+		}
+	}
+	focus = {
+		id = bos_nf_future_tec
+		icon = GFX_goal_ENC_geck
+		cost = 30
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_theoretical_research
+		prerequisite = {
+			focus = bos_nf_theoretical_research
+		}
+
+		completion_reward = {
+			army_experience = 10
+			add_ideas = bos_nf_future_tec
+		}
+	}
+	focus = {
+		id = bos_nf_greenway_hydroponics
+		icon = GFX_goal_TTM_Greenway_Hydroponics
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_theoretical_research
+		prerequisite = {
+			focus = bos_nf_theoretical_research
+		}
+
+		completion_reward = {
+			army_experience = 10
+			add_ideas = bos_nf_greenway_hydroponics
+		}
+	}
+	focus = {
+		id = bos_nf_virtual_strategic_solutions
+		icon = GFX_goal_generic_terminal_1
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_future_tec
+		prerequisite = {
+			focus = bos_nf_future_tec
+		}
+		prerequisite = {
+			focus = bos_nf_greenway_hydroponics
+		}
+
+		completion_reward = {
+			army_experience = 15
+			add_ideas = bos_nf_virtual_strategic_solutions
+		}
+	}
+	focus = {
+		id = bos_nf_wmd_research
+		icon = GFX_goal_generic_pa_t51_fatman
+		cost = 30
+		x = 15
+		y = 1
+		relative_position_id = bos_nf_brotherhood_r_n_d
+		prerequisite = {
+			focus = bos_nf_brotherhood_r_n_d
+		}
+
+		completion_reward = {
+			add_war_support = 0.05
+		}
+	}
+	focus = {
+		id = bos_nf_mininuke_preperation
+		icon = GFX_goal_generic_terminal_2
+		cost = 30
+		x = -2
+		y = 1
+		relative_position_id = bos_nf_wmd_research
+		prerequisite = {
+			focus = bos_nf_wmd_research
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = bos_nf_mininuke_preperation
+				bonus = 0.25
+				uses = 1
+				category = support_tech_category
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_uranium_stockpiling
+		icon = GFX_goal_TTM_Nuclear_Power_2
+		cost = 30
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_mininuke_preperation
+		prerequisite = {
+			focus = bos_nf_mininuke_preperation
+		}
+
+		completion_reward = {
+			army_experience = 10
+			capital_scope = {
+				add_resource = { type = energy amount = 4 }
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_shell_stockpiling
+		icon = GFX_goal_generic_scrap_metal
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_mininuke_preperation
+		prerequisite = {
+			focus = bos_nf_mininuke_preperation
+		}
+
+		completion_reward = {
+			army_experience = 10
+			capital_scope = {
+				add_resource = { type = metal amount = 4 }
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_mininuke_mass_production
+		icon = GFX_goal_generic_mini_nukes
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_uranium_stockpiling
+		prerequisite = {
+			focus = bos_nf_uranium_stockpiling
+		}
+		prerequisite = {
+			focus = bos_nf_shell_stockpiling
+		}
+		available = {
+			has_army_experience > 150
+		}
+
+		completion_reward = {
+			army_experience = -150
+			set_technology = { mininuke_unlock_tech = 1 }
+		}
+	}
+
+	focus = {
+		id = bos_nf_plasma_preperation
+		icon = GFX_goal_generic_terminal_3
+		cost = 30
+		x = 2
+		y = 1
+		relative_position_id = bos_nf_wmd_research
+		prerequisite = {
+			focus = bos_nf_wmd_research
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = bos_nf_plasma_preperation
+				bonus = 0.25
+				uses = 1
+				category = infantry_tech_category
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_plasma_core_stockpiling
+		icon = GFX_goal_generic_mine_plasma
+		cost = 30
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_plasma_preperation
+		prerequisite = {
+			focus = bos_nf_plasma_preperation
+		}
+
+		completion_reward = {
+			army_experience = 10
+			capital_scope = {
+				add_resource = { type = advanced amount = 4 }
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_microfusion_cell_stockpiling
+		icon = GFX_goal_generic_grenade_plasma
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_plasma_preperation
+		prerequisite = {
+			focus = bos_nf_plasma_preperation
+		}
+
+		completion_reward = {
+			army_experience = 10
+			capital_scope = {
+				add_resource = { type = composites amount = 4 }
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_plasma_mass_production
+		icon = GFX_goal_generic_plasma_rifle
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_plasma_core_stockpiling
+		prerequisite = {
+			focus = bos_nf_plasma_core_stockpiling
+		}
+		prerequisite = {
+			focus = bos_nf_microfusion_cell_stockpiling
+		}
+
+		available = {
+			has_army_experience > 150
+		}
+
+		completion_reward = {
+			army_experience = -150
+			set_technology = { plasma_unlock_tech = 1 }
+		}
+	}
+	focus = {
+		id = bos_nf_destruction_device_repurposement
+		icon = GFX_goal_generic_nuke
+		cost = 30
+		x = 2
+		y = 1
+		relative_position_id = bos_nf_mininuke_mass_production
+		prerequisite = {
+			focus = bos_nf_mininuke_mass_production
+		}
+		prerequisite = {
+			focus = bos_nf_plasma_mass_production
+		}
+		available = {
+			has_army_experience > 300
+		}
+		bypass = {
+			has_completed_focus = bos_nf_preparing_contingency_plans
+		}
+
+		completion_reward = {
+			set_variable = {
+				bos_lost_hills_self_destruct_device = 0
+			}
+			army_experience = -300
+			custom_effect_tooltip = bos_nf_destruction_device_repurposement_tt
+			custom_effect_tooltip = bos_nf_impact_downfall_tt
+			hidden_effect = {
+				add_nuclear_bombs = 1
+			}
+			set_temp_variable = { BOS_tension_to_add = 30 }
+			bos_change_tension = yes
+		}
+	}
+	focus = {
+		id = bos_nf_expeditionary_technology
+		icon = GFX_goal_bos_generic_radiation_suit
+		cost = 30
+		x = 14
+		y = 1
+		relative_position_id = bos_nf_wattz_weaponry
+		prerequisite = {
+			focus = bos_nf_wattz_weaponry
+		}
+		prerequisite = {
+			focus = bos_nf_chryslus_vehicles
+		}
+		prerequisite = {
+			focus = bos_nf_red_rocket
+		}
+		prerequisite = {
+			focus = bos_nf_repconn
+		}
+		prerequisite = {
+			focus = bos_nf_acme
+		}
+		prerequisite = {
+			focus = bos_nf_virtual_strategic_solutions
+		}
+
+		available = {
+			has_army_experience > 100
+		}
+		completion_reward = {
+			army_experience = -100
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = bos_nf_p1s_weather_organ
+		icon = GFX_goal_WBH_within_the_blizzard
+		cost = 30
+		x = -5
+		y = 1
+		relative_position_id = bos_nf_expeditionary_technology
+		prerequisite = {
+			focus = bos_nf_expeditionary_technology
+		}
+		available = {
+			WBH = { all_core_land_owned_by_prev_sphere = yes }
+			TCA = { all_core_land_owned_by_prev_sphere = yes }
+		}
+
+		completion_reward = {
+			add_ideas = genericboswashingtonp1
+		}
+	}
+	focus = {
+		id = bos_nf_mxc_warden_protocol
+		icon = GFX_goal_ORO_Agricola
+		cost = 30
+		x = -3
+		y = 1
+		relative_position_id = bos_nf_expeditionary_technology
+		prerequisite = {
+			focus = bos_nf_expeditionary_technology
+		}
+		available = {
+			OR = {
+				owns_state = 525
+				MXC = {
+					num_of_controlled_states > 10
+				}
+			}
+			MXC = { all_core_land_owned_by_prev_sphere = yes }
+		}
+		completion_reward = {
+			set_technology = { robot_scurry_tech = 1 }
+		}
+	}
+	focus = {
+		id = bos_nf_moj_holorifles
+		icon = GFX_goal_big_mt_holorifle
+		cost = 30
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_expeditionary_technology
+		prerequisite = {
+			focus = bos_nf_expeditionary_technology
+		}
+		available = {
+			MOJ = {
+				has_idea = mojave_holorifles
+				all_core_land_owned_by_prev_sphere = yes
+			}
+		}
+
+		completion_reward = {
+			add_ideas = mojave_holorifles
+		}
+	}
+	focus = {
+		id = bos_nf_shi_greenway_evergrowth
+		icon = GFX_goal_TTM_Nursery
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_expeditionary_technology
+		prerequisite = {
+			focus = bos_nf_expeditionary_technology
+		}
+		available = {
+			SHI = {
+				has_tech = plant_support_tech
+				if = {
+					limit = {
+						exists = yes
+					}
+					has_country_flag = san_francisco_chapter_established
+				}
+				all_core_land_owned_by_prev_sphere = yes
+			}
+		}
+		completion_reward = {
+			set_technology = { plant_support_tech = 1 }
+		}
+	}
+	focus = {
+		id = bos_nf_android_exoskin
+		icon = GFX_goal_chr_serpent_scales
+		cost = 30
+		x = 3
+		y = 1
+		relative_position_id = bos_nf_expeditionary_technology
+		prerequisite = {
+			focus = bos_nf_expeditionary_technology
+		}
+		available = {
+			GRD = {
+				has_tech = exoskin_armoured_special_forces
+				all_core_land_owned_by_prev_sphere = yes
+			}
+		}
+
+		completion_reward = {
+			set_technology = { exoskin_armoured_special_forces = 1 }
+		}
+	}
+	focus = {
+		id = bos_nf_mch_steam_cores
+		icon = GFX_goal_NEW_bio_med_gel_experiments
+		cost = 30
+		x = 5
+		y = 1
+		relative_position_id = bos_nf_expeditionary_technology
+		prerequisite = {
+			focus = bos_nf_expeditionary_technology
+		}
+		available = {
+			MNC = {
+				has_idea = hea_steam_powered_weapons
+				all_core_land_owned_by_prev_sphere = yes
+			}
+		}
+
+		completion_reward = {
+			add_ideas = hea_steam_powered_weapons
+		}
+	}
+	focus = {
+		id = bos_nf_ach_sentinel_suits
+		icon = GFX_goal_generic_focus_magazine_gunsandbullets_plasma
+		cost = 30
+		x = -4
+		y = 2
+		relative_position_id = bos_nf_expeditionary_technology
+		prerequisite = {
+			focus = bos_nf_expeditionary_technology
+		}
+		available = {
+			ACH = {
+				is_in_faction_with = BOS
+				has_tech = sentinel_unit_tech
+			}
+		}
+		completion_reward = {
+			set_technology = { sentinel_unit_tech = 1 }
+		}
+	}
+	focus = {
+		id = bos_nf_bmw_ach_acme_behemoth_schematics
+		icon = GFX_goal_generic_humanoid_robots
+		cost = 30
+		x = -2
+		y = 2
+		relative_position_id = bos_nf_expeditionary_technology
+		prerequisite = {
+			focus = bos_nf_expeditionary_technology
+		}
+		#When we add in Acme Behemoths and the Midwest to the map, we can give this focus a effect.
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = bos_not_ready_tt
+				always = no
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = bos_not_ready_effect_tt
+		}
+	}
+	focus = {
+		id = bos_nf_bgf_dreamwater
+		icon = GFX_goal_bos_generic_aqua_pura
+		cost = 30
+		x = 0
+		y = 2
+		relative_position_id = bos_nf_expeditionary_technology
+		prerequisite = {
+			focus = bos_nf_expeditionary_technology
+		}
+
+		#When we add in the Gulf Brotherhood and Dreamwater, we can add in this effect.
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = bos_not_ready_tt
+				always = no
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = bos_not_ready_effect_tt
+		}
+	}
+	focus = {
+		id = bos_nf_bap_ultracite_stockpiles
+		icon = GFX_goal_ORO_Ultracite
+		cost = 30
+		x = 2
+		y = 2
+		relative_position_id = bos_nf_expeditionary_technology
+		prerequisite = {
+			focus = bos_nf_expeditionary_technology
+		}
+
+		#When we add in Appalachia we can add in this effect.
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = bos_not_ready_tt
+				always = no
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = bos_not_ready_effect_tt
+		}
+	}
+	focus = {
+		id = bos_nf_bls_synthetic_life
+		icon = GFX_goal_bos_generic_institute_gen_2_synths
+		cost = 30
+		x = 4
+		y = 2
+		relative_position_id = bos_nf_expeditionary_technology
+		prerequisite = {
+			focus = bos_nf_expeditionary_technology
+		}
+
+		#East Coast when?
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = bos_not_ready_tt
+				always = no
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = bos_not_ready_effect_tt
+		}
+	}
+	focus = {
+		id = bos_nf_new_expeditions
+		icon = GFX_goal_bos_generic_hummer
+		cost = 30
+		x = -30
+		y = 1
+		relative_position_id = bos_nf_back_to_business
+		prerequisite = {
+			focus = bos_nf_back_to_business
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = coming_in_a_later_update_bos
+				always = no
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = bos_not_ready_effect_tt
+		}
+	}
+
+	focus = {
+		id = bos_nf_the_village
+		icon = GFX_goal_generic_food_focus
+		cost = 30
+		x = -4
+		y = 1
+		relative_position_id = bos_nf_new_expeditions
+		prerequisite = {
+			focus = bos_nf_new_expeditions
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = coming_in_a_later_update_bos
+				always = no
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = bos_not_ready_effect_tt
+		}
+	}
+
+	focus = {
+		id = bos_nf_the_glow
+		icon = GFX_goal_fev_pool
+		cost = 30
+		x = -2
+		y = 1
+		relative_position_id = bos_nf_new_expeditions
+		prerequisite = {
+			focus = bos_nf_new_expeditions
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = coming_in_a_later_update_bos
+				always = no
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = bos_not_ready_effect_tt
+		}
+	}
+
+	focus = {
+		id = bos_nf_vault_17
+		icon = GFX_goal_generic_helm_mutant_alt
+		cost = 30
+		x = 0
+		y = 1
+		relative_position_id = bos_nf_new_expeditions
+		prerequisite = {
+			focus = bos_nf_new_expeditions
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = coming_in_a_later_update_bos
+				always = no
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = bos_not_ready_effect_tt
+		}
+	}
+
+	focus = {
+		id = bos_nf_ghost_farm
+		icon = GFX_goal_generic_slums_focus
+		cost = 30
+		x = 2
+		y = 1
+		relative_position_id = bos_nf_new_expeditions
+		prerequisite = {
+			focus = bos_nf_new_expeditions
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = coming_in_a_later_update_bos
+				always = no
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = bos_not_ready_effect_tt
+		}
+	}
+
+	focus = {
+		id = bos_nf_ruins_of_broken_hills
+		icon = GFX_goal_generic_helm_mutant
+		cost = 30
+		x = 4
+		y = 1
+		relative_position_id = bos_nf_new_expeditions
+		prerequisite = {
+			focus = bos_nf_new_expeditions
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = coming_in_a_later_update_bos
+				always = no
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = bos_not_ready_effect_tt
+		}
+	}
+
+	focus = {
+		id = bos_nf_irvine
+		icon = GFX_goal_generic_nice_car
+		cost = 30
+		x = -3
+		y = 2
+		relative_position_id = bos_nf_new_expeditions
+		prerequisite = {
+			focus = bos_nf_the_village
+		}
+		prerequisite = {
+			focus = bos_nf_the_glow
+		}
+		prerequisite = {
+			focus = bos_nf_vault_17
+		}
+		prerequisite = {
+			focus = bos_nf_ghost_farm
+		}
+		prerequisite = {
+			focus = bos_nf_ruins_of_broken_hills
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = coming_in_a_later_update_bos
+				always = no
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = bos_not_ready_effect_tt
+		}
+	}
+	focus = {
+		id = bos_nf_cease_and_desist_isotope_chapter
+		icon = GFX_goal_NEW_isotope_chapter
+		cost = 30
+		x = -6
+		y = 0
+		relative_position_id = bos_nf_new_expeditions
+		prerequisite = {
+			focus = bos_nf_back_to_business
+		}
+		available = {
+			NEW = {
+				exists = yes
+				has_completed_focus = new_thradd
+			}
+		}
+
+		completion_reward = {
+			army_experience = 20
+			NEW = {
+				country_event = nf_brotherhood_communications.4
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_golgotha
+		icon = GFX_goal_generic_skull
+		cost = 30
+		x = -1
+		y = 2
+		relative_position_id = bos_nf_new_expeditions
+		prerequisite = {
+			focus = bos_nf_the_village
+		}
+		prerequisite = {
+			focus = bos_nf_the_glow
+		}
+		prerequisite = {
+			focus = bos_nf_vault_17
+		}
+		prerequisite = {
+			focus = bos_nf_ghost_farm
+		}
+		prerequisite = {
+			focus = bos_nf_ruins_of_broken_hills
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = coming_in_a_later_update_bos
+				always = no
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = bos_not_ready_effect_tt
+		}
+	}
+
+	focus = {
+		id = bos_nf_toxic_caves
+		icon = GFX_goal_generic_the_dipping
+		cost = 30
+		x = 1
+		y = 2
+		relative_position_id = bos_nf_new_expeditions
+		prerequisite = {
+			focus = bos_nf_the_village
+		}
+		prerequisite = {
+			focus = bos_nf_the_glow
+		}
+		prerequisite = {
+			focus = bos_nf_vault_17
+		}
+		prerequisite = {
+			focus = bos_nf_ghost_farm
+		}
+		prerequisite = {
+			focus = bos_nf_ruins_of_broken_hills
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = coming_in_a_later_update_bos
+				always = no
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = bos_not_ready_effect_tt
+		}
+	}
+
+	focus = {
+		id = bos_nf_vault_11
+		icon = GFX_goal_generic_recruitment_focus
+		cost = 30
+		x = 3
+		y = 2
+		relative_position_id = bos_nf_new_expeditions
+		prerequisite = {
+			focus = bos_nf_the_village
+		}
+		prerequisite = {
+			focus = bos_nf_the_glow
+		}
+		prerequisite = {
+			focus = bos_nf_vault_17
+		}
+		prerequisite = {
+			focus = bos_nf_ghost_farm
+		}
+		prerequisite = {
+			focus = bos_nf_ruins_of_broken_hills
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = coming_in_a_later_update_bos
+				always = no
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = bos_not_ready_effect_tt
+		}
+	}
+	focus = {
+		id = bos_nf_support_the_nevada_free_states
+		icon = GFX_goal_generic_free_states
+		cost = 30
+		x = 6
+		y = 0
+		relative_position_id = bos_nf_new_expeditions
+		prerequisite = {
+			focus = bos_nf_back_to_business
+		}
+		available = {
+			SLA = {
+				exists = yes
+				is_subject = no
+				NOT = { has_war_with = BOS }
+				has_completed_focus = SLA_a_look_back_and_step_forward
+			}
+			has_completed_focus = bos_nf_long_range_communications_taggerdys_expedition
+		}
+
+		completion_reward = {
+			SLA = {
+				country_event = nf_brotherhood_communications.3
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_hawaii
+		icon = GFX_goal_generic_wooden_ship
+		cost = 30
+		x = -2
+		y = 3
+		relative_position_id = bos_nf_new_expeditions
+		prerequisite = {
+			focus = bos_nf_irvine
+		}
+		prerequisite = {
+			focus = bos_nf_golgotha
+		}
+		prerequisite = {
+			focus = bos_nf_toxic_caves
+		}
+		prerequisite = {
+			focus = bos_nf_vault_11
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = coming_in_a_later_update_bos
+				always = no
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = bos_not_ready_effect_tt
+		}
+	}
+	focus = {
+		id = bos_nf_anchorage
+		icon = GFX_goal_VEG_Vegas_Prime
+		cost = 30
+		x = 0
+		y = 3
+		relative_position_id = bos_nf_new_expeditions
+		prerequisite = {
+			focus = bos_nf_irvine
+		}
+		prerequisite = {
+			focus = bos_nf_golgotha
+		}
+		prerequisite = {
+			focus = bos_nf_toxic_caves
+		}
+		prerequisite = {
+			focus = bos_nf_vault_11
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = coming_in_a_later_update_bos
+				always = no
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = bos_not_ready_effect_tt
+		}
+	}
+	focus = {
+		id = bos_nf_japan
+		icon = GFX_goal_pal_yakuza
+		cost = 30
+		x = 2
+		y = 3
+		relative_position_id = bos_nf_new_expeditions
+		prerequisite = {
+			focus = bos_nf_irvine
+		}
+		prerequisite = {
+			focus = bos_nf_golgotha
+		}
+		prerequisite = {
+			focus = bos_nf_toxic_caves
+		}
+		prerequisite = {
+			focus = bos_nf_vault_11
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = coming_in_a_later_update_bos
+				always = no
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = bos_not_ready_effect_tt
+		}
+	}
+	focus = {
+		id = bos_nf_china
+		icon = GFX_goal_generic_chinese_propaganda_1
+		cost = 30
+		x = 0
+		y = 4
+		relative_position_id = bos_nf_new_expeditions
+		prerequisite = {
+			focus = bos_nf_hawaii
+		}
+		prerequisite = {
+			focus = bos_nf_anchorage
+		}
+		prerequisite = {
+			focus = bos_nf_japan
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = coming_in_a_later_update_bos
+				always = no
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = bos_not_ready_effect_tt
+		}
+	}
+
+	focus = {
+		id = bos_nf_learning_from_the_ncr_bos_war
+		icon = GFX_goal_bos_generic_t45_5
+		cost = 30
+		x = -18
+		y = 1
+		relative_position_id = bos_nf_back_to_business
+		prerequisite = {
+			focus = bos_nf_back_to_business
+		}
+
+		completion_reward = {
+			add_war_support = 0.075
+		}
+	}
+
+	focus = {
+		id = bos_nf_the_eastern_cities
+		icon = GFX_goal_bos_generic_solders_pride
+		cost = 30
+		x = 4
+		y = 1
+		relative_position_id = bos_nf_learning_from_the_ncr_bos_war
+		prerequisite = {
+			focus = bos_nf_learning_from_the_ncr_bos_war
+		}
+
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = bos_nf_necropolis_recruitment
+		icon = GFX_goal_ghoul_head
+		cost = 30
+		x = -2
+		y = 1
+		relative_position_id = bos_nf_the_eastern_cities
+		prerequisite = {
+			focus = bos_nf_the_eastern_cities
+		}
+		available = {
+			has_political_power > 100
+		}
+		completion_reward = {
+			add_political_power = -100
+			70 = {
+				add_dynamic_modifier = {
+					modifier = bos_state_influence
+				}
+				bos_add_to_bunker_array = yes
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_greenville_recruitment
+		icon = GFX_KHA_focus_town_slums
+		cost = 30
+		x = 0
+		y = 1
+		relative_position_id = bos_nf_the_eastern_cities
+		prerequisite = {
+			focus = bos_nf_the_eastern_cities
+		}
+		available = {
+			has_political_power > 100
+		}
+		completion_reward = {
+			add_political_power = -100
+			360 = {
+				add_dynamic_modifier = {
+					modifier = bos_state_influence
+				}
+				bos_add_to_bunker_array = yes
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_santa_maria_recruitment
+		icon = GFX_goal_generic_harbours_focus
+		cost = 30
+		x = 2
+		y = 1
+		relative_position_id = bos_nf_the_eastern_cities
+		prerequisite = {
+			focus = bos_nf_the_eastern_cities
+		}
+		available = {
+			has_political_power > 100
+		}
+		completion_reward = {
+			add_political_power = -100
+			64 = {
+				add_dynamic_modifier = {
+					modifier = bos_state_influence
+				}
+				bos_add_to_bunker_array = yes
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_santa_barbara_recruitment
+		icon = GFX_goal_MOJ_gun_runner_caravan_raids
+		cost = 30
+		x = -1
+		y = 2
+		relative_position_id = bos_nf_the_eastern_cities
+		prerequisite = {
+			focus = bos_nf_necropolis_recruitment
+		}
+		prerequisite = {
+			focus = bos_nf_greenville_recruitment
+		}
+		prerequisite = {
+			focus = bos_nf_santa_maria_recruitment
+		}
+		available = {
+			has_political_power > 100
+		}
+		completion_reward = {
+			add_political_power = -100
+			258 = {
+				add_dynamic_modifier = {
+					modifier = bos_state_influence
+				}
+				bos_add_to_bunker_array = yes
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_maxson_recruitment
+		icon = GFX_goal_MOJ_ncr_negotiations
+		cost = 30
+		x = 1
+		y = 2
+		relative_position_id = bos_nf_the_eastern_cities
+		prerequisite = {
+			focus = bos_nf_necropolis_recruitment
+		}
+		prerequisite = {
+			focus = bos_nf_greenville_recruitment
+		}
+		prerequisite = {
+			focus = bos_nf_santa_maria_recruitment
+		}
+		available = {
+			has_political_power > 100
+		}
+		completion_reward = {
+			add_political_power = -100
+			245 = {
+				add_dynamic_modifier = {
+					modifier = bos_state_influence
+				}
+				bos_add_to_bunker_array = yes
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_arming_the_recruits
+		icon = GFX_goal_bos_generic_locker
+		cost = 30
+		x = 0
+		y = 3
+		relative_position_id = bos_nf_the_eastern_cities
+		prerequisite = {
+			focus = bos_nf_santa_barbara_recruitment
+		}
+		prerequisite = {
+			focus = bos_nf_maxson_recruitment
+		}
+
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = ballistic_equipment_2
+				amount = 750
+				producer = USA
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_take_in_necropolis_remnants
+		icon = GFX_goal_MOJ_help_the_needy
+		cost = 30
+		x = -2
+		y = 3
+		relative_position_id = bos_nf_the_eastern_cities
+		prerequisite = {
+			focus = bos_nf_santa_barbara_recruitment
+		}
+		prerequisite = {
+			focus = bos_nf_maxson_recruitment
+		}
+		available = {
+			NCR = {
+				owns_state = 70
+				has_completed_focus = ncr_eliminate_ghoul_threat
+			}
+		}
+		completion_reward = {
+			set_temp_variable = { refugees_to_add = 6500 }
+			exodus_add_refugees = yes
+			add_popularity = {
+				ideology = ruler
+				popularity = 0.075
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_side_with_angry_maxson_traders
+		icon = GFX_goal_MOJ_ncr_trade
+		cost = 30
+		x = 2
+		y = 3
+		relative_position_id = bos_nf_the_eastern_cities
+		prerequisite = {
+			focus = bos_nf_santa_barbara_recruitment
+		}
+		prerequisite = {
+			focus = bos_nf_maxson_recruitment
+		}
+		available = {
+			NCR = {
+				owns_state = 245
+				has_completed_focus = ncr_van_graff
+			}
+		}
+		completion_reward = {
+			set_temp_variable = { caps_to_add = 75 }
+			add_caps = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_preparing_for_the_ceasefires_end
+		icon = GFX_goal_bos_generic_ncr_ranger
+		cost = 30
+		x = 0
+		y = 16
+		relative_position_id = bos_nf_back_to_business
+		available = {
+			has_completed_focus = bos_nf_back_to_business
+			OR = {
+				has_government = intellectuals
+				AND = {
+					OR = {
+						has_government = elites
+						has_government = ruler
+					}
+					has_completed_focus = bos_nf_arming_the_recruits
+					has_completed_focus = bos_nf_bunker_atascadero
+					has_completed_focus = bos_nf_bunker_alpaugh
+					has_completed_focus = bos_nf_bunker_salinas
+					has_completed_focus = bos_nf_bunker_monterey
+				}
+			}
+		}
+		bypass = {
+			NOT = { country_exists = NCR }
+		}
+		completion_reward = {
+			set_temp_variable = { BOS_tension_to_add = 5 }
+			bos_change_tension = yes
+			unlock_decision_tooltip = increase_tension
+		}
+	}
+
+	focus = {
+		id = bos_nf_a_chance_opportunity
+		icon = GFX_goal_bos_generic_t45_4
+		cost = 30
+		x = -3
+		y = 1
+		relative_position_id = bos_nf_preparing_for_the_ceasefires_end
+		prerequisite = {
+			focus = bos_nf_preparing_for_the_ceasefires_end
+		}
+		mutually_exclusive = {
+			focus = bos_nf_a_guarantee_of_safety_for_maxson
+		}
+		available = {
+			OR = {
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = bos_nf_a_chance_maxson_risen_up
+						always = yes
+					}
+					BON = {
+						has_war = yes
+						owns_state = 245
+					}
+				}
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = bos_nf_a_chance_shady_sands_lost
+						always = yes
+					}
+					NCR = {
+						has_war = yes
+						owns_state = 253
+						NOT = { controls_state = 253 }
+					}
+				}
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = bos_nf_a_chance_upstart_big
+						always = yes
+					}
+					OR = {
+						DES = {
+							owns_state = 253
+						}
+						ARR = {
+							owns_state = 253
+						}
+						RAP = {
+							owns_state = 253
+						}
+						BVC = {
+							owns_state = 253
+						}
+						BLP = {
+							owns_state = 253
+						}
+						MOS = {
+							owns_state = 253
+						}
+						#ERB support :^)
+						hidden_trigger = {
+							253 = {
+								OWNER = {
+									has_country_flag = enclave_nation
+								}
+							}
+						}
+						SHI = {
+							owns_state = 253
+						}
+						NEW = {
+							owns_state = 253
+						}
+					}
+				}
+			}
+		}
+		bypass = {
+			NOT = { country_exists = NCR }
+		}
+		completion_reward = {
+			set_temp_variable = { BOS_tension_to_add = 100 }
+			bos_change_tension = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_a_guarantee_of_safety_for_maxson
+		icon = GFX_goal_MOJ_ncr_pact
+		cost = 30
+		x = 0
+		y = 1
+		relative_position_id = bos_nf_preparing_for_the_ceasefires_end
+		prerequisite = {
+			focus = bos_nf_preparing_for_the_ceasefires_end
+		}
+		mutually_exclusive = {
+			focus = bos_nf_a_chance_opportunity
+		}
+		bypass = {
+			NOT = { country_exists = NCR }
+		}
+		completion_reward = {
+			custom_effect_tooltip = bos_nf_a_guarantee_of_safety_for_maxson_tt
+			set_temp_variable = { BOS_tension_to_add = -40 }
+			bos_change_tension = yes
+			NCR = {
+				set_temp_variable = { BOS_tension_to_add = -60 }
+				bos_change_tension = yes
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_the_right_war_at_the_right_time
+		icon = GFX_goal_bos_generic_t60_1
+		cost = 30
+		x = 3
+		y = 1
+		relative_position_id = bos_nf_preparing_for_the_ceasefires_end
+		prerequisite = {
+			focus = bos_nf_preparing_for_the_ceasefires_end
+		}
+		bypass = {
+			NOT = { country_exists = NCR }
+		}
+		available = {
+			OR = {
+				AND = {
+					date > 2277.1.1
+					has_government = intellectuals
+				}
+				AND = {
+					date > 2280.1.1
+					has_government = elites
+				}
+				AND = {
+					date > 2285.1.1
+					has_government = ruler
+				}
+			}
+		}
+		completion_reward = {
+			NCR = {
+				set_temp_variable = { BOS_tension_to_add = 5 }
+				bos_change_tension = yes
+			}
+			set_temp_variable = { BOS_tension_to_add = 10 }
+			bos_change_tension = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_warning_maxsons_settlers
+		icon = GFX_goal_bos_generic_apc_1
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_the_right_war_at_the_right_time
+		prerequisite = {
+			focus = bos_nf_the_right_war_at_the_right_time
+		}
+		bypass = {
+			NOT = { country_exists = NCR }
+		}
+		completion_reward = {
+			NCR = {
+				set_temp_variable = { BOS_tension_to_add = 10 }
+				bos_change_tension = yes
+			}
+			set_temp_variable = { BOS_tension_to_add = 20 }
+			bos_change_tension = yes
+		}
+	}
+	focus = {
+		id = bos_nf_building_up_a_stockpile
+		icon = GFX_goal_bos_generic_apc_2
+		cost = 30
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_the_right_war_at_the_right_time
+		prerequisite = {
+			focus = bos_nf_the_right_war_at_the_right_time
+		}
+		bypass = {
+			NOT = { country_exists = NCR }
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = ballistic_equipment_3
+				amount = 200
+				producer = USA
+			}
+			set_temp_variable = { BOS_tension_to_add = 20 }
+			bos_change_tension = yes
+		}
+	}
+	focus = {
+		id = bos_nf_preparing_contingency_plans
+		icon = GFX_goal_generic_nuke
+		cost = 30
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_warning_maxsons_settlers
+		prerequisite = {
+			focus = bos_nf_warning_maxsons_settlers
+		}
+		prerequisite = {
+			focus = bos_nf_building_up_a_stockpile
+		}
+		bypass = {
+			OR = {
+				has_completed_focus = bos_nf_destruction_device_repurposement
+				NOT = { country_exists = NCR }
+			}
+		}
+		completion_reward = {
+			set_temp_variable = { BOS_tension_to_add = 30 }
+			bos_change_tension = yes
+
+			set_variable = {
+				bos_lost_hills_self_destruct_device = 2
+			}
+			custom_effect_tooltip = bos_nf_preparing_contingency_plans_tt
+			custom_effect_tooltip = bos_nf_impact_downfall_tt
+		}
+	}
+	focus = {
+		id = bos_nf_taking_back_california
+		icon = GFX_goal_bos_generic_t45_6
+		cost = 30
+		x = -4
+		y = 2
+		relative_position_id = bos_nf_warning_maxsons_settlers
+		prerequisite = {
+			focus = bos_nf_preparing_contingency_plans
+			focus = bos_nf_a_chance_opportunity
+		}
+		available = {
+			if = {
+				limit = {
+					has_dynamic_modifier = {
+						modifier = bos_tension_dynamic_modifier
+					}
+				}
+				if = {
+					limit = {
+						is_ai = yes
+					}
+					custom_trigger_tooltip = {
+						tooltip = more_then_60_tension_tt
+						check_variable = { BOS.bos_tension > 60 }
+					}
+				}
+				else = {
+					custom_trigger_tooltip = {
+						tooltip = 100_tension_tt
+						check_variable = { BOS.bos_tension > 99 }
+					}
+				}
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = bos_remove_tension_mod_tt
+			hidden_effect = {
+				remove_dynamic_modifier = {
+					modifier = bos_tension_dynamic_modifier
+				}
+			}
+			NCR = {
+				custom_effect_tooltip = bos_remove_tension_mod_tt
+				hidden_effect = {
+					remove_dynamic_modifier = {
+						modifier = bos_ncr_tension_dynamic_modifier
+					}
+				}
+			}
+			NCR = {
+				ROOT = {
+					grant_wargoals_on_core_states_of_prev = yes
+				}
+			}
+			set_country_flag = ai_prefers_to_fight_neighbors
+		}
+	}
+	focus = {
+		id = bos_nf_dominion_over_the_wasteland
+		icon = GFX_goal_generic_focus_magazine_gunsandbullets_plasma
+		cost = 30
+		x = 0
+		y = 1
+		relative_position_id = bos_nf_taking_back_california
+		prerequisite = {
+			focus = bos_nf_taking_back_california
+		}
+		completion_reward = {
+			add_political_power = 400
+		}
+	}
+
+	focus = {
+		id = bos_nf_propaganda_campaigns
+		icon = GFX_goal_MOJ_progressive_thought
+		cost = 30
+		x = -2
+		y = 1
+		relative_position_id = bos_nf_dominion_over_the_wasteland
+		prerequisite = {
+			focus = bos_nf_dominion_over_the_wasteland
+		}
+		completion_reward = {
+			every_owned_state = {
+				add_compliance = 10
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_creating_civil_administration_sectors
+		icon = GFX_goal_enc_judicial_branch_2
+		cost = 30
+		x = 0
+		y = 1
+		relative_position_id = bos_nf_dominion_over_the_wasteland
+		prerequisite = {
+			focus = bos_nf_dominion_over_the_wasteland
+		}
+		completion_reward = {
+			add_stability = 0.05
+			every_owned_state = {
+				add_resistance = -5
+				add_compliance = 5
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_rounding_up_criminals
+		icon = GFX_goal_BRK_slave_rights
+		cost = 30
+		x = 2
+		y = 1
+		relative_position_id = bos_nf_dominion_over_the_wasteland
+		prerequisite = {
+			focus = bos_nf_dominion_over_the_wasteland
+		}
+		completion_reward = {
+			every_owned_state = {
+				add_resistance = -10
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_the_brotherhood_triumphant
+		icon = GFX_goal_generic_BOS_focus_t51b_production
+		cost = 30
+		x = 0
+		y = 2
+		relative_position_id = bos_nf_dominion_over_the_wasteland
+		prerequisite = {
+			focus = bos_nf_propaganda_campaigns
+		}
+		prerequisite = {
+			focus = bos_nf_creating_civil_administration_sectors
+		}
+		prerequisite = {
+			focus = bos_nf_rounding_up_criminals
+		}
+		available = {
+			owns_state = 253
+			owns_state = 489
+			owns_state = 1
+			owns_state = 70
+			owns_state = 245
+			owns_state = 350
+			owns_state = 63
+			all_owned_state = {
+				OR = {
+					is_core_of = BOS
+					resistance < 20
+				}
+			}
+		}
+		completion_reward = {
+			remove_ideas = bos_civilian_distrust
+		}
+	}
+
+	focus = {
+		id = bos_nf_question_of_greater_conscription
+		icon = GFX_goal_MOJ_wastelander_recruitment
+		cost = 30
+		x = -2
+		y = 1
+		relative_position_id = bos_nf_the_brotherhood_triumphant
+		prerequisite = {
+			focus = bos_nf_the_brotherhood_triumphant
+		}
+		available = {
+			NOT = {
+				has_completed_focus = bos_nf_commitment_to_purity
+			}
+		}
+		completion_reward = {
+			set_temp_variable = { refugees_to_add = 15000 }
+			exodus_add_refugees = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_preparing_for_expansion
+		icon = GFX_goal_generic_pa_t51_fatman
+		cost = 30
+		x = 0
+		y = 2
+		relative_position_id = bos_nf_the_brotherhood_triumphant
+		prerequisite = {
+			focus = bos_nf_the_brotherhood_triumphant
+		}
+		completion_reward = {
+			every_state = {
+				tooltip = EFFECT_EVERY_STATE_STARTS
+				limit = {
+					#Not Terra Incognita
+					check_variable = {
+						var = core_countries
+						value = 1
+						compare = greater_than_or_equals
+					}
+				}
+				add_claim_by = BOS
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_utilizing_californias_industry
+		icon = GFX_goal_generic_tinker_workbench
+		cost = 30
+		x = 2
+		y = 1
+		relative_position_id = bos_nf_the_brotherhood_triumphant
+		prerequisite = {
+			focus = bos_nf_the_brotherhood_triumphant
+		}
+		completion_reward = {
+			add_state_core = 253
+			add_state_core = 350
+			add_state_core = 63
+			add_state_core = 1
+			add_state_core = 245
+		}
+	}
+
+	focus = {
+		id = bos_nf_the_coast_of_california
+		icon = GFX_goal_BRK_port_royal
+		cost = 30
+		x = -5
+		y = 1
+		relative_position_id = bos_nf_taking_back_california
+		prerequisite = {
+			focus = bos_nf_taking_back_california
+		}
+		available = {
+			any_owned_state = {
+				is_coastal = yes
+			}
+		}
+		completion_reward = {
+			set_technology = { naval_tech_level_tribal = 1 }
+			set_technology = { naval_tech_level_settler = 1 }
+		}
+	}
+
+	focus = {
+		id = bos_nf_seatrials
+		icon = GFX_goal_generic_harbours_focus #GFX_goal_generic_navy_submarine
+		cost = 30
+		mutually_exclusive = { focus = bos_nf_screening }
+		relative_position_id = bos_nf_the_coast_of_california
+		prerequisite = {
+			focus = bos_nf_the_coast_of_california
+		}
+		x = -1
+		y = 1
+		available = {
+			has_navy_size = {
+				size > 19
+				type = convoy
+			}
+			has_navy_experience > 5
+		}
+		completion_reward = {
+			navy_experience = -5
+			add_tech_bonus = {
+				name = bos_nf_seatrials
+				bonus = 0.5
+				uses = 2
+				category = naval_light_hull_tech_category
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_screening
+		icon = GFX_goal_BRK_naval_raiders #GFX_goal_generic_navy_battleship
+		cost = 30
+		mutually_exclusive = { focus = bos_nf_seatrials }
+		relative_position_id = bos_nf_the_coast_of_california
+		prerequisite = {
+			focus = bos_nf_the_coast_of_california
+		}
+		x = 1
+		y = 1
+		available = {
+			has_navy_size = {
+				size > 19
+				type = convoy
+			}
+			has_navy_experience > 5
+		}
+		completion_reward = {
+			navy_experience = -5
+			add_tech_bonus = {
+				name = bos_nf_screening
+				bonus = 0.5
+				uses = 2
+				category = naval_medium_hull_tech_category
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_navallexicon
+		icon = GFX_goal_BRK_naval_raiders_2 #GFX_goal_generic_navy_doctrines_tactics
+		cost = 30
+		prerequisite = {
+			focus = bos_nf_screening
+			focus = bos_nf_seatrials
+		}
+		relative_position_id = bos_nf_seatrials
+		x = 1
+		y = 1
+		available = {
+			has_navy_size = {
+				size > 39
+				type = convoy
+			}
+			has_navy_experience > 10
+		}
+		completion_reward = {
+			navy_experience = -10
+			add_tech_bonus = {
+				name = bos_nf_navallexicon
+				bonus = 0.5
+				uses = 2
+				category = cat_naval_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_aircatapults
+		icon = GFX_goal_BRK_masters_of_the_waves #GFX_goal_generic_navy_carrier
+		cost = 30
+		prerequisite = {
+			focus = bos_nf_navallexicon
+		}
+		mutually_exclusive = {
+			focus = bos_nf_seabehemoths
+		}
+		relative_position_id = bos_nf_navallexicon
+		x = -1
+		y = 1
+		available = {
+			has_navy_size = {
+				size > 59
+				type = convoy
+			}
+			has_navy_experience > 15
+		}
+		completion_reward = {
+			navy_experience = -15
+			add_tech_bonus = {
+				name = bos_nf_aircatapults
+				bonus = 1
+				uses = 1
+				category = naval_heavy_hull_tech_category
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_seabehemoths
+		icon = GFX_goal_BRK_drums_of_war
+		cost = 30
+		prerequisite = {
+			focus = bos_nf_navallexicon
+		}
+		mutually_exclusive = {
+			focus = bos_nf_aircatapults
+		}
+		relative_position_id = bos_nf_navallexicon
+		x = 1
+		y = 1
+		available = {
+			has_navy_size = {
+				size > 59
+				type = convoy
+			}
+			has_navy_experience > 15
+		}
+		completion_reward = {
+			navy_experience = -15
+			add_tech_bonus = {
+				name = bos_nf_seabehemoths
+				bonus = 0.5
+				uses = 2
+				category = naval_heavy_hull_tech_category
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_steelcage
+		icon = GFX_goal_BOS_steel_cage
+		cost = 30
+		prerequisite = {
+			focus = bos_nf_aircatapults
+			focus = bos_nf_seabehemoths
+		}
+		relative_position_id = bos_nf_aircatapults
+		x = 1
+		y = 1
+		available = {
+			has_navy_size = {
+				size > 99
+				type = convoy
+			}
+			has_navy_experience > 20
+		}
+		completion_reward = {
+			navy_experience = -20
+			set_technology = { naval_tech_level_scientific = 1 }
+		}
+	}
+
+	focus = {
+		id = bos_nf_the_airways_of_california
+		icon = GFX_goal_generic_cities_focus
+		cost = 30
+		x = 5
+		y = 1
+		relative_position_id = bos_nf_taking_back_california
+		prerequisite = {
+			focus = bos_nf_taking_back_california
+		}
+		available = {
+				num_of_controlled_states > 2
+				has_completed_focus = bos_nf_repconn
+		}
+
+		completion_reward = {
+			remove_ideas = bos_underground_hangars
+		}
+	}
+
+	focus = {
+		id = bos_nf_fighters
+		icon = GFX_goal_bos_generic_assaultron_head
+		cost = 30
+		mutually_exclusive = { focus = bos_nf_support }
+		prerequisite = {
+			focus = bos_nf_the_airways_of_california
+		}
+		relative_position_id = bos_nf_the_airways_of_california
+		x = -1
+		y = 1
+		available = {
+			has_deployed_air_force_size = {
+				size > 19
+			}
+			has_air_experience > 5
+		}
+		completion_reward = {
+			air_experience = -5
+			add_tech_bonus = {
+				name = bos_nf_fighters
+				bonus = 0.5
+				uses = 1
+				category = light_air_tech_category
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_support
+		icon = GFX_goal_generic_supplies_focus
+		cost = 30
+		mutually_exclusive = { focus = bos_nf_fighters }
+		prerequisite = {
+			focus = bos_nf_the_airways_of_california
+		}
+		relative_position_id = bos_nf_the_airways_of_california
+		x = 1
+		y = 1
+		available = {
+			has_deployed_air_force_size = {
+				size > 19
+			}
+			has_air_experience > 5
+		}
+		completion_reward = {
+			air_experience = -5
+			add_tech_bonus = {
+				name = bos_nf_support
+				bonus = 0.5
+				uses = 1
+				category = cas_bomber_tech_category
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_airlexicon
+		icon = GFX_goal_bos_generic_airship #GFX_goal_generic_navy_doctrines_tactics
+		cost = 30
+		prerequisite = {
+			focus = bos_nf_fighters
+			focus = bos_nf_support
+		}
+		relative_position_id = bos_nf_fighters
+		x = 1
+		y = 1
+		available = {
+			has_deployed_air_force_size = {
+				size > 39
+			}
+			has_air_experience > 10
+		}
+		completion_reward = {
+			air_experience = -10
+			add_tech_bonus = {
+				name = bos_nf_airlexicon
+				bonus = 0.5
+				uses = 2
+				category = cat_air_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_behemoths
+		icon = GFX_goal_bos_generic_big_gun
+		cost = 30
+		mutually_exclusive = {
+			focus = bos_nf_bombers
+		}
+		prerequisite = {
+			focus = bos_nf_airlexicon
+		}
+		relative_position_id = bos_nf_airlexicon
+		x = -1
+		y = 1
+		available = {
+			has_deployed_air_force_size = {
+				size > 59
+			}
+			has_air_experience > 15
+		}
+		completion_reward = {
+			air_experience = -15
+			add_tech_bonus = {
+				name = bos_nf_behemoths
+				bonus = 0.5
+				uses = 1
+				category = blimp_tech_category
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_bombers
+		icon = GFX_goal_bos_generic_vertibird
+		cost = 30
+		mutually_exclusive = {
+			focus = bos_nf_behemoths
+		}
+		prerequisite = {
+			focus = bos_nf_airlexicon
+		}
+		relative_position_id = bos_nf_airlexicon
+		x = 1
+		y = 1
+		available = {
+			has_deployed_air_force_size = {
+				size > 59
+			}
+			has_air_experience > 15
+		}
+		completion_reward = {
+			air_experience = -15
+			add_tech_bonus = {
+				name = bos_nf_bombers
+				bonus = 0.5
+				uses = 1
+				category = bomber_tech_category
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_scourge
+		icon = GFX_goal_BOS_scourge_focus
+		cost = 30
+		prerequisite = {
+			focus = bos_nf_behemoths
+			focus = bos_nf_bombers
+		}
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_behemoths
+		available = {
+			has_deployed_air_force_size = {
+				size > 99
+			}
+			has_air_experience > 20
+		}
+		completion_reward = {
+			air_experience = -20
+			set_technology = { air_tech_level_scientific = 1 }
+		}
+	}
+
+	focus = {
+		id = bos_nf_securing_nearly_lost_bunkers
+		icon = GFX_goal_bos_generic_bunker_1
+		cost = 30
+		x = -4
+		y = 1
+		relative_position_id = bos_nf_learning_from_the_ncr_bos_war
+		prerequisite = {
+			focus = bos_nf_learning_from_the_ncr_bos_war
+		}
+
+		completion_reward = {
+			army_experience = 10
+		}
+	}
+
+	focus = {
+		id = bos_nf_bunker_alpaugh
+		icon = GFX_goal_bos_generic_infantry_1
+		cost = 30
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_securing_nearly_lost_bunkers
+		prerequisite = {
+			focus = bos_nf_securing_nearly_lost_bunkers
+		}
+		available = {
+			has_manpower > 250
+		}
+		completion_reward = {
+			set_temp_variable = { BOS_tension_to_add = 3 }
+			bos_change_tension = yes
+			NCR = {
+				set_temp_variable = { BOS_tension_to_add = 3 }
+				bos_change_tension = yes
+			}
+			add_manpower = -250
+			357 = {
+				add_dynamic_modifier = {
+					modifier = bos_state_influence
+				}
+				bos_add_to_bunker_array = yes
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_bunker_blackwell
+		icon = GFX_goal_bos_generic_infantry_2
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_securing_nearly_lost_bunkers
+		prerequisite = {
+			focus = bos_nf_securing_nearly_lost_bunkers
+		}
+		available = {
+			has_manpower > 250
+		}
+		completion_reward = {
+			set_temp_variable = { BOS_tension_to_add = 3 }
+			bos_change_tension = yes
+			NCR = {
+				set_temp_variable = { BOS_tension_to_add = 3 }
+				bos_change_tension = yes
+			}
+			add_manpower = -250
+			602 = {
+				add_dynamic_modifier = {
+					modifier = bos_state_influence
+				}
+				bos_add_to_bunker_array = yes
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_reclaiming_destroyed_bunkers
+		icon = GFX_goal_bos_generic_bunker_2
+		cost = 30
+		x = 0
+		y = 2
+		relative_position_id = bos_nf_securing_nearly_lost_bunkers
+		prerequisite = {
+			focus = bos_nf_bunker_alpaugh
+		}
+		prerequisite = {
+			focus = bos_nf_bunker_blackwell
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = bos_nf_reclaiming_destroyed_bunkers
+				bonus = 0.25
+				uses = 1
+				category = industry
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_bunker_atascadero
+		icon = GFX_goal_generic_creature_fire_ant
+		cost = 30
+		x = -3
+		y = 1
+		relative_position_id = bos_nf_reclaiming_destroyed_bunkers
+		prerequisite = {
+			focus = bos_nf_reclaiming_destroyed_bunkers
+		}
+		available = {
+			has_manpower > 250
+		}
+		completion_reward = {
+			set_temp_variable = { BOS_tension_to_add = 3 }
+			bos_change_tension = yes
+			NCR = {
+				set_temp_variable = { BOS_tension_to_add = 3 }
+				bos_change_tension = yes
+			}
+			add_manpower = -250
+			606 = {
+				add_dynamic_modifier = {
+					modifier = bos_state_influence
+				}
+				bos_add_to_bunker_array = yes
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_bunker_morro
+		icon = GFX_goal_generic_creature_gecko
+		cost = 30
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_reclaiming_destroyed_bunkers
+		prerequisite = {
+			focus = bos_nf_reclaiming_destroyed_bunkers
+		}
+		available = {
+			has_manpower > 250
+		}
+		completion_reward = {
+			set_temp_variable = { BOS_tension_to_add = 3 }
+			bos_change_tension = yes
+			NCR = {
+				set_temp_variable = { BOS_tension_to_add = 3 }
+				bos_change_tension = yes
+			}
+			add_manpower = -250
+			558 = {
+				add_dynamic_modifier = {
+					modifier = bos_state_influence
+				}
+				bos_add_to_bunker_array = yes
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_bunker_salinas
+		icon = GFX_goal_generic_creature_nightstalker
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_reclaiming_destroyed_bunkers
+		prerequisite = {
+			focus = bos_nf_reclaiming_destroyed_bunkers
+		}
+		available = {
+			has_manpower > 250
+		}
+		completion_reward = {
+			set_temp_variable = { BOS_tension_to_add = 3 }
+			bos_change_tension = yes
+			NCR = {
+				set_temp_variable = { BOS_tension_to_add = 3 }
+				bos_change_tension = yes
+			}
+			add_manpower = -250
+			312 = {
+				add_dynamic_modifier = {
+					modifier = bos_state_influence
+				}
+				bos_add_to_bunker_array = yes
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_bunker_monterey
+		icon = GFX_goal_generic_creature_cazador
+		cost = 30
+		x = 3
+		y = 1
+		relative_position_id = bos_nf_reclaiming_destroyed_bunkers
+		prerequisite = {
+			focus = bos_nf_reclaiming_destroyed_bunkers
+		}
+		available = {
+			has_manpower > 250
+		}
+		completion_reward = {
+			set_temp_variable = { BOS_tension_to_add = 3 }
+			bos_change_tension = yes
+			NCR = {
+				set_temp_variable = { BOS_tension_to_add = 3 }
+				bos_change_tension = yes
+			}
+			add_manpower = -250
+			433 = {
+				add_dynamic_modifier = {
+					modifier = bos_state_influence
+				}
+				bos_add_to_bunker_array = yes
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_elders_schemes
+		icon = GFX_goal_BOS_generic_industrial
+		cost = 30
+		x = 18
+		y = 1
+		relative_position_id = bos_nf_back_to_business
+		prerequisite = {
+			focus = bos_nf_back_to_business
+		}
+
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = bos_nf_maxsonians
+		icon = GFX_goal_MOJ_paladin_thought
+		cost = 30
+		x = -3
+		y = 1
+		relative_position_id = bos_nf_elders_schemes
+		prerequisite = {
+			focus = bos_nf_elders_schemes
+		}
+
+		completion_reward = {
+			add_country_leader_role = {
+				character = "BOS_angharad"
+				country_leader = {
+					ideology=militarist_technocracy
+					expire="3000.01.01.01"
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_jonathan_maxson_back_to_health
+		icon = GFX_goal_chem_super_stim
+		cost = 30
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_maxsonians
+		mutually_exclusive = {
+			focus = bos_nf_coronating_a_new_maxsonian_elder
+		}
+		prerequisite = {
+			focus = bos_nf_maxsonians
+		}
+		available = {
+			has_country_leader = {
+				character = BOS_jonathan_maxson
+				ruling_only = yes
+			}
+			has_political_power > 300
+			has_tech = med_company_tech_3
+		}
+
+		completion_reward = {
+			add_political_power = -300
+			remove_country_leader_trait = bos_shellshocked
+			add_corps_commander_role = {
+				character = BOS_jonathan_maxson
+				skill = 4
+				attack_skill = 2
+				defense_skill = 3
+				planning_skill = 3
+				logistics_skill = 5
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_coronating_a_new_maxsonian_elder
+		icon = GFX_goal_MOJ_aggressive_policy
+		cost = 30
+		x = 1
+		y = 1
+		available = {
+			has_government = elites
+		}
+		relative_position_id = bos_nf_maxsonians
+		mutually_exclusive = {
+			focus = bos_nf_jonathan_maxson_back_to_health
+		}
+		prerequisite = {
+			focus = bos_nf_maxsonians
+		}
+
+		completion_reward = {
+		BOS_jonathan_maxson = {
+			retire = yes
+		}
+			add_country_leader_role = {
+				character = "BOS_angharad"
+				country_leader = {
+					ideology = militarist_technocracy
+					expire="3000.01.01.01"
+					traits = {
+						bos_war_hero_of_the_ncr_war
+					}
+				}
+				promote_leader = yes
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_war_hero_of_the_ncr_war
+		icon = GFX_goal_MOJ_technology_raids
+		cost = 30
+		x = 2
+		y = 2
+		relative_position_id = bos_nf_maxsonians
+		prerequisite = {
+			focus = bos_nf_coronating_a_new_maxsonian_elder
+		}
+
+		completion_reward = {
+			add_war_support = 0.075
+		}
+	}
+
+	focus = {
+		id = bos_nf_honoring_the_maxson_elders
+		icon = GFX_goal_bos_generic_t51b_1
+		cost = 30
+		x = -2
+		y = 2
+		relative_position_id = bos_nf_maxsonians
+		prerequisite = {
+			focus = bos_nf_jonathan_maxson_back_to_health
+		}
+
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = bos_nf_the_line_of_succession
+		icon = GFX_goal_generic_BOS_focus_t51b_production
+		cost = 30
+		x = 0
+		y = 2
+		relative_position_id = bos_nf_maxsonians
+		prerequisite = {
+			focus = bos_nf_jonathan_maxson_back_to_health
+			focus = bos_nf_coronating_a_new_maxsonian_elder
+		}
+
+		completion_reward = {
+			country_event = nf_brotherhood_arthur_maxson.1
+		}
+	}
+
+	focus = {
+		id = bos_nf_rhombians
+		icon = GFX_goal_MOJ_scribal_thought
+		cost = 30
+		x = 3
+		y = 1
+		relative_position_id = bos_nf_elders_schemes
+		prerequisite = {
+			focus = bos_nf_elders_schemes
+		}
+
+		completion_reward = {
+			add_stability = 0.075
+		}
+	}
+
+	focus = {
+		id = bos_nf_honor_the_ncr_war_veterans
+		icon = GFX_goal_MOJ_wastelander_recruitment
+		cost = 30
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_rhombians
+		mutually_exclusive = {
+			focus = bos_nf_call_out_poor_military_strategy
+		}
+		prerequisite = {
+			focus = bos_nf_rhombians
+		}
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = bos_nf_call_out_poor_military_strategy
+		icon = GFX_KHA_focus_planning
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_rhombians
+		prerequisite = {
+			focus = bos_nf_rhombians
+		}
+		mutually_exclusive = {
+			focus = bos_nf_honor_the_ncr_war_veterans
+		}
+		available = {
+			has_political_power > 100
+		}
+		completion_reward = {
+			add_political_power = -100
+			army_experience = 20
+		}
+	}
+
+	focus = {
+		id = bos_nf_long_history_of_reform
+		icon = GFX_KHA_focus_propose_plan
+		cost = 30
+		x = -2
+		y = 2
+		relative_position_id = bos_nf_rhombians
+		prerequisite = {
+			focus = bos_nf_honor_the_ncr_war_veterans
+			focus = bos_nf_call_out_poor_military_strategy
+		}
+
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = bos_nf_reaching_out_to_family
+		icon = GFX_goal_focus_alamo_ach
+		cost = 30
+		x = 0
+		y = 2
+		relative_position_id = bos_nf_rhombians
+		prerequisite = {
+			focus = bos_nf_honor_the_ncr_war_veterans
+			focus = bos_nf_call_out_poor_military_strategy
+		}
+		available = {
+			has_country_leader = {
+				character = BOS_mari_torni
+				ruling_only = yes
+			}
+			ACH = {
+				exists = yes
+				has_country_leader = {
+					character = ACH_kathrine_torni
+					ruling_only = yes
+				}
+			}
+		}
+		completion_reward = {
+			ACH = {
+				country_event = nf_brotherhood_communications.2
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_taggerdys_legacy
+		icon = GFX_goal_bos_flag_bap
+		cost = 30
+		x = 2
+		y = 2
+		relative_position_id = bos_nf_rhombians
+		prerequisite = {
+			focus = bos_nf_honor_the_ncr_war_veterans
+			focus = bos_nf_call_out_poor_military_strategy
+		}
+
+		completion_reward = {
+			add_war_support = 0.05
+			army_experience = 5
+		}
+	}
+
+	focus = {
+		id = bos_nf_new_reforms
+		icon = GFX_goal_BOS_generic_industrial
+		cost = 30
+		x = 30
+		y = 1
+		relative_position_id = bos_nf_back_to_business
+		prerequisite = {
+			focus = bos_nf_back_to_business
+		}
+
+		completion_reward = {
+			capital_scope = {
+				add_resource = { type = metal amount = 4 }
+			}
+		}
+	}
+
+
+	focus = {
+		id = bos_nf_our_right
+		text = shared_bos_our_right
+		icon = GFX_goal_BOS_generic_industrial
+		cost = 30
+		prerequisite = {
+			focus = bos_nf_back_to_business
+		}
+		x = 39
+		y = 1
+		relative_position_id = bos_nf_back_to_business
+		completion_reward = {
+			add_tech_bonus = {
+				name = bos_nf_our_right
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_salvaged_metal
+		text = shared_bos_salvaged_metal
+		icon = GFX_goal_generic_metal_focus
+		cost = 30
+		prerequisite = {
+			focus = bos_nf_our_right
+		}
+		x = -2
+		y = 1
+		relative_position_id = bos_nf_our_right
+
+		completion_reward = {
+			capital_scope = {
+				add_resource = { type = metal amount = 4 }
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_increase_power_production
+		text = shared_bos_increase_power_production
+		icon = GFX_goal_generic_electricity_focus
+		cost = 30
+		prerequisite = {
+			focus = bos_nf_our_right
+		}
+		x = 0
+		y = 1
+		relative_position_id = bos_nf_our_right
+
+		completion_reward = {
+			capital_scope = {
+				add_resource = { type = energy amount = 4 }
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_salvaged_electronics
+		text = shared_bos_salvaged_electronics
+		icon = GFX_goal_generic_electronics_focus
+		cost = 30
+		prerequisite = {
+			focus = bos_nf_our_right
+		}
+		x = 2
+		y = 1
+		relative_position_id = bos_nf_our_right
+
+		completion_reward = {
+			capital_scope = {
+				add_resource = { type = circuitry amount = 4 }
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_advanced_tech
+		text = shared_bos_advanced_tech
+		icon = GFX_goal_generic_advanced_technology_focus
+		cost = 30
+		prerequisite = {
+			focus = bos_nf_salvaged_metal
+		}
+		prerequisite = {
+			focus = bos_nf_increase_power_production
+		}
+		prerequisite = {
+			focus = bos_nf_salvaged_electronics
+		}
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_salvaged_metal
+
+		completion_reward = {
+			capital_scope = {
+				add_resource = { type = advanced amount = 8 }
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_fueling_our_rise
+		text = shared_bos_fueling_our_rise
+		icon = GFX_goal_generic_fuel_focus
+		cost = 30
+		prerequisite = {
+			focus = bos_nf_salvaged_metal
+		}
+		prerequisite = {
+			focus = bos_nf_increase_power_production
+		}
+		prerequisite = {
+			focus = bos_nf_salvaged_electronics
+		}
+		x = 3
+		y = 1
+		relative_position_id = bos_nf_salvaged_metal
+
+		completion_reward = {
+			capital_scope = {
+				add_resource = { type = energy amount = 4 }
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_arm_foundries
+		text = shared_bos_arm_foundries
+		icon = GFX_goal_generic_large_scale_normal_industry_focus
+		cost = 30
+		prerequisite = {
+			focus = bos_nf_salvaged_metal
+		}
+		prerequisite = {
+			focus = bos_nf_increase_power_production
+		}
+		prerequisite = {
+			focus = bos_nf_salvaged_electronics
+		}
+		prerequisite = {
+			focus = bos_nf_advanced_tech
+		}
+		prerequisite = {
+			focus = bos_nf_fueling_our_rise
+		}
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_advanced_tech
+
+		completion_reward = {
+			set_temp_variable = { BOS_underground_construction_slots_to_add = 2 }
+			bos_add_underground_construction_slots = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_the_veterans_pension
+		icon = GFX_goal_bos_generic_barricade
+		cost = 30
+		x = -3
+		y = 1
+		relative_position_id = bos_nf_new_reforms
+		prerequisite = {
+			focus = bos_nf_new_reforms
+		}
+
+		completion_reward = {
+			bos_decrease_knightly_confusion = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_finding_caps
+		icon = GFX_goal_bos_generic_army_crate_1
+		cost = 30
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_the_veterans_pension
+		prerequisite = {
+			focus = bos_nf_the_veterans_pension
+		}
+
+		completion_reward = {
+			bos_decrease_knightly_confusion = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_bounty_hunting
+		icon = GFX_goal_bos_generic_deathclaw
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_the_veterans_pension
+		prerequisite = {
+			focus = bos_nf_the_veterans_pension
+		}
+
+		completion_reward = {
+			bos_decrease_knightly_confusion = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_debts_of_the_quartermasters
+		icon = GFX_goal_bos_generic_locker
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_finding_caps
+		prerequisite = {
+			focus = bos_nf_finding_caps
+		}
+		prerequisite = {
+			focus = bos_nf_bounty_hunting
+		}
+
+		completion_reward = {
+			bos_decrease_knightly_confusion = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_adjusting_to_bunker_life
+		icon = GFX_goal_bos_generic_bunker_life
+		cost = 30
+		x = 3
+		y = 1
+		relative_position_id = bos_nf_new_reforms
+		prerequisite = {
+			focus = bos_nf_new_reforms
+		}
+
+		completion_reward = {
+			set_temp_variable = { BOS_underground_construction_slots_to_add = 1 }
+			bos_add_underground_construction_slots = yes
+		}
+	}
+
+
+	focus = {
+		id = bos_nf_enforce_recycling_programs
+		icon = GFX_goal_bos_generic_army_crate_2
+		cost = 30
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_adjusting_to_bunker_life
+		prerequisite = {
+			focus = bos_nf_adjusting_to_bunker_life
+		}
+
+		completion_reward = {
+			add_stability = 0.02
+			set_temp_variable = { BOS_underground_construction_slots_to_add = 1 }
+			bos_add_underground_construction_slots = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_repairing_ventilation_systems
+		icon = GFX_goal_bos_generic_industrial_fan
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_adjusting_to_bunker_life
+		prerequisite = {
+			focus = bos_nf_adjusting_to_bunker_life
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = bos_nf_repairing_ventilation_systems
+				bonus = 0.25
+				uses = 1
+				category = industry
+			}
+			set_temp_variable = { BOS_underground_construction_slots_to_add = 1 }
+			bos_add_underground_construction_slots = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_finding_new_living_space
+		icon = GFX_goal_bos_generic_bunker_2
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_enforce_recycling_programs
+		prerequisite = {
+			focus = bos_nf_enforce_recycling_programs
+		}
+		prerequisite = {
+			focus = bos_nf_repairing_ventilation_systems
+		}
+
+		completion_reward = {
+			set_temp_variable = { BOS_underground_construction_slots_to_add = 2 }
+			bos_add_underground_construction_slots = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_advanced_scavenging
+		icon = GFX_goal_BOS_generic_industrial
+		cost = 30
+		x = 5
+		y = 1
+		relative_position_id = bos_nf_taggerdys_legacy
+		prerequisite = {
+			focus = bos_nf_finding_new_living_space
+			focus = bos_nf_debts_of_the_quartermasters
+		}
+		prerequisite = {
+			focus = bos_nf_taggerdys_legacy
+			focus = bos_nf_long_history_of_reform
+			focus = bos_nf_honoring_the_maxson_elders
+			focus = bos_nf_war_hero_of_the_ncr_war
+		}
+
+		completion_reward = {
+			army_experience = 15
+			add_popularity = {
+				ideology = elites
+				popularity = 0.03
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_scavenging_weaponry
+		icon = GFX_goal_generic_pistol_10mm
+		cost = 30
+		x = -2
+		y = 1
+		relative_position_id = bos_nf_advanced_scavenging
+		prerequisite = {
+			focus = bos_nf_advanced_scavenging
+		}
+
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = ballistic_equipment_1
+				amount = 200
+				producer = USA
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_scavenging_plasma
+		icon = GFX_goal_generic_plasma_pistol
+		cost = 30
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_scavenging_weaponry
+		prerequisite = {
+			focus = bos_nf_scavenging_weaponry
+		}
+
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = energy_equipment_1
+				amount = 150
+				producer = USA
+			}
+			set_temp_variable = { BOS_underground_construction_slots_to_add = 1 }
+			bos_add_underground_construction_slots = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_scavenging_laser_rifles
+		icon = GFX_KHA_focus_laser_musket
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_scavenging_weaponry
+		prerequisite = {
+			focus = bos_nf_scavenging_weaponry
+		}
+
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = energy_equipment_2
+				amount = 150
+				producer = USA
+			}
+			set_temp_variable = { BOS_underground_construction_slots_to_add = 1 }
+			bos_add_underground_construction_slots = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_scavenging_heavy_energy_weapons
+		icon = GFX_goal_generic_laser_gat
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_scavenging_plasma
+		prerequisite = {
+			focus = bos_nf_scavenging_plasma
+		}
+		prerequisite = {
+			focus = bos_nf_scavenging_laser_rifles
+		}
+
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = energy_fireteam_equipment_3
+				amount = 100
+				producer = USA
+			}
+			set_temp_variable = { BOS_underground_construction_slots_to_add = 2 }
+			bos_add_underground_construction_slots = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_scavenging_support_equipment
+		icon = GFX_goal_generic_crates
+		cost = 30
+		x = 2
+		y = 1
+		relative_position_id = bos_nf_advanced_scavenging
+		prerequisite = {
+			focus = bos_nf_advanced_scavenging
+		}
+
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = support_equipment_1
+				amount = 200
+				producer = USA
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_scavenging_medical_equipment
+		icon = GFX_goal_generic_medical
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_scavenging_support_equipment
+		prerequisite = {
+			focus = bos_nf_scavenging_support_equipment
+		}
+
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = support_equipment_1
+				amount = 150
+				producer = USA
+			}
+			set_temp_variable = { BOS_underground_construction_slots_to_add = 1 }
+			bos_add_underground_construction_slots = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_scavenging_piercing_weaponry
+		icon = GFX_goal_generic_rocket_launcher
+		cost = 30
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_scavenging_support_equipment
+		prerequisite = {
+			focus = bos_nf_scavenging_support_equipment
+		}
+
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = anti_tank_equipment_1
+				amount = 150
+				producer = USA
+			}
+			set_temp_variable = { BOS_underground_construction_slots_to_add = 1 }
+			bos_add_underground_construction_slots = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_scavenging_big_weaponry
+		icon = GFX_goal_generic_tinker_workbench
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_scavenging_piercing_weaponry
+		prerequisite = {
+			focus = bos_nf_scavenging_piercing_weaponry
+		}
+		prerequisite = {
+			focus = bos_nf_scavenging_medical_equipment
+		}
+
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = energy_fireteam_equipment_4
+				amount = 100
+				producer = USA
+			}
+			set_temp_variable = { BOS_underground_construction_slots_to_add = 2 }
+			bos_add_underground_construction_slots = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_scavenging_power_armor
+		icon = GFX_goal_bos_generic_stripped_pa
+		cost = 30
+		x = 6
+		y = 1
+		relative_position_id = bos_nf_advanced_scavenging
+		prerequisite = {
+			focus = bos_nf_advanced_scavenging
+		}
+
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = power_armor_equipment_2
+				amount = 200
+				producer = USA
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_scavenging_t45
+		icon = GFX_goal_bos_generic_t45_3
+		cost = 30
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_scavenging_power_armor
+		prerequisite = {
+			focus = bos_nf_scavenging_power_armor
+		}
+
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = power_armor_equipment_3
+				amount = 150
+				producer = USA
+			}
+			set_temp_variable = { BOS_underground_construction_slots_to_add = 1 }
+			bos_add_underground_construction_slots = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_scavenging_power_armor_repair
+		icon = GFX_goal_bos_generic_t45_4
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_scavenging_power_armor
+		prerequisite = {
+			focus = bos_nf_scavenging_power_armor
+		}
+
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = power_armor_equipment_3
+				amount = 150
+				producer = USA
+			}
+			set_temp_variable = { BOS_underground_construction_slots_to_add = 1 }
+			bos_add_underground_construction_slots = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_scavenging_t51b
+		icon = GFX_goal_bos_generic_t51b_2
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_scavenging_t45
+		prerequisite = {
+			focus = bos_nf_scavenging_t45
+		}
+		prerequisite = {
+			focus = bos_nf_scavenging_power_armor_repair
+		}
+
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = power_armor_equipment_4
+				amount = 100
+				producer = USA
+			}
+			set_temp_variable = { BOS_underground_construction_slots_to_add = 2 }
+			bos_add_underground_construction_slots = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_scavenging_vehicles
+		icon = GFX_goal_generic_cart
+		cost = 30
+		x = 10
+		y = 1
+		relative_position_id = bos_nf_advanced_scavenging
+		prerequisite = {
+			focus = bos_nf_advanced_scavenging
+		}
+
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = bike_equipment_1
+				amount = 200
+				producer = USA
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_scavenging_mobile_vehicles
+		icon = GFX_icon_apc_modern
+		cost = 30
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_scavenging_vehicles
+		prerequisite = {
+			focus = bos_nf_scavenging_vehicles
+		}
+
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = light_motorized_equipment_2
+				amount = 150
+				producer = USA
+			}
+			set_temp_variable = { BOS_underground_construction_slots_to_add = 1 }
+			bos_add_underground_construction_slots = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_scavenging_durable_vehicles
+		icon = GFX_icon_apc_desert
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_scavenging_vehicles
+		prerequisite = {
+			focus = bos_nf_scavenging_vehicles
+		}
+
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = heavy_motorized_equipment_2
+				amount = 150
+				producer = USA
+			}
+			set_temp_variable = { BOS_underground_construction_slots_to_add = 1 }
+			bos_add_underground_construction_slots = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_scavenging_advanced_vehicles
+		icon = GFX_goal_bos_generic_tank
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_scavenging_mobile_vehicles
+		prerequisite = {
+			focus = bos_nf_scavenging_mobile_vehicles
+		}
+		prerequisite = {
+			focus = bos_nf_scavenging_durable_vehicles
+		}
+
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = heavy_motorized_equipment_4
+				amount = 100
+				producer = USA
+			}
+			set_temp_variable = { BOS_underground_construction_slots_to_add = 2 }
+			bos_add_underground_construction_slots = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_greater_reforms
+		icon = GFX_goal_BOS_generic_industrial
+		cost = 30
+		x = -5
+		y = 1
+		relative_position_id = bos_nf_taggerdys_legacy
+		prerequisite = {
+			focus = bos_nf_finding_new_living_space
+			focus = bos_nf_debts_of_the_quartermasters
+		}
+		prerequisite = {
+			focus = bos_nf_taggerdys_legacy
+			focus = bos_nf_long_history_of_reform
+			focus = bos_nf_honoring_the_maxson_elders
+			focus = bos_nf_war_hero_of_the_ncr_war
+		}
+
+		completion_reward = {
+			add_political_power = 100
+			add_popularity = {
+				ideology = ruler
+				popularity = 0.03
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_outsider_initiation
+		icon = GFX_goal_bos_generic_infantry_1
+		cost = 30
+		x = 3
+		y = 1
+		relative_position_id = bos_nf_greater_reforms
+		mutually_exclusive = {
+			focus = bos_nf_commitment_to_purity
+		}
+		prerequisite = {
+			focus = bos_nf_greater_reforms
+		}
+
+		completion_reward = {
+			set_temp_variable = { refugees_to_add = 500 }
+			exodus_add_refugees = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_initiate_ncr_settlers
+		icon = GFX_goal_MOJ_ncr_negotiations
+		cost = 30
+		x = 2
+		y = 1
+		relative_position_id = bos_nf_outsider_initiation
+		available = {
+			count_triggers = {
+				amount = 2
+				has_government = ruler
+				has_government = people
+				has_government = intellectuals
+				people > 0.2
+				people > 0.4
+				ruler > 0.2
+				ruler > 0.4
+				intellectuals > 0.2
+				intellectuals > 0.4
+			}
+		}
+		prerequisite = {
+			focus = bos_nf_outsider_initiation
+		}
+
+		completion_reward = {
+			set_temp_variable = { refugees_to_add = 1500 }
+			exodus_add_refugees = yes
+			increase_conscription_law = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_initiate_ranger_turncoats
+		icon = GFX_goal_MOJ_the_future
+		cost = 30
+		x = 1
+		y = 2
+		relative_position_id = bos_nf_outsider_initiation
+		available = {
+			has_completed_focus = bos_nf_initiate_ncr_settlers
+			count_triggers = {
+				amount = 2
+				has_government = people
+				has_government = intellectuals
+				people > 0.4
+				people > 0.6
+				intellectuals > 0.4
+				intellectuals > 0.6
+			}
+		}
+		prerequisite = {
+			focus = bos_nf_outsider_initiation
+		}
+
+		completion_reward = {
+			set_temp_variable = { refugees_to_add = 1500 }
+			exodus_add_refugees = yes
+			increase_conscription_law = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_initiate_necropolis_ghouls
+		icon = GFX_goal_ghoul_head
+		cost = 30
+		x = 0
+		y = 1
+		relative_position_id = bos_nf_outsider_initiation
+		available = {
+			has_completed_focus = bos_nf_initiate_ranger_turncoats
+			count_triggers = {
+				amount = 2
+				has_government = people
+				has_government = intellectuals
+				people > 0.6
+				people > 0.8
+				intellectuals > 0.6
+				intellectuals > 0.8
+			}
+		}
+		prerequisite = {
+			focus = bos_nf_outsider_initiation
+		}
+
+		completion_reward = {
+			set_temp_variable = { refugees_to_add = 1500 }
+			exodus_add_refugees = yes
+			increase_conscription_law = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_limited_super_mutant_initiation
+		icon = GFX_goal_BOS_steel_giants
+		cost = 30
+		x = -1
+		y = 2
+		relative_position_id = bos_nf_outsider_initiation
+		available = {
+			has_completed_focus = bos_nf_initiate_necropolis_ghouls
+			OR = {
+				has_government = intellectuals
+				has_government = people
+			}
+		}
+		prerequisite = {
+			focus = bos_nf_outsider_initiation
+		}
+
+		completion_reward = {
+			set_temp_variable = { refugees_to_add = 1500 }
+			exodus_add_refugees = yes
+			increase_conscription_law = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_commitment_to_duty
+		icon = GFX_goal_bos_generic_t45_2
+		cost = 30
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_greater_reforms
+		prerequisite = {
+			focus = bos_nf_greater_reforms
+		}
+		mutually_exclusive = {
+			focus = bos_nf_currency_reform
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = lost_hills_pensions
+				add_idea = brotherhood_wages_law
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_commitment_to_purity
+		icon = GFX_goal_bos_generic_t45_1
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_greater_reforms
+		mutually_exclusive = {
+			focus = bos_nf_outsider_initiation
+		}
+		prerequisite = {
+			focus = bos_nf_greater_reforms
+		}
+
+		completion_reward = {
+			add_ideas = bosdigin
+		}
+	}
+
+	focus = {
+		id = bos_nf_currency_reform
+		icon = GFX_goal_bos_generic_wagon
+		cost = 30
+		x = -3
+		y = 1
+		relative_position_id = bos_nf_greater_reforms
+		prerequisite = {
+			focus = bos_nf_greater_reforms
+		}
+		mutually_exclusive = {
+			focus = bos_nf_commitment_to_duty
+		}
+
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = bos_nf_currency_reform_caps
+		icon = GFX_goal_bos_generic_currency_caps
+		cost = 30
+		x = -2
+		y = 1
+		relative_position_id = bos_nf_currency_reform
+		prerequisite = {
+			focus = bos_nf_currency_reform
+		}
+		available = {
+			NOT = {
+				#has_completed_focus = bos_nf_currency_reform_caps
+				has_completed_focus = bos_nf_currency_reform_gold_bullion
+				has_completed_focus = bos_nf_currency_reform_ncr_dollar
+				has_completed_focus = bos_nf_currency_reform_scrip
+			}
+			count_triggers = {
+				amount = 2
+				has_government = people
+				has_government = ruler
+				people > 0.1
+				people > 0.2
+				ruler > 0.1
+				ruler > 0.2
+			}
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = lost_hills_pensions
+				add_idea = lost_hills_wages
+			}
+			add_ideas = bos_nf_currency_reform_caps
+		}
+	}
+
+	focus = {
+		id = bos_nf_currency_reform_gold_bullion
+		icon = GFX_goal_bos_generic_currency_gold_bullion
+		cost = 30
+		x = -1
+		y = 2
+		relative_position_id = bos_nf_currency_reform
+		available = {
+			NOT = {
+				has_completed_focus = bos_nf_currency_reform_caps
+				#has_completed_focus = bos_nf_currency_reform_gold_bullion
+				has_completed_focus = bos_nf_currency_reform_ncr_dollar
+				has_completed_focus = bos_nf_currency_reform_scrip
+			}
+			has_completed_focus = bos_nf_long_range_communications_taggerdys_expedition
+			count_triggers = {
+				amount = 2
+				has_government = people
+				has_government = ruler
+				people > 0.2
+				people > 0.4
+				ruler > 0.3
+				ruler > 0.5
+			}
+		}
+		prerequisite = {
+			focus = bos_nf_currency_reform
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = lost_hills_pensions
+				add_idea = lost_hills_wages
+			}
+			add_ideas = bos_nf_currency_reform_gold_bullion
+		}
+	}
+
+	focus = {
+		id = bos_nf_currency_reform_ncr_dollar
+		icon = GFX_goal_bos_generic_currency_ncr_dollar
+		cost = 30
+		x = 0
+		y = 1
+		relative_position_id = bos_nf_currency_reform
+		prerequisite = {
+			focus = bos_nf_currency_reform
+		}
+		available = {
+			NOT = {
+				has_completed_focus = bos_nf_currency_reform_caps
+				has_completed_focus = bos_nf_currency_reform_gold_bullion
+				#has_completed_focus = bos_nf_currency_reform_ncr_dollar
+				has_completed_focus = bos_nf_currency_reform_scrip
+			}
+			NCR = {
+				NOT = { has_government = ruler }
+				exists = yes
+				is_subject = no
+				NOT = { has_war_with = BOS }
+				NOT = { has_war_with = MOJ }
+				NOT = { has_war_with = GRD }
+			}
+			count_triggers = {
+				amount = 2
+				has_government = people
+				has_government = ruler
+				people > 0.2
+				people > 0.4
+				ruler > 0.6
+				ruler > 0.8
+			}
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = lost_hills_pensions
+				add_idea = lost_hills_wages
+			}
+			NCR = {
+				add_ideas = bos_trade_modifier_to_lost_hills
+			}
+			add_ideas = bos_nf_currency_reform_ncr_dollar
+		}
+	}
+
+	focus = {
+		id = bos_nf_currency_reform_scrip
+		icon = GFX_goal_bos_generic_currency_scrip
+		cost = 30
+		x = 1
+		y = 2
+		relative_position_id = bos_nf_currency_reform
+		prerequisite = {
+			focus = bos_nf_currency_reform
+		}
+		available = {
+			NOT = {
+				has_completed_focus = bos_nf_currency_reform_caps
+				has_completed_focus = bos_nf_currency_reform_gold_bullion
+				has_completed_focus = bos_nf_currency_reform_ncr_dollar
+				#has_completed_focus = bos_nf_currency_reform_scrip
+			}
+			has_completed_focus = bos_nf_chicagos_reclaimation
+			count_triggers = {
+				amount = 2
+				has_government = people
+				has_government = ruler
+				people > 0.2
+				people > 0.4
+				ruler > 0.3
+				ruler > 0.5
+			}
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = lost_hills_pensions
+				add_idea = lost_hills_wages
+			}
+			BMW = {
+				add_ideas = bos_trade_modifier_to_lost_hills
+			}
+			add_ideas = bos_nf_currency_reform_scrip
+		}
+	}
+
+	focus = {
+		id = bos_nf_open_up_to_traders
+		icon = GFX_goal_bos_generic_brahmin
+		cost = 30
+		x = 0
+		y = 2
+		relative_position_id = bos_nf_greater_reforms
+		prerequisite = {
+			focus = bos_nf_greater_reforms
+		}
+		available = {
+			OR = {
+				num_of_controlled_states > 1
+				has_completed_focus = bos_nf_currency_reform_gold_bullion
+				has_completed_focus = bos_nf_currency_reform_ncr_dollar
+				has_completed_focus = bos_nf_currency_reform_scrip
+				has_completed_focus = bos_nf_currency_reform_caps
+			}
+		}
+		completion_reward = {
+			157 = {
+				hidden_effect = {
+					set_temp_variable = { new_node_target = THIS.id }
+					add_to_temp_array = { new_node_trade_array = 163 }
+					add_to_temp_array = { new_node_trade_array = 135 }
+					add_to_temp_array = { new_node_trade_array = 253 }
+					add_to_temp_array = { new_node_trade_array = 1 }
+					add_to_temp_array = { new_node_trade_array = 350 }
+					set_temp_variable = { new_node_map_x = 1835 }
+					set_temp_variable = { new_node_map_y = 1200 }
+				}
+				create_map_node = yes
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_council_reforms
+		icon = GFX_goal_bos_generic_ledger
+		cost = 30
+		x = 6
+		y = 4
+		relative_position_id = bos_nf_greater_reforms
+		prerequisite = {
+			focus = bos_nf_greater_reforms
+			focus = bos_nf_advanced_scavenging
+		}
+		completion_reward = {
+			add_political_power = 400
+		}
+	}
+
+	focus = {
+		id = bos_nf_head_elder_duty_duration
+		icon = GFX_goal_bos_generic_t45_1
+		cost = 30
+		x = -3
+		y = 1
+		relative_position_id = bos_nf_council_reforms
+		prerequisite = {
+			focus = bos_nf_council_reforms
+		}
+		available = {
+			has_political_power > 200
+		}
+		completion_reward = {
+			add_political_power = -200
+			unlock_decision_tooltip = BOS_adjust_high_elder_duration
+		}
+	}
+
+	focus = {
+		id = bos_nf_political_blocs
+		icon = GFX_goal_bos_generic_t45_2
+		cost = 30
+		x = -2
+		y = 2
+		relative_position_id = bos_nf_council_reforms
+		prerequisite = {
+			focus = bos_nf_council_reforms
+		}
+		available = {
+			has_political_power > 200
+		}
+		completion_reward = {
+			add_political_power = -200
+			set_country_flag = bos_double_drift_decisions
+			custom_effect_tooltip = bos_political_blocs_tt
+		}
+	}
+
+	focus = {
+		id = bos_nf_election_on_demand
+		icon = GFX_goal_bos_generic_t45_3
+		cost = 30
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_council_reforms
+		prerequisite = {
+			focus = bos_nf_council_reforms
+		}
+		available = {
+			has_political_power > 200
+		}
+		completion_reward = {
+			add_political_power = -200
+			unlock_decision_tooltip = BOS_emergency_promotion
+		}
+	}
+
+	focus = {
+		id = bos_nf_paladins_given_some_sway
+		icon = GFX_goal_bos_generic_t45_4
+		cost = 30
+		x = 0
+		y = 2
+		relative_position_id = bos_nf_council_reforms
+		prerequisite = {
+			focus = bos_nf_council_reforms
+		}
+		available = {
+			has_political_power > 200
+		}
+		completion_reward = {
+			add_political_power = -200
+			add_ideas = bos_nf_paladins_given_some_sway
+		}
+	}
+
+	focus = {
+		id = bos_nf_political_bloc_management
+		icon = GFX_goal_bos_generic_t45_5
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_council_reforms
+		prerequisite = {
+			focus = bos_nf_council_reforms
+		}
+		available = {
+			has_political_power > 200
+		}
+		completion_reward = {
+			add_political_power = -200
+			unlock_decision_tooltip = BOS_ban_elites
+			unlock_decision_tooltip = BOS_ban_ruler
+			unlock_decision_tooltip = BOS_ban_intellectuals
+			unlock_decision_tooltip = BOS_ban_people
+		}
+	}
+
+	focus = {
+		id = bos_nf_freeing_up_the_council_table
+		icon = GFX_goal_bos_generic_t45_6
+		cost = 30
+		x = 2
+		y = 2
+		relative_position_id = bos_nf_council_reforms
+		prerequisite = {
+			focus = bos_nf_council_reforms
+		}
+		available = {
+			has_political_power > 200
+		}
+		completion_reward = {
+			add_political_power = -200
+			unlock_decision_tooltip = BOS_allow_elites
+			unlock_decision_tooltip = BOS_allow_ruler
+			unlock_decision_tooltip = BOS_allow_intellectuals
+			unlock_decision_tooltip = BOS_allow_people
+		}
+	}
+
+	focus = {
+		id = bos_nf_advanced_political_schema
+		icon = GFX_goal_bos_generic_t60_1
+		cost = 30
+		x = 3
+		y = 1
+		relative_position_id = bos_nf_council_reforms
+		prerequisite = {
+			focus = bos_nf_council_reforms
+		}
+		available = {
+			has_political_power > 200
+		}
+		completion_reward = {
+			add_political_power = -200
+			set_country_flag = bos_double_boost_decisions
+			custom_effect_tooltip = bos_political_schema_tt
+		}
+	}
+
+	focus = {
+		id = bos_nf_long_range_communications
+		icon = GFX_goal_BOS_generic
+		cost = 30
+		x = -1
+		y = 1
+
+		relative_position_id = bos_nf_back_to_business
+
+		mutually_exclusive = {
+			focus = bos_nf_long_range_communications_alternative
+		}
+
+		prerequisite = {
+			focus = bos_nf_back_to_business
+		}
+
+		completion_reward = {
+			set_technology = {
+				radio_detection = 1
+				decimetric_radar = 1
+				improved_decimetric_radar = 1
+				centimetric_radar = 1
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_long_range_communications_alternative
+		icon = GFX_goal_BOS_generic
+		cost = 30
+		x = 1
+		y = 1
+
+		relative_position_id = bos_nf_back_to_business
+
+		mutually_exclusive = {
+			focus = bos_nf_long_range_communications
+		}
+
+		prerequisite = {
+			focus = bos_nf_back_to_business
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = bos_nf_long_range_communications_alternative
+				bonus = 0.75
+				uses = 1
+				category = electronics
+			}
+			add_tech_bonus = {
+				name = bos_nf_long_range_communications_alternative
+				bonus = 0.5
+				uses = 3
+				category = radar_tech
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_long_range_radio_towers
+		icon = GFX_goal_generic_satellite
+		cost = 30
+		x = 1
+		y = 3
+
+		relative_position_id = bos_nf_long_range_communications
+
+		available = {
+			OR = {
+				has_completed_focus = bos_nf_long_range_communications
+				has_completed_focus = bos_nf_long_range_communications_alternative
+			}
+		}
+
+		completion_reward = {
+			add_political_power = 150
+			#False positive, but CW tools complains about it.
+			#157 = {
+			#	add_building_construction = {
+			#		type = radar_station
+			#		level = 6
+			#		province = {
+			#			id = 7207
+			#		}
+			#		instant_build = yes
+			#	}
+			#}
+		}
+	}
+
+	focus = {
+		id = bos_nf_long_range_communications_washington_brotherhood
+		icon = GFX_goal_bos_flag_wbh
+		cost = 45
+		x = -4
+		y = 1
+
+		relative_position_id = bos_nf_long_range_radio_towers
+
+		available = {
+			OR = {
+				has_completed_focus = bos_nf_long_range_communications
+				has_completed_focus = bos_nf_long_range_communications_alternative
+			}
+		}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = elites
+				popularity = 0.03
+			}
+			if = {
+				limit = {
+					country_exists = TCA
+					NOT = { country_exists = WBH }
+				}
+				TCA = {
+					country_event = nf_brotherhood_communications.1
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = { country_exists = TCA }
+					country_exists = WBH
+				}
+				WBH = {
+					country_event = nf_brotherhood_communications.1
+				}
+			}
+			else_if = {
+				limit = {
+					country_exists = TCA
+					country_exists = WBH
+				}
+				WBH = {
+					country_event = nf_brotherhood_communications.1
+				}
+				TCA = {
+					country_event = nf_brotherhood_communications.1
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = { country_exists = TCA }
+					NOT = { country_exists = WBH }
+				}
+				WBH = {
+					country_event = nf_brotherhood_communications.1
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_wbh_the_immortals_coup_succesful
+		icon = GFX_goal_WBH_immortal
+		cost = 45
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_long_range_communications_washington_brotherhood
+		mutually_exclusive = {
+			focus = bos_nf_wbh_the_cause_succesful
+		}
+		prerequisite = {
+			focus = bos_nf_long_range_communications_washington_brotherhood
+		}
+		bypass = {
+			NOT = { country_exists = WBH }
+			NOT = { country_exists = TCA }
+		}
+		available = {
+			WBH = {
+				exists = yes
+				TCA = { all_core_land_owned_by_prev_sphere = yes }
+			}
+			has_political_power > @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_TRIGGER
+		}
+
+		completion_reward = {
+			add_political_power = @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_EFFECT
+			set_temp_variable = { BOS_train_paladins_num = 1 }
+			bos_train_paladins = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_wbh_the_cause_succesful
+		icon = GFX_goal_bos_flag_tca
+		cost = 45
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_long_range_communications_washington_brotherhood
+		mutually_exclusive = {
+			focus = bos_nf_wbh_the_immortals_coup_succesful
+		}
+		prerequisite = {
+			focus = bos_nf_long_range_communications_washington_brotherhood
+		}
+		available = {
+			TCA = {
+				exists = yes
+				WBH = { all_core_land_owned_by_prev_sphere = yes }
+			}
+			has_political_power > @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_TRIGGER
+		}
+
+		completion_reward = {
+			add_political_power = @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_EFFECT
+			set_temp_variable = { BOS_train_paladins_num = 1 }
+			bos_train_paladins = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_wbh_the_alaskan_expedition
+		icon = GFX_goal_WBH_great_alaskan_expedition
+		cost = 45
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_wbh_the_immortals_coup_succesful
+		prerequisite = {
+			focus = bos_nf_wbh_the_immortals_coup_succesful
+		}
+		available = {
+			WBH = {
+				exists = yes
+				has_completed_focus = WBH_alaskan_expedition
+			}
+			has_political_power > @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_TRIGGER
+		}
+
+		completion_reward = {
+			add_political_power = @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_EFFECT
+			WBH = {
+				country_event = nf_brotherhood_communications.2
+			}
+			add_manpower = 1000
+			set_temp_variable = { BOS_train_paladins_num = 1 }
+			bos_train_paladins = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_the_masters_army_reborn
+		icon = GFX_goal_NEW_stirring_giants
+		cost = 45
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_wbh_the_immortals_coup_succesful
+		prerequisite = {
+			focus = bos_nf_wbh_the_immortals_coup_succesful
+			focus = bos_nf_wbh_the_cause_succesful
+		}
+		available = {
+			TRL = {
+				exists = yes
+				NOT = { is_in_faction_with = TCA }
+				WBH = { all_core_land_owned_by_prev_sphere = yes }
+			}
+		}
+
+		completion_reward = {
+			bos_upgrade_mutant_experience_law = yes
+			bos_exodus_manpower_modifier_medium = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_tca_conquest_of_the_alaskan_pipeline
+		icon = GFX_goal_BOS_elder_recalled
+		cost = 45
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_wbh_the_cause_succesful
+		prerequisite = {
+			focus = bos_nf_wbh_the_cause_succesful
+		}
+		available = {
+			TCA = {
+				exists = yes
+				BEL = { all_core_land_owned_by_prev_sphere = yes }
+			}
+			has_political_power > @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_TRIGGER
+		}
+
+		completion_reward = {
+			add_political_power = @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_EFFECT
+			TCA = {
+				country_event = nf_brotherhood_communications.2
+			}
+			capital_scope = {
+				add_resource = { type = energy amount = 4 }
+			}
+			set_temp_variable = { BOS_train_paladins_num = 1 }
+			bos_train_paladins = yes
+		}
+	}
+
+
+	focus = {
+		id = bos_nf_long_range_communications_taggerdys_expedition
+		icon = GFX_goal_bos_flag_bap
+		cost = 45
+		x = 0
+		y = 1
+
+		relative_position_id = bos_nf_long_range_radio_towers
+
+		available = {
+			OR = {
+				has_completed_focus = bos_nf_long_range_communications
+				has_completed_focus = bos_nf_long_range_communications_alternative
+			}
+		}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = ruler
+				popularity = 0.03
+			}
+			effect_tooltip = {
+				BAP = {
+					country_event = nf_brotherhood_communications.1
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_bap_conflict_in_the_chapter
+		icon = GFX_goal_bos_generic_crusader_pistol
+		cost = 45
+		x = 1
+		y = 1
+
+		relative_position_id = bos_nf_long_range_communications_taggerdys_expedition
+		prerequisite = {
+			focus = bos_nf_long_range_communications_taggerdys_expedition
+		}
+
+		completion_reward = {
+			army_experience = 10
+		}
+	}
+
+	focus = {
+		id = bos_nf_bap_an_early_super_mutant_threat
+		icon = GFX_goal_bos_generic_super_mutant
+		cost = 45
+		x = -1
+		y = 1
+
+		relative_position_id = bos_nf_long_range_communications_taggerdys_expedition
+		prerequisite = {
+			focus = bos_nf_long_range_communications_taggerdys_expedition
+		}
+
+		completion_reward = {
+			bos_upgrade_mutant_experience_law = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_long_range_communications_mojave_chapter
+		icon = GFX_goal_bos_flag_moj
+		cost = 45
+		x = -7
+		y = 1
+		relative_position_id = bos_nf_long_range_communications
+
+		available = {
+			OR = {
+				has_completed_focus = bos_nf_long_range_communications
+				has_completed_focus = bos_nf_long_range_communications_alternative
+			}
+		}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = elites
+				popularity = 0.03
+			}
+			MOJ = {
+				country_event = nf_brotherhood_communications.1
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_moj_elijahs_downfall
+		icon = GFX_KHA_focus_ncr_tactics
+		cost = 45
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_long_range_communications_mojave_chapter
+		prerequisite = {
+			focus = bos_nf_long_range_communications_mojave_chapter
+		}
+		available = {
+			MOJ = {
+				exists = no
+			}
+		}
+		bypass = {
+			NOT = { country_exists = MOJ }
+			any_owned_state = { is_core_of = MOJ }
+		}
+
+		completion_reward = {
+			set_country_flag = has_completed_bos_nf_moj_elijahs_downfall_not_bypassed
+			bos_exodus_manpower_modifier_micro = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_moj_recruiting_mcnamara
+		icon = GFX_goal_MOJ_mcnamara
+		cost = 45
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_moj_elijahs_downfall
+		prerequisite = {
+			focus = bos_nf_moj_elijahs_downfall
+		}
+		available = {
+			MOJ = {
+				exists = no
+			}
+			if = {
+				limit = {
+					has_completed_focus = bos_nf_moj_elijahs_downfall
+					NOT = {
+						has_country_flag = has_completed_bos_nf_moj_elijahs_downfall_not_bypassed
+					}
+				}
+				#12/21/21 - Zusk
+				#This generates a gross tooltip, but I don't want to plug in a custom trigger for something this rare.
+				NOT = {
+					any_owned_state = {
+						is_core_of = MOJ
+					}
+				}
+				NOT = { has_subject = MOJ }
+			}
+		}
+
+		completion_reward = {
+			set_country_leader_ideology = militarist_technocracy
+			random_character = {
+				limit = {
+					has_character_flag = BOS_stealed_leader
+				}
+				add_country_leader_role = {
+					character = THIS
+
+					country_leader = {
+						ideology = militarist_technocracy
+						expire = "3000.01.01.01"
+						id = -1
+					}
+				}
+				promote_character = yes
+			}
+			MOJ = {
+				every_character = {
+					limit = {
+						is_character = MOJ_nolan_mcnamara
+					}
+					set_nationality = BOS # target country
+				}
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_moj_victory_at_sunburst
+		icon = GFX_goal_MOJ_helious_one
+		cost = 45
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_long_range_communications_mojave_chapter
+		prerequisite = {
+			focus = bos_nf_long_range_communications_mojave_chapter
+		}
+		available = {
+			MOJ = {
+				exists = yes
+				has_completed_focus = moj_the_mojave_secured
+			}
+			has_political_power > @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_TRIGGER
+		}
+
+		completion_reward = {
+			add_political_power = @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_EFFECT
+			MOJ = {
+				country_event = nf_brotherhood_communications.2
+			}
+			set_temp_variable = { BOS_train_paladins_num = 1 }
+			bos_train_paladins = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_study_legionary_tactical_data
+		icon = GFX_goal_NCR_Damassault
+		cost = 45
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_moj_victory_at_sunburst
+		prerequisite = {
+			focus = bos_nf_moj_victory_at_sunburst
+		}
+		available = {
+			MOJ = {
+				exists = yes
+				has_completed_focus = moj_soldiers_of_helios
+			}
+		}
+
+		completion_reward = {
+			bos_upgrade_legion_experience_law = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_moj_elijahs_expeditions
+		icon = GFX_goal_MOJ_old_world_rumors
+		cost = 45
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_moj_victory_at_sunburst
+		prerequisite = {
+			focus = bos_nf_moj_victory_at_sunburst
+		}
+		available = {
+			MOJ = {
+				exists = yes
+				has_completed_focus = moj_begin_again
+			}
+			has_political_power > @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_TRIGGER
+		}
+
+		completion_reward = {
+			add_political_power = @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_EFFECT
+			set_temp_variable = { BOS_train_paladins_num = 1 }
+			bos_train_paladins = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_long_range_communications_maxson_chapter
+		icon = GFX_goal_bos_flag_mxc
+		cost = 45
+		x = 9
+		y = 1
+		relative_position_id = bos_nf_long_range_communications
+
+		available = {
+			OR = {
+				has_completed_focus = bos_nf_long_range_communications
+				has_completed_focus = bos_nf_long_range_communications_alternative
+			}
+		}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = elites
+				popularity = 0.03
+			}
+			MXC = {
+				country_event = nf_brotherhood_communications.1
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_maxsons_end
+		icon = GFX_goal_generic_van_buren_power_armour
+		cost = 45
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_long_range_communications_maxson_chapter
+		prerequisite = {
+			focus = bos_nf_long_range_communications_maxson_chapter
+		}
+		available = {
+			NOT = { country_exists = MXC }
+		}
+		bypass = {
+			NOT = { country_exists = MXC }
+			any_owned_state = { is_core_of = MXC }
+		}
+
+		completion_reward = {
+			bos_exodus_manpower_modifier_small = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_maxson_victorious
+		icon = GFX_goal_generic_BOS_focus_t51b_production
+		cost = 45
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_long_range_communications_maxson_chapter
+		prerequisite = {
+			focus = bos_nf_long_range_communications_maxson_chapter
+		}
+		available = {
+			MXC = {
+				exists = yes
+				num_of_controlled_states > 5
+				date > 2278.1.1
+			}
+			has_political_power > @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_TRIGGER
+		}
+
+		completion_reward = {
+			add_political_power = @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_EFFECT
+			MXC = {
+				country_event = nf_brotherhood_communications.2
+			}
+			set_temp_variable = { BOS_train_paladins_num = 1 }
+			bos_train_paladins = yes
+		}
+	}
+	focus = {
+		id = bos_nf_mxc_denvers_treasures
+		icon = GFX_goal_generic_scyscrapers_prewar
+		cost = 45
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_maxson_victorious
+		prerequisite = {
+			focus = bos_nf_maxson_victorious
+		}
+		available = {
+			MXC = {
+				exists = yes
+				controls_state = 525
+			}
+			has_political_power > @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_TRIGGER
+		}
+
+		completion_reward = {
+			add_political_power = @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_EFFECT
+			capital_scope = {
+				add_resource = { type = metal amount = 4 }
+			}
+			set_temp_variable = { BOS_train_paladins_num = 1 }
+			bos_train_paladins = yes
+		}
+	}
+	focus = {
+		id = bos_nf_eastern_legionary_tactical_data
+		icon = GFX_goal_LAC_monster_of_the_east
+		cost = 45
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_maxson_victorious
+		prerequisite = {
+			focus = bos_nf_maxson_victorious
+		}
+		available = {
+			country_exists = MXC
+			NOT = { country_exists = LAC }
+		}
+
+		completion_reward = {
+			bos_upgrade_legion_experience_law = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_long_range_communications_texas_expedition
+		icon = GFX_goal_bos_flag_tbh
+		cost = 45
+		x = -5
+		y = 4
+
+		relative_position_id = bos_nf_long_range_radio_towers
+
+		available = {
+			OR = {
+				has_completed_focus = bos_nf_long_range_communications
+				has_completed_focus = bos_nf_long_range_communications_alternative
+			}
+		}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = ruler
+				popularity = 0.03
+			}
+			if = {
+				limit = {
+					908 = {
+						NOT = { is_core_of = ACH }
+					}
+				}
+				TBH = {
+					country_event = nf_brotherhood_communications.1
+				}
+			}
+			else = {
+				ACH = {
+					country_event = nf_brotherhood_communications.1
+					set_country_flag = got_lost_hills_communique
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_tbh_an_unexpected_end
+		icon = GFX_goal_focus_arm_alamo
+		cost = 45
+		x = -1
+		y = 1
+
+		relative_position_id = bos_nf_long_range_communications_texas_expedition
+		available = {
+			NOT = { country_exists = TBH }
+			NOT = { country_exists = ACH }
+			#Purposefully doesn't include fallback for TEX formation. Texas forming is considered Brotherhood dying to Lost Hills.
+		}
+		prerequisite = {
+			focus = bos_nf_long_range_communications_texas_expedition
+		}
+		bypass = {
+			NOT = { country_exists = TBH }
+			NOT = { country_exists = ACH }
+			any_owned_state = { is_core_of = TBH }
+			any_owned_state = { is_core_of = ACH }
+		}
+
+		completion_reward = {
+			bos_exodus_manpower_modifier_large = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_coronate_the_alamo_chapter
+		icon = GFX_goal_bos_flag_ach
+		cost = 45
+		x = 1
+		y = 1
+
+		relative_position_id = bos_nf_long_range_communications_texas_expedition
+		available = {
+			country_exists = ACH
+			has_political_power > @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_TRIGGER
+		}
+		prerequisite = {
+			focus = bos_nf_long_range_communications_texas_expedition
+		}
+
+		completion_reward = {
+			add_political_power = @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_EFFECT
+			if = {
+				limit = {
+					ACH = {
+						NOT = { has_country_flag = got_lost_hills_communique }
+					}
+				}
+				ACH = {
+					country_event = nf_brotherhood_communications.1
+				}
+			}
+			set_temp_variable = { BOS_train_paladins_num = 1 }
+			bos_train_paladins = yes
+			ACH = { bos_add_to_ledger = yes }
+		}
+	}
+	focus = {
+		id = bos_nf_victory_over_machines
+		icon = GFX_goal_ARM_ciudad_valles_land_acquisition
+		cost = 45
+		x = 1
+		y = 1
+
+		relative_position_id = bos_nf_coronate_the_alamo_chapter
+		available = {
+			ACH = {
+				exists = yes #Not neccesary, but cleans up the tooltip
+				ARM = { all_core_land_owned_by_prev_sphere = yes }
+			}
+			has_political_power > @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_TRIGGER
+		}
+		prerequisite = {
+			focus = bos_nf_coronate_the_alamo_chapter
+		}
+
+		completion_reward = {
+			add_political_power = @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_EFFECT
+			ACH = {
+				country_event = nf_brotherhood_communications.2
+			}
+			capital_scope = {
+				add_resource = { type = circuitry amount = 4 }
+			}
+			set_temp_variable = { BOS_train_paladins_num = 1 }
+			bos_train_paladins = yes
+		}
+	}
+	focus = {
+		id = bos_nf_texaco_oil_rig
+		icon = GFX_goal_generic_generic_oil_rig
+		cost = 45
+		x = -1
+		y = 1
+
+		relative_position_id = bos_nf_coronate_the_alamo_chapter
+		available = {
+			ACH = {
+				exists = yes
+				has_completed_focus = ach_nf_send_it_all_west
+			}
+		}
+		prerequisite = {
+			focus = bos_nf_coronate_the_alamo_chapter
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = bos_nf_texaco_oil_rig
+				bonus = 0.6
+				uses = 1
+				category = electronics
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_long_range_communications_midwest_expedition
+		icon = GFX_goal_bos_flag_bmw
+		cost = 45
+		x = 0
+		y = 4
+
+		relative_position_id = bos_nf_long_range_radio_towers
+
+		available = {
+			OR = {
+				has_completed_focus = bos_nf_long_range_communications
+				has_completed_focus = bos_nf_long_range_communications_alternative
+			}
+		}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = ruler
+				popularity = 0.03
+			}
+			BMW = {
+				country_event = nf_brotherhood_communications.1
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_ending_the_dream
+		icon = GFX_goal_bos_generic_usa
+		cost = 45
+		x = -1
+		y = 1
+
+		relative_position_id = bos_nf_long_range_communications_midwest_expedition
+		available = {
+			BMW = {
+				has_country_flag = bos_offmap_chapter_died
+			}
+		}
+		bypass = {
+			NOT = { country_exists = BMW }
+			any_owned_state = { is_core_of = BMW }
+		}
+		prerequisite = {
+			focus = bos_nf_long_range_communications_midwest_expedition
+		}
+
+		completion_reward = {
+			bos_exodus_manpower_modifier_large = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_chicagos_reclaimation
+		icon = GFX_goal_bos_generic_ata
+		cost = 45
+		x = 1
+		y = 1
+
+		relative_position_id = bos_nf_long_range_communications_midwest_expedition
+		available = {
+			BMW = {
+				has_country_flag = bmw_won
+			}
+			has_political_power > @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_TRIGGER
+		}
+		prerequisite = {
+			focus = bos_nf_long_range_communications_midwest_expedition
+		}
+
+		completion_reward = {
+			add_political_power = @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_EFFECT
+			BMW = {
+				country_event = nf_brotherhood_communications.2
+			}
+			set_temp_variable = { BOS_train_paladins_num = 1 }
+			bos_train_paladins = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_bmw_midwest_enclave_tactical_experience
+		icon = GFX_goal_bos_generic_infantry_2
+		cost = 45
+		x = -2
+		y = 1
+
+		relative_position_id = bos_nf_chicagos_reclaimation
+		available = {
+			BMW = {
+				has_country_flag = bmw_won
+			}
+		}
+		prerequisite = {
+			focus = bos_nf_chicagos_reclaimation
+		}
+
+		completion_reward = {
+			bos_upgrade_enclave_experience_law = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_the_secrataries_secrets
+		icon = GFX_goal_bos_generic_circuit
+		cost = 45
+		x = 0
+		y = 1
+
+		relative_position_id = bos_nf_chicagos_reclaimation
+		available = {
+			BMW = {
+				has_country_flag = bmw_won
+			}
+			has_political_power > @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_TRIGGER
+		}
+		prerequisite = {
+			focus = bos_nf_chicagos_reclaimation
+		}
+
+		completion_reward = {
+			add_political_power = @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_EFFECT
+			army_experience = 10
+			set_temp_variable = { BOS_train_paladins_num = 1 }
+			bos_train_paladins = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_long_range_communications_gulf_expedition
+		icon = GFX_goal_bos_flag_bgf
+		cost = 45
+		x = 5
+		y = 4
+
+		relative_position_id = bos_nf_long_range_radio_towers
+
+		available = {
+			OR = {
+				has_completed_focus = bos_nf_long_range_communications
+				has_completed_focus = bos_nf_long_range_communications_alternative
+			}
+		}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = elites
+				popularity = 0.03
+			}
+			BGF = {
+				country_event = nf_brotherhood_communications.1
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_bgf_run_down
+		icon = GFX_goal_generic_holy_shit_its_wendigos
+		cost = 45
+		x = 1
+		y = 1
+
+		relative_position_id = bos_nf_long_range_communications_gulf_expedition
+
+		prerequisite = {
+			focus = bos_nf_long_range_communications_gulf_expedition
+		}
+		available = {
+			BGF = {
+				has_country_flag = bos_offmap_chapter_died
+			}
+		}
+		bypass = {
+			NOT = { country_exists = BGF }
+			any_owned_state = { is_core_of = BGF }
+		}
+		completion_reward = {
+			bos_exodus_manpower_modifier_small = yes
+		}
+	}
+	focus = {
+		id = bos_nf_bgf_dominion_over_the_peninsula
+		icon = GFX_goal_WBH_eradicate_the_mutants
+		cost = 45
+		x = -1
+		y = 1
+
+		relative_position_id = bos_nf_long_range_communications_gulf_expedition
+		available = {
+			BGF = {
+				has_country_flag = bgf_won
+			}
+			has_political_power > @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_TRIGGER
+		}
+		prerequisite = {
+			focus = bos_nf_long_range_communications_gulf_expedition
+		}
+
+		completion_reward = {
+			add_political_power = @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_EFFECT
+			BGF = {
+				country_event = nf_brotherhood_communications.2
+			}
+			set_temp_variable = { BOS_train_paladins_num = 1 }
+			bos_train_paladins = yes
+		}
+	}
+	focus = {
+		id = bos_nf_bgf_desoto_drug_trade
+		icon = GFX_goal_NEW_Jet_Beta_is_finished
+		cost = 45
+		x = -1
+		y = 1
+
+		relative_position_id = bos_nf_bgf_dominion_over_the_peninsula
+
+		prerequisite = {
+			focus = bos_nf_bgf_dominion_over_the_peninsula
+		}
+		available = {
+			BGF = {
+				has_country_flag = bgf_won
+			}
+			has_political_power > @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_TRIGGER
+		}
+		completion_reward = {
+			add_political_power = @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_EFFECT
+			set_temp_variable = { caps_to_add = 75 }
+			add_caps = yes
+			set_temp_variable = { BOS_train_paladins_num = 1 }
+			bos_train_paladins = yes
+		}
+	}
+	focus = {
+		id = bos_nf_bgf_the_fountain_of_dreams
+		icon = GFX_goal_land_flag
+		cost = 45
+		x = 1
+		y = 1
+
+		relative_position_id = bos_nf_bgf_dominion_over_the_peninsula
+		available = {
+			BGF = {
+				has_country_flag = bgf_won
+			}
+		}
+		prerequisite = {
+			focus = bos_nf_bgf_dominion_over_the_peninsula
+		}
+
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = support_equipment_1
+				amount = 1500
+				producer = USA
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_long_range_communications_san_fran_chapter
+		icon = GFX_goal_bos_flag_shi
+		cost = 45
+		x = -3
+		y = 1
+		relative_position_id = bos_nf_long_range_communications
+
+		available = {
+			OR = {
+				has_completed_focus = bos_nf_long_range_communications
+				has_completed_focus = bos_nf_long_range_communications_alternative
+			}
+		}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = elites
+				popularity = 0.03
+			}
+
+			effect_tooltip = {
+				BSF = {
+					country_event = nf_brotherhood_communications.1
+				}
+			}
+			hidden_effect = {
+				SHI = {
+					country_event = nf_brotherhood_communications.1
+				}
+			}
+		}
+	}
+	#Purposefully easy trigger, meant to be a soft 'introduction' to how recruiting paladins should work.
+	focus = {
+		id = bos_nf_shi_contact_the_bunkers
+		icon = GFX_goal_BOS_generic_industrial
+		cost = 45
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_long_range_communications_san_fran_chapter
+
+		prerequisite = {
+			focus = bos_nf_long_range_communications_san_fran_chapter
+		}
+
+		available = {
+			has_political_power > @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_TRIGGER
+		}
+		completion_reward = {
+			add_political_power = @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_EFFECT
+			set_temp_variable = { BOS_train_paladins_num = 1 }
+			bos_train_paladins = yes
+		}
+	}
+	focus = {
+		id = bos_nf_shi_the_chapters_unexpected_growth
+		icon = GFX_goal_BOS_force_of_arms
+		cost = 45
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_long_range_communications_san_fran_chapter
+		available = {
+			SHI = {
+				has_country_flag = san_francisco_chapter_established
+			}
+			has_political_power > @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_TRIGGER
+		}
+		prerequisite = {
+			focus = bos_nf_long_range_communications_san_fran_chapter
+		}
+
+		completion_reward = {
+			add_political_power = @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_EFFECT
+			set_temp_variable = { BOS_train_paladins_num = 1 }
+			bos_train_paladins = yes
+		}
+	}
+	focus = {
+		id = bos_nf_shi_the_emperors_blessing
+		icon = GFX_goal_shi_focus_golden_dragon
+		cost = 45
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_shi_the_chapters_unexpected_growth
+		available = {
+			is_in_faction_with = SHI
+		}
+		prerequisite = {
+			focus = bos_nf_shi_the_chapters_unexpected_growth
+		}
+
+		completion_reward = {
+			effect_tooltip = {
+				BSF = {
+					country_event = nf_brotherhood_communications.2
+				}
+			}
+			hidden_effect = {
+				SHI = {
+					country_event = nf_brotherhood_communications.2
+				}
+			}
+			add_tech_bonus = {
+				name = bos_nf_air_research
+				bonus = 0.6
+				uses = 1
+				category = air_tech_category
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_long_range_communications_guardian_brotherhood
+		icon = GFX_goal_bos_flag_grd
+		cost = 45
+		x = 5
+		y = 1
+		relative_position_id = bos_nf_long_range_communications
+
+		available = {
+			OR = {
+				has_completed_focus = bos_nf_long_range_communications
+				has_completed_focus = bos_nf_long_range_communications_alternative
+			}
+		}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = intellectuals
+				popularity = 0.03
+			}
+			GRD = {
+				country_event = nf_brotherhood_communications.1
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_grd_guardians_failed
+		icon = GFX_goal_enc_anti_bos
+		cost = 45
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_long_range_communications_guardian_brotherhood
+		prerequisite = {
+			focus = bos_nf_long_range_communications_guardian_brotherhood
+		}
+		available = {
+			NOT = { country_exists = GRD }
+		}
+
+		bypass = {
+			NOT = { country_exists = GRD }
+			OR = {
+				any_owned_state = {
+					is_core_of = GRD
+				}
+				owns_state = 210
+				owns_state = 944
+				owns_state = 526
+			}
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_completed_focus = bos_nf_grd_reach_out_to_the_guardians
+				}
+				bos_exodus_manpower_modifier_small = yes
+			}
+			else = {
+				army_experience = 15
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_grd_guardians_succesful
+		icon = GFX_goal_generic_focus_magazine_gunsandbullets_plasma
+		cost = 45
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_long_range_communications_guardian_brotherhood
+		prerequisite = {
+			focus = bos_nf_long_range_communications_guardian_brotherhood
+		}
+		available = {
+			GRD = {
+				owns_state = 945
+			}
+			has_political_power > @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_TRIGGER
+		}
+
+		completion_reward = {
+			add_political_power = @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_EFFECT
+			set_temp_variable = { BOS_train_paladins_num = 1 }
+			bos_train_paladins = yes
+		}
+	}
+	focus = {
+		id = bos_nf_grd_reach_out_to_the_guardians
+		icon = GFX_goal_generic_BoS_diplomatic_focus
+		cost = 45
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_grd_guardians_succesful
+		prerequisite = {
+			focus = bos_nf_grd_guardians_succesful
+		}
+		available = {
+			GRD = {
+				exists = yes
+				is_subject = no
+				has_war = no
+			}
+		}
+
+		completion_reward = {
+			GRD = {
+				country_event = nf_brotherhood_integrate_guardians.1
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_grd_wonders_of_tv_town
+		icon = GFX_goal_big_mt_higgs_village
+		cost = 45
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_grd_guardians_succesful
+		prerequisite = {
+			focus = bos_nf_grd_guardians_succesful
+		}
+		available = {
+			GRD = {
+				has_completed_focus = nevada_tvt_consolidation
+			}
+			has_political_power > @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_TRIGGER
+		}
+
+		completion_reward = {
+			add_political_power = @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_EFFECT
+			GRD = {
+				country_event = nf_brotherhood_communications.2
+			}
+			capital_scope = {
+				add_resource = { type = advanced amount = 4 }
+			}
+			set_temp_variable = { BOS_train_paladins_num = 1 }
+			bos_train_paladins = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_long_range_communications_the_lyons_expedition
+		icon = GFX_goal_bos_flag_bls
+		cost = 45
+		x = 0
+		y = 7
+
+		relative_position_id = bos_nf_long_range_radio_towers
+
+		available = {
+			OR = {
+				has_completed_focus = bos_nf_long_range_communications
+				has_completed_focus = bos_nf_long_range_communications_alternative
+			}
+		}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = ruler
+				popularity = 0.03
+			}
+			BLS = {
+				country_event = nf_brotherhood_communications.1
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_bls_shephards_conquest
+		icon = GFX_goal_mutant_war_focus
+		cost = 45
+		x = -3
+		y = 1
+		relative_position_id = bos_nf_long_range_communications_the_lyons_expedition
+		mutually_exclusive = {
+			focus = bos_nf_bls_edens_victory
+		}
+		prerequisite = {
+			focus = bos_nf_long_range_communications_the_lyons_expedition
+		}
+		available = {
+			BLS = {
+				has_country_flag = bls_shephard
+			}
+		}
+
+		completion_reward = {
+			bos_exodus_manpower_modifier_large = yes
+		}
+	}
+	focus = {
+		id = bos_nf_bls_outcasts_travel_to_the_pit
+		icon = GFX_goal_generic_dark_paladins
+		cost = 45
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_bls_shephards_conquest
+		prerequisite = {
+			focus = bos_nf_bls_shephards_conquest
+			focus = bos_nf_bls_edens_victory
+		}
+		available = {
+			BLS = {
+				OR = {
+					has_country_flag = bls_shephard
+					has_country_flag = bls_enclave
+				}
+				hidden_trigger = {
+					has_country_flag = bos_offmap_chapter_died
+				}
+			}
+			has_political_power > @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_TRIGGER
+		}
+
+		completion_reward = {
+			add_political_power = @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_EFFECT
+			add_war_support = 0.05
+			set_temp_variable = { BOS_train_paladins_num = 1 }
+			bos_train_paladins = yes
+		}
+	}
+	focus = {
+		id = bos_nf_bls_eastern_mutant_tactical_experience
+		icon = GFX_goal_mutant_supremacy
+		cost = 45
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_bls_shephards_conquest
+		prerequisite = {
+			focus = bos_nf_bls_shephards_conquest
+		}
+		available = {
+			BLS = {
+				has_country_flag = bls_shephard
+				hidden_trigger = {
+					has_country_flag = bos_offmap_chapter_died
+				}
+			}
+		}
+
+		completion_reward = {
+			bos_upgrade_mutant_experience_law = yes
+		}
+	}
+	focus = {
+		id = bos_nf_bls_edens_victory
+		icon = GFX_goal_ENC_eyebot_reform
+		cost = 45
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_long_range_communications_the_lyons_expedition
+		mutually_exclusive = {
+			focus = bos_nf_bls_shephards_conquest
+		}
+		prerequisite = {
+			focus = bos_nf_long_range_communications_the_lyons_expedition
+		}
+		available = {
+			BLS = {
+				has_country_flag = bls_enclave
+				hidden_trigger = {
+					has_country_flag = bos_offmap_chapter_died
+				}
+			}
+		}
+
+		completion_reward = {
+			bos_exodus_manpower_modifier_large = yes
+		}
+	}
+	focus = {
+		id = bos_nf_bls_lyons_libery_prime_archives
+		icon = GFX_goal_VEG_Vegas_Prime
+		cost = 45
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_long_range_communications_the_lyons_expedition
+		prerequisite = {
+			focus = bos_nf_long_range_communications_the_lyons_expedition
+		}
+		available = {
+			BLS = {
+				has_country_flag = bls_project_purity
+			}
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = bos_nf_bls_lyons_libery_prime_archives
+				bonus = 0.25
+				ahead_reduction = 1
+				uses = 3
+				category = robotics_tech_category
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_bls_the_anchorage_simulation
+		icon = GFX_goal_generic_chinese_propaganda_2
+		cost = 45
+		x = 3
+		y = 1
+		relative_position_id = bos_nf_long_range_communications_the_lyons_expedition
+		prerequisite = {
+			focus = bos_nf_long_range_communications_the_lyons_expedition
+		}
+		available = {
+			BLS = {
+				has_country_flag = bls_project_purity
+			}
+		}
+
+		completion_reward = {
+			army_experience = 30
+			add_equipment_to_stockpile = {
+				type = power_armor_equipment_4
+				amount = 1
+				producer = USA
+			}
+			add_equipment_to_stockpile = {
+				type = gauss_equipment_2
+				amount = 1
+				producer = USA
+			}
+			add_equipment_to_stockpile = {
+				type = spec_ops_equipment_5
+				amount = 1
+				producer = USA
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_bls_lyons_project_purity
+		icon = GFX_goal_bls_project_purity
+		cost = 45
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_bls_lyons_libery_prime_archives
+		prerequisite = {
+			focus = bos_nf_bls_lyons_libery_prime_archives
+			focus = bos_nf_bls_the_anchorage_simulation
+		}
+		available = {
+			BLS = {
+				has_country_flag = bls_project_purity
+			}
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_tech_bonus = {
+				name = bos_nf_bls_lyons_project_purity
+				bonus = 0.25
+				uses = 5
+				category = support_medical_tech_category
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_bls_eastern_enclave_tactical_experience
+		icon = GFX_goal_enc_verti
+		cost = 45
+		x = 3
+		y = 1
+		relative_position_id = bos_nf_bls_lyons_libery_prime_archives
+		prerequisite = {
+			focus = bos_nf_bls_lyons_libery_prime_archives
+			focus = bos_nf_bls_the_anchorage_simulation
+		}
+		available = {
+			BLS = {
+				has_country_flag = bls_project_purity
+			}
+		}
+
+		completion_reward = {
+			bos_upgrade_enclave_experience_law = yes
+		}
+	}
+	focus = {
+		id = bos_nf_bls_dominion_over_dc
+		icon = GFX_goal_bos_generic_t45_1
+		cost = 45
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_bls_lyons_libery_prime_archives
+		prerequisite = {
+			focus = bos_nf_long_range_communications_the_lyons_expedition
+		}
+		available = {
+			BLS = {
+				has_country_flag = bls_project_purity
+			}
+			has_political_power > @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_TRIGGER
+		}
+
+		completion_reward = {
+			add_political_power = @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_EFFECT
+			BLS = {
+				country_event = nf_brotherhood_communications.2
+			}
+			set_temp_variable = { BOS_train_paladins_num = 1 }
+			bos_train_paladins = yes
+		}
+	}
+	focus = {
+		id = bos_nf_bls_outcasts_triumphant
+		icon = GFX_goal_bos_flag_bls_outcast
+		cost = 45
+		x = -2
+		y = 1
+		relative_position_id = bos_nf_bls_dominion_over_dc
+		mutually_exclusive = {
+			#focus = bos_nf_bls_outcasts_triumphant
+			focus = bos_nf_bls_sarahs_rise
+			focus = bos_nf_bls_the_hero_of_man
+		}
+		prerequisite = {
+			focus = bos_nf_bls_dominion_over_dc
+		}
+		available = {
+			BLS = {
+				has_country_flag = bls_project_purity
+				has_country_flag = bls_outcasts
+			}
+			has_political_power > @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_TRIGGER
+		}
+
+		completion_reward = {
+			add_political_power = @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_EFFECT
+			set_temp_variable = { BOS_train_paladins_num = 1 }
+			bos_train_paladins = yes
+		}
+	}
+	focus = {
+		id = bos_nf_bls_sarahs_rise
+		icon = GFX_goal_bos_flag_bls_sarah
+		cost = 45
+		x = 0
+		y = 1
+		relative_position_id = bos_nf_bls_dominion_over_dc
+		mutually_exclusive = {
+			focus = bos_nf_bls_outcasts_triumphant
+			#focus = bos_nf_bls_sarahs_rise
+			focus = bos_nf_bls_the_hero_of_man
+		}
+		prerequisite = {
+			focus = bos_nf_bls_dominion_over_dc
+		}
+		available = {
+			BLS = {
+				has_country_flag = bls_project_purity
+				has_country_flag = bls_mended_outcasts
+				has_country_flag = bls_sarah_leader
+			}
+			has_political_power > @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_TRIGGER
+		}
+
+		completion_reward = {
+			add_political_power = @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_EFFECT
+			set_temp_variable = { BOS_train_paladins_num = 1 }
+			bos_train_paladins = yes
+		}
+	}
+	focus = {
+		id = bos_nf_bls_the_hero_of_man
+		icon = GFX_goal_bos_flag_bls_arthur
+		cost = 45
+		x = 2
+		y = 1
+		relative_position_id = bos_nf_bls_dominion_over_dc
+		mutually_exclusive = {
+			focus = bos_nf_bls_outcasts_triumphant
+			focus = bos_nf_bls_sarahs_rise
+			#focus = bos_nf_bls_the_hero_of_man
+		}
+		prerequisite = {
+			focus = bos_nf_bls_dominion_over_dc
+		}
+		available = {
+			BLS = {
+				has_country_flag = bls_project_purity
+				has_country_flag = bls_mended_outcasts
+				has_character = BOS_arthur_maxson
+				has_country_flag = bls_arthur_leader
+			}
+			has_political_power > @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_TRIGGER
+		}
+
+		completion_reward = {
+			add_political_power = @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_EFFECT
+			set_temp_variable = { BOS_train_paladins_num = 1 }
+			bos_train_paladins = yes
+		}
+	}
+	focus = {
+		id = bos_nf_bls_victory_in_the_commonwealth
+		icon = GFX_goal_bos_generic_t45_2
+		cost = 45
+		x = -1
+		y = 2
+		relative_position_id = bos_nf_bls_dominion_over_dc
+		mutually_exclusive = {
+			focus = bos_nf_bls_mankind_redefined
+		}
+		prerequisite = {
+			focus = bos_nf_bls_outcasts_triumphant
+			focus = bos_nf_bls_sarahs_rise
+			focus = bos_nf_bls_the_hero_of_man
+		}
+		available = {
+			BLS = {
+				has_country_flag = bls_boston
+			}
+			has_political_power > @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_TRIGGER
+		}
+
+		completion_reward = {
+			add_political_power = @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_EFFECT
+			BLS = {
+				country_event = nf_brotherhood_communications.2
+			}
+			capital_scope = {
+				add_resource = { type = advanced amount = 4 }
+			}
+			set_temp_variable = { BOS_train_paladins_num = 1 }
+			bos_train_paladins = yes
+		}
+	}
+	focus = {
+		id = bos_nf_bls_mankind_redefined
+		icon = GFX_goal_bos_generic_institute
+		cost = 45
+		x = 1
+		y = 2
+		relative_position_id = bos_nf_bls_dominion_over_dc
+		mutually_exclusive = {
+			focus = bos_nf_bls_victory_in_the_commonwealth
+		}
+		prerequisite = {
+			focus = bos_nf_bls_outcasts_triumphant
+			focus = bos_nf_bls_sarahs_rise
+			focus = bos_nf_bls_the_hero_of_man
+		}
+		available = {
+			BLS = {
+				has_country_flag = bos_offmap_chapter_died
+			}
+		}
+
+		completion_reward = {
+			bos_exodus_manpower_modifier_large = yes
+		}
+	}
+
+	focus = {
+		id = bos_nf_long_range_communications_montana_chapter
+		icon = GFX_goal_bos_flag_mch
+		cost = 45
+		x = 4
+		y = 1
+
+		relative_position_id = bos_nf_long_range_radio_towers
+
+		available = {
+			OR = {
+				has_completed_focus = bos_nf_long_range_communications
+				has_completed_focus = bos_nf_long_range_communications_alternative
+			}
+		}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = ruler
+				popularity = 0.03
+			}
+			MNC = {
+				country_event = nf_brotherhood_communications.1
+			}
+		}
+	}
+
+	focus = {
+		id = bos_nf_mch_the_expeditions_end
+		icon = GFX_goal_BOS_forbidden_secrets
+		cost = 45
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_long_range_communications_montana_chapter
+		prerequisite = {
+			focus = bos_nf_long_range_communications_montana_chapter
+		}
+		available = {
+			NOT = { country_exists = MNC }
+		}
+		bypass = {
+			any_owned_state = { is_core_of = MNC }
+		}
+
+		completion_reward = {
+			bos_exodus_manpower_modifier_medium = yes
+		}
+	}
+	focus = {
+		id = bos_nf_mch_victory_over_mcarthur
+		icon = GFX_goal_mnc_tactics_cover
+		cost = 45
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_long_range_communications_montana_chapter
+		prerequisite = {
+			focus = bos_nf_long_range_communications_montana_chapter
+		}
+		available = {
+			MNC = {
+				owns_state = 656
+			}
+			has_political_power > @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_TRIGGER
+		}
+
+		completion_reward = {
+			add_political_power = @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_EFFECT
+			MNC = {
+				country_event = nf_brotherhood_communications.2
+			}
+			set_temp_variable = { BOS_train_paladins_num = 1 }
+			bos_train_paladins = yes
+		}
+	}
+	focus = {
+		id = bos_nf_mch_western_enclave_tactical_experience
+		icon = GFX_goal_enclave_approval
+		cost = 45
+		x = -3
+		y = 1
+		relative_position_id = bos_nf_mch_victory_over_mcarthur
+		prerequisite = {
+			focus = bos_nf_mch_victory_over_mcarthur
+		}
+		available = {
+		}
+
+		completion_reward = {
+			bos_upgrade_enclave_experience_law = yes
+		}
+	}
+	focus = {
+		id = bos_nf_mch_conquest_of_the_steam
+		icon = GFX_goal_HEA_focus_billowing_cathedral
+		cost = 45
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_mch_victory_over_mcarthur
+		prerequisite = {
+			focus = bos_nf_mch_victory_over_mcarthur
+		}
+		available = {
+			MNC = {
+				owns_state = 1384
+			}
+			has_political_power > @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_TRIGGER
+		}
+
+		completion_reward = {
+			add_political_power = @BOS_PALADIN_FOCUS_POLITICAL_POWER_COST_EFFECT
+			capital_scope = {
+				add_resource = { type = energy amount = 2 }
+				add_resource = { type = advanced amount = 2 }
+			}
+			set_temp_variable = { BOS_train_paladins_num = 1 }
+			bos_train_paladins = yes
+		}
+	}
+	focus = {
+		id = bos_nf_mch_conquest_of_yellowstone
+		icon = GFX_goal_TTM_Greenway_Hydroponics
+		cost = 45
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_mch_victory_over_mcarthur
+		prerequisite = {
+			focus = bos_nf_mch_victory_over_mcarthur
+		}
+		available = {
+			MNC = {
+				owns_state = 590
+			}
+		}
+
+		completion_reward = {
+			capital_scope = {
+				add_resource = { type = composites amount = 2 }
+				add_resource = { type = energy amount = 2 }
+				add_resource = { type = metal amount = 2 }
+				add_resource = { type = water amount = 2 }
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_northern_california
+		icon = GFX_goal_generic_industrial_truck
+		cost = 30
+		x = -7
+		y = 1
+		relative_position_id = bos_nf_preparing_for_expansion
+		prerequisite = {
+			focus = bos_nf_preparing_for_expansion
+		}
+		available = {
+			SHI = { all_core_land_owned_by_prev_sphere = yes }
+			EUR = { all_core_land_owned_by_prev_sphere = yes }
+			TDN = { all_core_land_owned_by_prev_sphere = yes }
+			ARR = { all_core_land_owned_by_prev_sphere = yes }
+		}
+		completion_reward = {
+			add_state_core = 163
+			add_state_core = 548
+			add_state_core = 135
+		}
+	}
+	focus = {
+		id = bos_nf_baja_california
+		icon = GFX_goal_NCR_Baja
+		cost = 30
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_northern_california
+		prerequisite = {
+			focus = bos_nf_northern_california
+		}
+		available = {
+			RAP = { all_core_land_owned_by_prev_sphere = yes }
+			BVC = { all_core_land_owned_by_prev_sphere = yes }
+			BLP = { all_core_land_owned_by_prev_sphere = yes }
+		}
+		completion_reward = {
+			add_state_core = 41
+			add_state_core = 325
+			add_state_core = 97
+		}
+	}
+	focus = {
+		id = bos_nf_the_mojave
+		icon = GFX_goal_NCR_MojaveOutpost
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_northern_california
+		prerequisite = {
+			focus = bos_nf_northern_california
+		}
+		available = {
+			VEG = { all_core_land_owned_by_prev_sphere = yes }
+			MOS = { all_core_land_owned_by_prev_sphere = yes }
+			MOT = { all_core_land_owned_by_prev_sphere = yes }
+		}
+		completion_reward = {
+			add_state_core = 46
+			add_state_core = 417
+			add_state_core = 252
+		}
+	}
+	focus = {
+		id = bos_nf_oregon
+		icon = GFX_goal_oregon_the_beaver_state
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_baja_california
+		prerequisite = {
+			focus = bos_nf_baja_california
+			focus = bos_nf_the_mojave
+		}
+		available = {
+			TRL = { all_core_land_owned_by_prev_sphere = yes }
+			BDT = { all_core_land_owned_by_prev_sphere = yes }
+			MLT = { all_core_land_owned_by_prev_sphere = yes }
+			DIS = { all_core_land_owned_by_prev_sphere = yes }
+			TIM = { all_core_land_owned_by_prev_sphere = yes }
+		}
+		completion_reward = {
+			add_state_core = 71
+			add_state_core = 358
+			add_state_core = 231
+		}
+	}
+	focus = {
+		id = bos_nf_broken_coast
+		icon = GFX_goal_BRK_broken_no_longer
+		cost = 30
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_oregon
+		prerequisite = {
+			focus = bos_nf_oregon
+		}
+		available = {
+			BRK = { all_core_land_owned_by_prev_sphere = yes }
+			BEL = { all_core_land_owned_by_prev_sphere = yes }
+		}
+		completion_reward = {
+			add_state_core = 21
+			add_state_core = 492
+		}
+	}
+	focus = {
+		id = bos_nf_integrating_chapters
+		icon = GFX_goal_bos_generic_bunker_1
+		cost = 30
+		x = 0
+		y = 1
+		relative_position_id = bos_nf_preparing_for_expansion
+		prerequisite = {
+			focus = bos_nf_preparing_for_expansion
+		}
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = bos_nf_integrating_mxc
+		icon = GFX_goal_bos_flag_mxc
+		cost = 30
+		x = -2
+		y = 1
+		relative_position_id = bos_nf_integrating_chapters
+		prerequisite = {
+			focus = bos_nf_integrating_chapters
+		}
+		available = {
+			MXC = {
+				borders_western_brotherhood_of_steel = yes
+				has_war = no
+			}
+		}
+		completion_reward = {
+			MXC = {
+				invite_to_western_brotherhood_of_steel = yes
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_integrating_bmw
+		icon = GFX_goal_bos_flag_bmw
+		cost = 30
+		x = -1
+		y = 2
+		relative_position_id = bos_nf_integrating_chapters
+		prerequisite = {
+			focus = bos_nf_integrating_chapters
+		}
+		available = {
+			BMW = {
+				borders_western_brotherhood_of_steel = yes
+				has_war = no
+			}
+		}
+		completion_reward = {
+			BMW = {
+				invite_to_western_brotherhood_of_steel = yes
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_integrating_bgf
+		icon = GFX_goal_bos_flag_bgf
+		cost = 30
+		x = -3
+		y = 2
+		relative_position_id = bos_nf_integrating_chapters
+		prerequisite = {
+			focus = bos_nf_integrating_chapters
+		}
+		available = {
+			BGF = {
+				borders_western_brotherhood_of_steel = yes
+				has_war = no
+			}
+		}
+		completion_reward = {
+			BGF = {
+				invite_to_western_brotherhood_of_steel = yes
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_integrating_bap
+		icon = GFX_goal_bos_flag_bap
+		cost = 30
+		x = -4
+		y = 1
+		relative_position_id = bos_nf_integrating_chapters
+		prerequisite = {
+			focus = bos_nf_integrating_chapters
+		}
+		available = {
+			BAP = {
+				borders_western_brotherhood_of_steel = yes
+				has_war = no
+			}
+		}
+		completion_reward = {
+			BAP = {
+				invite_to_western_brotherhood_of_steel = yes
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_integrating_bls
+		icon = GFX_goal_bos_flag_bls
+		cost = 30
+		x = -5
+		y = 2
+		relative_position_id = bos_nf_integrating_chapters
+		prerequisite = {
+			focus = bos_nf_integrating_chapters
+		}
+		available = {
+			BLS = {
+				borders_western_brotherhood_of_steel = yes
+				has_war = no
+			}
+		}
+		completion_reward = {
+			BLS = {
+				invite_to_western_brotherhood_of_steel = yes
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_integrating_moj
+		icon = GFX_goal_bos_flag_moj
+		cost = 30
+		x = 0
+		y = 1
+		relative_position_id = bos_nf_integrating_chapters
+		prerequisite = {
+			focus = bos_nf_integrating_chapters
+		}
+		available = {
+			MOJ = {
+				borders_western_brotherhood_of_steel = yes
+				has_war = no
+			}
+		}
+		completion_reward = {
+			MOJ = {
+				invite_to_western_brotherhood_of_steel = yes
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_integrating_shi
+		icon = GFX_goal_bos_flag_shi
+		cost = 30
+		x = 2
+		y = 1
+		relative_position_id = bos_nf_integrating_chapters
+		prerequisite = {
+			focus = bos_nf_integrating_chapters
+		}
+		available = {
+			SHI = {
+				borders_western_brotherhood_of_steel = yes
+				has_war = no
+			}
+		}
+		completion_reward = {
+			SHI = {
+				invite_to_western_brotherhood_of_steel = yes
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_integrating_grd
+		icon = GFX_goal_bos_flag_grd
+		cost = 30
+		x = 1
+		y = 2
+		relative_position_id = bos_nf_integrating_chapters
+		prerequisite = {
+			focus = bos_nf_integrating_chapters
+		}
+		available = {
+			GRD = {
+				borders_western_brotherhood_of_steel = yes
+				has_war = no
+			}
+		}
+		completion_reward = {
+			GRD = {
+				invite_to_western_brotherhood_of_steel = yes
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_integrating_wbh
+		icon = GFX_goal_bos_flag_wbh
+		cost = 30
+		x = 4
+		y = 1
+		relative_position_id = bos_nf_integrating_chapters
+		prerequisite = {
+			focus = bos_nf_integrating_chapters
+		}
+		available = {
+			if = {
+				limit = {
+					has_completed_focus = bos_nf_wbh_the_cause_succesful
+				}
+				TCA = {
+					borders_western_brotherhood_of_steel = yes
+					has_war = no
+				}
+			}
+			else = {
+				WBH = {
+					borders_western_brotherhood_of_steel = yes
+					has_war = no
+				}
+			}
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_completed_focus = bos_nf_wbh_the_cause_succesful
+				}
+				TCA = {
+					invite_to_western_brotherhood_of_steel = yes
+				}
+			}
+			else = {
+				WBH = {
+					invite_to_western_brotherhood_of_steel = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_integrating_mch
+		icon = GFX_goal_bos_flag_mch
+		cost = 30
+		x = 3
+		y = 2
+		relative_position_id = bos_nf_integrating_chapters
+		prerequisite = {
+			focus = bos_nf_integrating_chapters
+		}
+		available = {
+			MNC = {
+				borders_western_brotherhood_of_steel = yes
+				has_war = no
+			}
+		}
+		completion_reward = {
+			MNC = {
+				invite_to_western_brotherhood_of_steel = yes
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_integrating_ach
+		icon = GFX_goal_bos_flag_ach
+		cost = 30
+		x = 5
+		y = 2
+		relative_position_id = bos_nf_integrating_chapters
+		prerequisite = {
+			focus = bos_nf_integrating_chapters
+		}
+		available = {
+			ACH = {
+				borders_western_brotherhood_of_steel = yes
+				has_war = no
+			}
+		}
+		completion_reward = {
+			ACH = {
+				invite_to_western_brotherhood_of_steel = yes
+			}
+		}
+	}
+	focus = {
+		id = bos_nf_nevada
+		icon = GFX_goal_SOK_return_reno
+		cost = 30
+		x = 7
+		y = 1
+		relative_position_id = bos_nf_preparing_for_expansion
+		prerequisite = {
+			focus = bos_nf_preparing_for_expansion
+		}
+		available = {
+			TVT = { all_core_land_owned_by_prev_sphere = yes }
+			NEW = { all_core_land_owned_by_prev_sphere = yes }
+			VLT = { all_core_land_owned_by_prev_sphere = yes }
+			YKZ = { all_core_land_owned_by_prev_sphere = yes }
+		}
+		completion_reward = {
+			add_state_core = 945
+			add_state_core = 210
+			add_state_core = 307
+		}
+	}
+	focus = {
+		id = bos_nf_the_northwest
+		icon = GFX_goal_TTM_Greenway_Hydroponics
+		cost = 30
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_nevada
+		prerequisite = {
+			focus = bos_nf_nevada
+		}
+		available = {
+			STA = { all_core_land_owned_by_prev_sphere = yes }
+			MCA = { all_core_land_owned_by_prev_sphere = yes }
+			MTC = { all_core_land_owned_by_prev_sphere = yes }
+			STR = { all_core_land_owned_by_prev_sphere = yes }
+		}
+		completion_reward = {
+			add_state_core = 1263
+			add_state_core = 656
+			add_state_core = 1319
+			add_state_core = 1071
+		}
+	}
+	focus = {
+		id = bos_nf_colorado
+		icon = GFX_goal_TTM_Command_Station
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_nevada
+		prerequisite = {
+			focus = bos_nf_nevada
+		}
+		available = {
+			NOT = { country_exists = TTM }
+			GLW = { all_core_land_owned_by_prev_sphere = yes }
+			TTM = { all_core_land_owned_by_prev_sphere = yes }
+			ORO = { all_core_land_owned_by_prev_sphere = yes }
+			YMP = { all_core_land_owned_by_prev_sphere = yes }
+			HAN = { all_core_land_owned_by_prev_sphere = yes }
+			ROB = { all_core_land_owned_by_prev_sphere = yes }
+		}
+		completion_reward = {
+			add_state_core = 525
+			add_state_core = 568
+			add_state_core = 38
+		}
+	}
+	focus = {
+		id = bos_nf_arizona
+		icon = GFX_goal_TTM_ARZ_Flag
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_the_northwest
+		prerequisite = {
+			focus = bos_nf_the_northwest
+			focus = bos_nf_colorado
+		}
+		available = {
+			CES = { all_core_land_owned_by_prev_sphere = yes }
+		}
+		completion_reward = {
+			add_state_core = 438
+			add_state_core = 518
+			add_state_core = 519
+		}
+	}
+	focus = {
+		id = bos_nf_greater_texas
+		icon = GFX_goal_generic_texas1
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_arizona
+		prerequisite = {
+			focus = bos_nf_arizona
+		}
+		available = {
+			NOT = { country_exists = SHA }
+			NOT = { country_exists = UOA }
+			NOT = { country_exists = IMO }
+			LNS = { all_core_land_owned_by_prev_sphere = yes }
+			UOA = { all_core_land_owned_by_prev_sphere = yes }
+			LNS = { all_core_land_owned_by_prev_sphere = yes }
+			TBH = { all_core_land_owned_by_prev_sphere = yes }
+			LUB = { all_core_land_owned_by_prev_sphere = yes }
+		}
+		completion_reward = {
+			add_state_core = 908
+			add_state_core = 892
+			add_state_core = 893
+		}
+	}
+	focus = {
+		id = bos_nf_mexico
+		icon = GFX_goal_generic_TLA_shield
+		cost = 30
+		x = 7
+		y = 2
+		relative_position_id = bos_nf_oregon
+		prerequisite = {
+			focus = bos_nf_broken_coast
+			focus = bos_nf_greater_texas
+		}
+		available = {
+			TLA = { all_core_land_owned_by_prev_sphere = yes }
+			ZAP = { all_core_land_owned_by_prev_sphere = yes }
+			MAX = { all_core_land_owned_by_prev_sphere = yes }
+			MOC = { all_core_land_owned_by_prev_sphere = yes }
+			ARM = { all_core_land_owned_by_prev_sphere = yes }
+			RRG = { all_core_land_owned_by_prev_sphere = yes }
+		}
+		completion_reward = {
+			add_state_core = 769
+			add_state_core = 761
+			add_state_core = 748
+		}
+	}
+	focus = {
+		id = bos_nf_oklahoma
+		icon = GFX_goal_gpf_historic
+		cost = 30
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_mexico
+		prerequisite = {
+			focus = bos_nf_mexico
+		}
+		available = {
+			TLP = { all_core_land_owned_by_prev_sphere = yes }
+			CMC = { all_core_land_owned_by_prev_sphere = yes }
+			CHO = { all_core_land_owned_by_prev_sphere = yes }
+			CHR = { all_core_land_owned_by_prev_sphere = yes }
+			SCA = { all_core_land_owned_by_prev_sphere = yes }
+		}
+		completion_reward = {
+			add_state_core = 616
+			add_state_core = 615
+			add_state_core = 889
+		}
+	}
+	focus = {
+		id = bos_nf_the_midwest
+		icon = GFX_goal_bos_generic_circuit
+		cost = 30
+		x = 1
+		y = 1
+		relative_position_id = bos_nf_mexico
+		prerequisite = {
+			focus = bos_nf_mexico
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = bos_not_ready_tt
+				always = no
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = bos_not_ready_effect_tt
+		}
+	}
+	focus = {
+		id = bos_nf_the_gulf_coast
+		icon = GFX_goal_ITZ_itzan_revanchism
+		cost = 30
+		x = -1
+		y = 1
+		relative_position_id = bos_nf_the_midwest
+		prerequisite = {
+			focus = bos_nf_the_midwest
+			focus = bos_nf_oklahoma
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = bos_not_ready_tt
+				always = no
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = bos_not_ready_effect_tt
+		}
+	}
+	focus = {
+		id = bos_nf_the_carribbean
+		icon = GFX_goal_ITZ_move_settlers_in
+		cost = 30
+		x = -2
+		y = 1
+		relative_position_id = bos_nf_the_gulf_coast
+		prerequisite = {
+			focus = bos_nf_the_gulf_coast
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = bos_not_ready_tt
+				always = no
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = bos_not_ready_effect_tt
+		}
+	}
+	focus = {
+		id = bos_nf_appalachia
+		icon = GFX_goal_bos_flag_bap
+		cost = 30
+		x = 0
+		y = 1
+		relative_position_id = bos_nf_the_gulf_coast
+		prerequisite = {
+			focus = bos_nf_the_gulf_coast
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = bos_not_ready_tt
+				always = no
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = bos_not_ready_effect_tt
+		}
+	}
+	focus = {
+		id = bos_nf_the_east_coast
+		icon = GFX_goal_bos_flag_bls
+		cost = 30
+		x = 2
+		y = 1
+		relative_position_id = bos_nf_the_gulf_coast
+		prerequisite = {
+			focus = bos_nf_the_gulf_coast
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = bos_not_ready_tt
+				always = no
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = bos_not_ready_effect_tt
+		}
+	}
+	focus = {
+		id = bos_nf_purpose_fulfilled
+		icon = GFX_goal_bos_generic_ledger
+		cost = 30
+		x = 0
+		y = 2
+		relative_position_id = bos_nf_appalachia
+		available = {
+			has_country_leader_with_trait = bos_absolute_brotherhood_high_elder
+			num_of_controlled_states > 250
+			custom_trigger_tooltip = {
+				tooltip = "Has allied, puppeted, or conquered the core territory of the following Chapters:"
+				MOJ = { all_core_land_owned_by_prev_sphere = yes }
+				GRD = { all_core_land_owned_by_prev_sphere = yes }
+				SHI = { all_core_land_owned_by_prev_sphere = yes }
+				TCA = { all_core_land_owned_by_prev_sphere = yes }
+				WBH = { all_core_land_owned_by_prev_sphere = yes }
+				TBH = { all_core_land_owned_by_prev_sphere = yes }
+				ACH = { all_core_land_owned_by_prev_sphere = yes }
+				MXC = { all_core_land_owned_by_prev_sphere = yes }
+				MNC = { all_core_land_owned_by_prev_sphere = yes }
+				BMW = { all_core_land_owned_by_prev_sphere = yes }
+				BGF = { all_core_land_owned_by_prev_sphere = yes }
+				BAP = { all_core_land_owned_by_prev_sphere = yes }
+				BLS = { all_core_land_owned_by_prev_sphere = yes }
+			}
+			custom_trigger_tooltip = {
+				tooltip = MOJ_intellectuals
+				MOJ = { all_core_land_owned_by_prev_sphere = yes }
+			}
+			custom_trigger_tooltip = {
+				tooltip = GRD_intellectuals
+				GRD = { all_core_land_owned_by_prev_sphere = yes }
+			}
+			custom_trigger_tooltip = {
+				tooltip = SHI_intellectuals
+				SHI = { all_core_land_owned_by_prev_sphere = yes }
+			}
+			custom_trigger_tooltip = {
+				tooltip = TCA_intellectuals
+				TCA = { all_core_land_owned_by_prev_sphere = yes }
+			}
+			custom_trigger_tooltip = {
+				tooltip = WBH_intellectuals
+				WBH = { all_core_land_owned_by_prev_sphere = yes }
+			}
+			custom_trigger_tooltip = {
+				tooltip = TBH_intellectuals
+				TBH = { all_core_land_owned_by_prev_sphere = yes }
+			}
+			custom_trigger_tooltip = {
+				tooltip = ACH_intellectuals
+				ACH = { all_core_land_owned_by_prev_sphere = yes }
+			}
+			custom_trigger_tooltip = {
+				tooltip = MXC_intellectuals
+				MXC = { all_core_land_owned_by_prev_sphere = yes }
+			}
+			custom_trigger_tooltip = {
+				tooltip = MNC_intellectuals
+				MNC = { all_core_land_owned_by_prev_sphere = yes }
+			}
+			custom_trigger_tooltip = {
+				tooltip = BMW_intellectuals
+				BMW = { all_core_land_owned_by_prev_sphere = yes }
+			}
+			custom_trigger_tooltip = {
+				tooltip = BGF_intellectuals
+				BGF = { all_core_land_owned_by_prev_sphere = yes }
+			}
+			custom_trigger_tooltip = {
+				tooltip = BAP_intellectuals
+				BAP = { all_core_land_owned_by_prev_sphere = yes }
+			}
+			custom_trigger_tooltip = {
+				tooltip = BLS_intellectuals
+				BLS = { all_core_land_owned_by_prev_sphere = yes }
+			}
+		}
+		completion_reward = {
+			add_country_leader_trait = bos_saviour_of_mankind
+			set_cosmetic_tag = BOS_unified_brotherhood
+		}
+	}
+}
+
+
+focus_tree = {
+	id = srg_focus_tree
+	country = {
+		factor = 0
+		modifier = {
+			tag = SRG
+			add = 100
+		}
+	}
+
+	shared_focus = settler_schools
+	shared_focus = settler_community
+
+	default = no
+	focus = {
+		id = srg_california_peace_accords
+		icon = GFX_goal_MOJ_ncr_negotiations
+		cost = 30
+		x = 14
+		y = 0
+		completion_reward = {
+			country_event = nf_brotherhood_steel_rangers.5
+			add_ideas = ncr_puppet_idea_settler
+		}
+	}
+	focus = {
+		id = srg_introduce_law
+		text = ncr_puppet_introduce_law
+		icon = GFX_focus_generic_self_management
+		cost = 30
+		prerequisite = {
+			focus = srg_california_peace_accords
+		}
+		available = {}
+		relative_position_id = srg_california_peace_accords
+		x = 0
+		y = 1
+		completion_reward = {
+			add_stability = 0.15
+		}
+	}
+	focus = {
+		id = srg_california_tech_sharing_initiative
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 30
+		prerequisite = {
+			focus = srg_introduce_law
+		}
+		available = {}
+		relative_position_id = srg_introduce_law
+		x = 0
+		y = 1
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					infrastructure < 9
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					infrastructure < 9
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			NCR = {
+				country_event = nf_brotherhood_steel_rangers.6
+			}
+			unlock_all_available_generic_branches = yes
+		}
+	}
+	focus = {
+		id = srg_ncr_draft
+		text = ncr_puppet_ncr_draft
+		icon = GFX_goal_NCR_Military_March
+		cost = 30
+		prerequisite = {
+			focus = srg_california_tech_sharing_initiative
+		}
+		relative_position_id = srg_california_tech_sharing_initiative
+		x = 2
+		y = 1
+		completion_reward = {
+			add_ideas = ncr_puppet_idea_ncr_draft
+		}
+	}
+	focus = {
+		id = srg_seek_amnesty
+		icon = GFX_goal_generic_backroom_planning
+		cost = 30
+		prerequisite = {
+			focus = srg_introduce_law
+		}
+		relative_position_id = srg_introduce_law
+		mutually_exclusive = {
+			focus = srg_tribunal_for_war_crimes
+		}
+		x = -2
+		y = 1
+		completion_reward = {
+			add_war_support = 0.4
+			add_stability = -0.15
+		}
+	}
+	focus = {
+		id = srg_community_leaders
+		text = ncr_puppet_community_leaders
+		icon = GFX_goal_generic_improve_relations
+		cost = 30
+		prerequisite = {
+			focus = srg_introduce_law
+		}
+		relative_position_id = srg_introduce_law
+		x = 2
+		y = 1
+		completion_reward = {
+			add_ideas = ncr_puppet_idea_settler
+		}
+	}
+	focus = {
+		id = srg_tribunal_for_war_crimes
+		icon = GFX_goal_NEW_modoc_slavers_guild
+		cost = 30
+		prerequisite = {
+			focus = srg_introduce_law
+		}
+		relative_position_id = srg_introduce_law
+		mutually_exclusive = {
+			focus = srg_seek_amnesty
+		}
+		x = -4
+		y = 1
+		completion_reward = {
+			add_stability = 0.25
+		}
+	}
+	focus = {
+		id = srg_maxson_city
+		icon = GFX_goal_generic_scyscrapers_prewar
+		cost = 30
+		prerequisite = {
+			focus = srg_california_tech_sharing_initiative
+		}
+		relative_position_id = srg_california_tech_sharing_initiative
+		x = -3
+		y = 1
+		completion_reward = {
+			add_tech_bonus = {
+				name = srg_maxson_city
+				bonus = 0.5
+				uses = 3
+				category = industry
+			}
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			add_offsite_building = { type = industrial_complex level = 2 }
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	focus = {
+		id = srg_paladin_pizza_parlors
+		icon = GFX_goal_generic_food_focus
+		cost = 30
+		prerequisite = {
+			focus = srg_maxson_city
+		}
+		relative_position_id = srg_maxson_city
+		x = -1
+		y = 1
+		completion_reward = {
+			set_temp_variable = { caps_to_add = 150 }
+			add_caps = yes
+		}
+	}
+	focus = {
+		id = srg_ncr_war_reparations
+		icon = GFX_goal_enc_ncr_dollar
+		cost = 30
+		prerequisite = {
+			focus = srg_maxson_city
+		}
+		relative_position_id = srg_maxson_city
+		x = 1
+		y = 1
+		available = {
+			set_temp_variable = { caps_diff = -150 }
+			caps_cost_trigger = yes
+		}
+		completion_reward = {
+			set_temp_variable = { caps_to_add = -150 }
+			add_caps = yes
+			add_stability = 0.15
+		}
+	}
+
+	focus = {
+		id = srg_retirement_for_military_veterans
+		icon = GFX_goal_generic_focus_happy_cactus
+		cost = 30
+		prerequisite = {
+			focus = srg_ncr_war_reparations
+		}
+		prerequisite = {
+			focus = srg_paladin_pizza_parlors
+		}
+		relative_position_id = srg_paladin_pizza_parlors
+		x = 1
+		y = 1
+		completion_reward = {
+			add_stability = 0.1
+			add_offsite_building = { type = industrial_complex level = 2 }
+			set_temp_variable = { caps_to_add = 75 }
+			add_caps = yes
+		}
+	}
+	focus = {
+		id = srg_dismantle_lost_hills_bunker
+		icon = GFX_goal_bos_generic_bunker_life
+		cost = 30
+		prerequisite = {
+			focus = srg_commemorate_roger_maxson_statue
+		}
+		prerequisite = {
+			focus = srg_retirement_for_military_veterans
+		}
+		relative_position_id = srg_paladin_pizza_parlors
+		x = -1
+		y = 2
+		completion_reward = {
+			add_political_power = 200
+			if = {
+				limit = {
+					has_idea = srg_steel_rangers_armed_corps_4
+				}
+				swap_ideas = {
+					remove_idea = srg_steel_rangers_armed_corps_4
+					add_idea = srg_steel_rangers_armed_corps_5
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = srg_steel_rangers_armed_corps_3
+				}
+				swap_ideas = {
+					remove_idea = srg_steel_rangers_armed_corps_3
+					add_idea = srg_steel_rangers_armed_corps_4
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = srg_steel_rangers_armed_corps_1
+				}
+				swap_ideas = {
+					remove_idea = srg_steel_rangers_armed_corps_1
+					add_idea = srg_steel_rangers_armed_corps_2
+				}
+			}
+			else = {
+				add_ideas = srg_steel_rangers_armed_corps_1
+			}
+		}
+	}
+	focus = {
+		id = srg_new_military_stratagem
+		icon = GFX_goal_enc_planning
+		cost = 30
+		prerequisite = {
+			focus = srg_california_tech_sharing_initiative
+		}
+		relative_position_id = srg_california_tech_sharing_initiative
+		x = -7
+		y = 1
+		completion_reward = {
+			army_experience = 200
+			if = {
+				limit = {
+					has_idea = srg_steel_rangers_armed_corps_4
+				}
+				swap_ideas = {
+					remove_idea = srg_steel_rangers_armed_corps_4
+					add_idea = srg_steel_rangers_armed_corps_5
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = srg_steel_rangers_armed_corps_3
+				}
+				swap_ideas = {
+					remove_idea = srg_steel_rangers_armed_corps_3
+					add_idea = srg_steel_rangers_armed_corps_4
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = srg_steel_rangers_armed_corps_1
+				}
+				swap_ideas = {
+					remove_idea = srg_steel_rangers_armed_corps_1
+					add_idea = srg_steel_rangers_armed_corps_2
+				}
+			}
+			else = {
+				add_ideas = srg_steel_rangers_armed_corps_1
+			}
+		}
+	}
+	focus = {
+		id = srg_nuclear_weapons_studies
+		icon = GFX_goal_generic_nuka_break_nuke
+		cost = 30
+		prerequisite = {
+			focus = srg_dismantle_bunker_destruction_device
+			focus = srg_new_military_stratagem
+		}
+		relative_position_id = srg_new_military_stratagem
+		x = -3
+		y = 1
+		completion_reward = {
+			add_nuclear_bombs = 1
+		}
+	}
+	focus = {
+		id = srg_armed_patrols
+		icon = GFX_goal_NCR_Propaganda_2
+		cost = 30
+		prerequisite = {
+			focus = srg_new_military_stratagem
+		}
+		relative_position_id = srg_new_military_stratagem
+		x = -1
+		y = 1
+		completion_reward = {
+			add_tech_bonus = {
+				name = srg_armed_patrols
+				bonus = 0.25
+				uses = 1
+				category = infantry_tech_category
+			}
+			if = {
+				limit = {
+					has_idea = srg_steel_rangers_armed_corps_4
+				}
+				swap_ideas = {
+					remove_idea = srg_steel_rangers_armed_corps_4
+					add_idea = srg_steel_rangers_armed_corps_5
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = srg_steel_rangers_armed_corps_3
+				}
+				swap_ideas = {
+					remove_idea = srg_steel_rangers_armed_corps_3
+					add_idea = srg_steel_rangers_armed_corps_4
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = srg_steel_rangers_armed_corps_1
+				}
+				swap_ideas = {
+					remove_idea = srg_steel_rangers_armed_corps_1
+					add_idea = srg_steel_rangers_armed_corps_2
+				}
+			}
+			else = {
+				add_ideas = srg_steel_rangers_armed_corps_1
+			}
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	focus = {
+		id = srg_peace_under_the_republic
+		icon = GFX_goal_NCR_Propaganda_1
+		cost = 30
+		prerequisite = {
+			focus = srg_new_military_stratagem
+		}
+		relative_position_id = srg_new_military_stratagem
+		x = 1
+		y = 1
+		completion_reward = {
+			add_tech_bonus = {
+				name = srg_peace_under_the_republic
+				bonus = 0.25
+				uses = 1
+				category = industry
+			}
+			if = {
+				limit = {
+					has_idea = srg_steel_rangers_armed_corps_4
+				}
+				swap_ideas = {
+					remove_idea = srg_steel_rangers_armed_corps_4
+					add_idea = srg_steel_rangers_armed_corps_5
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = srg_steel_rangers_armed_corps_3
+				}
+				swap_ideas = {
+					remove_idea = srg_steel_rangers_armed_corps_3
+					add_idea = srg_steel_rangers_armed_corps_4
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = srg_steel_rangers_armed_corps_1
+				}
+				swap_ideas = {
+					remove_idea = srg_steel_rangers_armed_corps_1
+					add_idea = srg_steel_rangers_armed_corps_2
+				}
+			}
+			else = {
+				add_ideas = srg_steel_rangers_armed_corps_1
+			}
+			add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+	focus = {
+		id = srg_commemorate_roger_maxson_statue
+		icon = GFX_goal_NCR_T51B
+		cost = 30
+		prerequisite = {
+			focus = srg_peace_under_the_republic
+		}
+		prerequisite = {
+			focus = srg_armed_patrols
+		}
+		relative_position_id = srg_peace_under_the_republic
+		x = -1
+		y = 1
+		completion_reward = {
+			add_war_support = 0.25
+			if = {
+				limit = {
+					has_idea = srg_steel_rangers_armed_corps_4
+				}
+				swap_ideas = {
+					remove_idea = srg_steel_rangers_armed_corps_4
+					add_idea = srg_steel_rangers_armed_corps_5
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = srg_steel_rangers_armed_corps_3
+				}
+				swap_ideas = {
+					remove_idea = srg_steel_rangers_armed_corps_3
+					add_idea = srg_steel_rangers_armed_corps_4
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = srg_steel_rangers_armed_corps_1
+				}
+				swap_ideas = {
+					remove_idea = srg_steel_rangers_armed_corps_1
+					add_idea = srg_steel_rangers_armed_corps_2
+				}
+			}
+			else = {
+				add_ideas = srg_steel_rangers_armed_corps_1
+			}
+		}
+	}
+	focus = {
+		id = srg_dismantle_bunker_destruction_device
+		icon = GFX_goal_fallout_tool
+		cost = 30
+		prerequisite = {
+			focus = srg_california_tech_sharing_initiative
+		}
+		relative_position_id = srg_california_tech_sharing_initiative
+		x = -11
+		y = 1
+		completion_reward = {
+			add_stability = 0.05
+			capital_scope = {
+				add_resource = { type = metal amount = 6 }
+				add_resource = { type = energy amount = 8 }
+				add_resource = { type = advanced amount = 4 }
+			}
+		}
+	}
+	focus = {
+		id = srg_introducing_trade
+		text = ncr_puppet_introducing_trade
+		icon = GFX_goal_bottlecap
+		cost = 30
+		prerequisite = {
+			focus = srg_ncr_draft
+		}
+		available = {}
+		relative_position_id = srg_ncr_draft
+		x = -1
+		y = 1
+		completion_reward = {
+			add_ideas = ncr_puppet_idea_reintroduce_trade
+		}
+	}
+	focus = {
+		id = srg_creating_defense_militia
+		text = ncr_puppet_creating_defense_militia
+		icon = GFX_goal_generic_bunkers_focus
+		cost = 30
+		prerequisite = {
+			focus = srg_ncr_draft
+		}
+		available = {}
+		relative_position_id = srg_ncr_draft
+		x = 1
+		y = 1
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = ncr_puppet_idea_ncr_draft
+				add_idea = ncr_puppet_idea_ncr_draft_1
+			}
+		}
+	}
+	focus = {
+		id = srg_light_of_civilisation
+		text = ncr_puppet_light_of_civilisation
+		icon = GFX_goal_generic_scientific_exchange
+		cost = 30
+		prerequisite = {
+			focus = srg_creating_defense_militia
+			focus = srg_introducing_trade
+		}
+		available = {}
+		relative_position_id = srg_creating_defense_militia
+		x = -1
+		y = 1
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						has_tech = settled_civilization
+					}
+				}
+				set_technology = {
+					settled_civilization = 1
+				}
+			}
+			add_research_slot = 1
+		}
+	}
+	focus = {
+		id = srg_new_industry
+		text = ncr_puppet_new_industry
+		icon = GFX_goal_generic_military_industry_focus
+		cost = 30
+		prerequisite = {
+			focus = srg_light_of_civilisation
+		}
+		available = {}
+		relative_position_id = srg_light_of_civilisation
+		x = -1
+		y = 1
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_valid_state_for_2_civilian_factories = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_valid_state_for_arms_factory = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = srg_embracing_the_future
+		text = ncr_puppet_embracing_the_future
+		icon = GFX_focus_research2
+		cost = 30
+		prerequisite = {
+			focus = srg_light_of_civilisation
+		}
+		available = {}
+		relative_position_id = srg_light_of_civilisation
+		x = 1
+		y = 1
+		completion_reward = {
+			add_tech_bonus = {
+				name = srg_embracing_the_future
+				bonus = 0.5
+				uses = 2
+				category = electronics
+			}
+		}
+	}
+}
+
+
+#',c:,;dKKK0XXOOOOOkK0;........................................'''''.............
+#;c:,cldOxdoxkoooolcOO,...................'''''''''''...''.''''''''''............
+#lxdc,,lxdddxxxxddxxdc..............''..''..',,,,,'',,,,,''''',,,''''''''........
+#.............',''',,,',,,''..'''..','''''..',,,;;;;::::;,,;;;;;;,,''............
+#...........'::::cclllcclodolllcc:::ccc:;;;:;;:coddxxkko:ldxkdlc:;;;::::;'.......
+#...........:xxoc;::;,,,;dKKKOkxxxl;,;c:,,,:looddxxxkOkdoxOOOOxl,''lxxxxd;.......
+#..........'okxl,.......,d0K0xxxxo,...;'...;oooxdxkkkOOOOkkkkko,..'oxxddl'.......
+#..........:dxo,...;lllloxOOxoodo:...,,....:lcclooxkkkxxxxxxdoc'..:odddl;........
+#.........'oxxc...'oxxxxl:;,'',cc,..';....,:,'..'':dl,',cc,',;'...,coddc'........
+#.........:xko,....,,;;;...;,..,:...,,. .',.......':;. ':,..',...;cloxd;.........
+#........'lxxc........,,..,:'..;,...,...';'.......':. .::. .;,..'looddc'.........
+#........:oxd;...;llll:'......,:'..''. .,'..''',..;,. 'c,..,;...:lllol,....''''..
+#.......'lddc...'ldol;...;:...:;...,. .'......'...;'..;:. .;'..'lolooc......'....
+#.......;dol,...;ool:'..':'..';. .,'. .'.  .... .,,...;'..';...,clodl,...........
+#.......cdo:...'loc:;........::...;...';........:c'...'...;;....':cl:............
+#......,llc:;,',::;;,,,',,,,;:;'',,'..,;,.''''.,;:;,',;,',::,''',';c,............
+#.......;:;;'......................................................'.............
+#................................................................................
+#...............................................','..............................
+#....................................         .':c;''............................
+#.........................  ...... ...        ...;,.....   ......................
+#......................... .... .   ...............,:c:,'........................
+#......................';,.. .........;,,::;....'.'coc:;;,'......................
+#....................'',,,............,,'''....'..',,,,,''.',....................
+#...................'',,'...     ......'. ..'cl;..'''............................
+#..................'',;'..... ...'.....',,:xOxoo:................................
+#........................,.',,:lodxxkxokkddOXK0Od;. .......  ........ ...........
+#.....................  ',.,:c::::clodkO000KK00Okd:'..     ......................
+#.......................;,':::'.  ....',;;:ccodxxxxo:,....'......................
+#... ..';;:;............:',:::'.......';;:;,....',;:cc:;;,,'........',...........
+#... ..'cc;;...........;:',:::.  ....',:cccc;'....  .........       .''..........
+#..................'',,;;':c;;'.''',,;;:::::;;,,'',,''........     ...,..........
+#...'.. .........',;;;;,..;l:;:::;;;;cccccllc;..'cdddoc,,,''..........,'.........
+#.....   .......',,;;;,,..:loooc;;,,;:cdO000x:',okO0Okd:,'',;,........',.........
+#.......    ....',,,;,''',;;;;,';:cloo:,:::;'''cxO000Oko:'.,;:;'...  .,'.........
+#...'.....  ....'',,,''',,,;::;;cc,',lc;odc''.';lok000Oxl;..,::;'.  .............
+#....'''............'';:ccllc;:oo;....';oo;.....,,;d00Oko:'.';::,................
+#.................  .,::cllc'.;:'..   .cc,......''.;k0Okd:,..,;:,'',:cc:'.. ..
+#......... .... . ...';:cll:;:,...  ..ld;..........,x0kxd:,..',:,''',,',,'..
+#....................,;:ccc,''.. . .;dxl'..........:O0kxdc,..'',,'..........
+#.......'... ........,;::c;'...... .dOkc''.... ...,d0KOxdl;...'','..   .....   ..
+#........',.........',;;:;'.......'oOOd:,,'....'',d0KK0kxl;'..'',''...  .......
+#.........,,........',;;,..''...'lxOOxc;,,,,;,:lod0XXKOdoo:,'''''''...... ...
+#''''......,,.......','...;:...;llllc;',;,;::::cdOKX0kdc;;;::;,''''...........
+#'''''......',''...'....,:;...:;.......,;;'';:cc:oKKOxl:ccc:'..........',.....
+#..','................,;;'...',....'.......',;,:;,xKOlcoc:;..........':cc;.......
+#............   ...''......,,................'';,'o0dllc,,,..........'cllc'......
+#............    ..... ...''..........  ......',..oOoc::'.,...........'''........
+#...............  .....',,........................lOxl,,'..'...............
+#.....'''''........'',;;'........   ...........';:oO0d;'..................    ...
+#'oxdxxooxkkl...'',',,'...... ......  .    ...,clox0KOd;.... ............     ...
+#,o:',,,,;xOo...'',,',........   .,.      ..':loxkOOO0Odc'..   ...... ...      ..
+#,xl...'',col'....................        ..,,,;:::;,;;;;,..............   ..
+#;ko...'..oko'.............  .....       ........................';,',;,,',::'.
+#cOkccc::lk0d'.....................      ..                    ..';;cllcccllo:..
+#,dkkOOOOOxxl.................... ..     .                      .:,;c:,,,',;:,.
+#'dkkOkkkOkko..............       ..   .....         ...........''.....'''','...
+#':cclc:;ccc;...... ..........   .....   ....        ...... ......   ............
+#....','.........    ..........  ..... .......   ................................
+#
+#
+#RIP INTERPLAY
+#RIP BLACK ISLE

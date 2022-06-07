@@ -1,0 +1,112 @@
+spriteTypes = {
+###################################################
+# PowerArmor Plant
+###################################################
+
+	spriteType = {
+		name = "GFX_EMI_armour_battery"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/plant_module_armour_battery.dds"
+	}
+
+	spriteType = {
+		name = "GFX_EMI_armour_fusion_core"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/plant_module_fusion_core.dds"
+	}
+
+	spriteType = {
+		name = "GFX_EMI_armour_reactor_plant"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/plant_module_armour_reactor_plant.dds"
+	}
+
+	spriteType = {
+		name = "GFX_EMI_armour_enclave_reactor_plant"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/plant_module_armour_enclave_reactor_plant.dds"
+	}
+###################################################
+# PowerArmor Servo
+###################################################
+
+	spriteType = {
+		name = "GFX_EMI_armour_primitive_servo"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/servo_module_primitive.dds"
+	}
+
+	spriteType = {
+		name = "GFX_EMI_armour_simple_servo"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/servo_module_simple.dds"
+	}
+
+	spriteType = {
+		name = "GFX_EMI_armour_advance_servo"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/servo_module_advance.dds"
+	}
+
+	spriteType = {
+		name = "GFX_EMI_armour_high_pressure_hydraulic_servo"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/servo_module_high_pressure_hydraulic.dds"
+	}
+###################################################
+# PowerArmor Plate
+###################################################
+
+	spriteType = {
+		name = "GFX_EMI_armour_standard_plate"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/plate_module_standart.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_EMI_armour_composite_plate"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/plate_module_composite.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_EMI_armour_harded_plate"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/plate_module_harded.dds"
+	}
+###################################################
+# PowerArmor Helmet
+###################################################
+
+	spriteType = {
+		name = "GFX_EMI_armour_night_vision"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/night_vision_icon.dds"
+	}
+
+	spriteType = {
+		name = "GFX_EMI_armour_thermal_vision"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/thermal_vision_icon.dds"
+	}
+###################################################
+# PowerArmor Special
+###################################################
+
+	spriteType = {
+		name = "GFX_EMI_armour_tesla_coil"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/tesla_coil.dds"
+	}
+
+	spriteType = {
+		name = "GFX_EMI_armour_active_armor"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/active_armor.dds"
+	}
+
+	spriteType = {
+		name = "GFX_EMI_armour_internal_database"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/internal_database.dds"
+	}
+
+	spriteType = {
+		name = "GFX_EMI_armour_jet_pack"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/jet_pack.dds"
+	}
+
+	spriteType = {
+		name = "GFX_EMI_armour_kinetic_dynamo"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/kinetic_dynamo.dds"
+	}
+
+	spriteType = {
+		name = "GFX_EMI_armour_reacon_sensors"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/reacon_sensors.dds"
+	}
+}
