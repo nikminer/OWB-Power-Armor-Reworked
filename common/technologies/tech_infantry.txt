@@ -2749,7 +2749,7 @@ technologies = {
 		xp_boost_cost = 35
 		xp_research_bonus = 0.3
 
-		start_year = 2282
+		start_year = 2281
 		folder = {
 			name = fallout_infantry_folder
 			position = { x = @Row_power y = @Col_7 }
@@ -2813,7 +2813,7 @@ technologies = {
 		xp_boost_cost = 35
 		xp_research_bonus = 0.3
 
-		start_year = 2283
+		start_year = 2282
 		folder = {
 			name = fallout_infantry_folder
 			position = { x = @Row_power y = @Col_8 }
@@ -2869,7 +2869,7 @@ technologies = {
 		xp_boost_cost = 35
 		xp_research_bonus = 0.3
 
-		start_year = 2284
+		start_year = 2283
 		folder = {
 			name = fallout_infantry_folder
 			position = { x = @Row_specopsmiddle y = @Col_8 }
@@ -2894,7 +2894,7 @@ technologies = {
 			}
 			modifier = {
 				factor = 10
-				date > "2285.1.1"
+				date > "2284.1.1"
 			}
 		}
 	}
@@ -2944,7 +2944,7 @@ technologies = {
 			}
 			modifier = {
 				factor = 10
-				date > "2285.1.1"
+				date > "2284.1.1"
 			}
 		}
 	}
@@ -2968,7 +2968,7 @@ technologies = {
 		xp_boost_cost = 35
 		xp_research_bonus = 0.3
 
-		start_year = 2284
+		start_year = 2283
 		folder = {
 			name = fallout_infantry_folder
 			position = { x = @Row_specopsmiddle y = @Col_9 }
@@ -2993,7 +2993,7 @@ technologies = {
 			}
 			modifier = {
 				factor = 10
-				date > "2286.1.1"
+				date > "2285.1.1"
 			}
 		}
 	}
@@ -3023,7 +3023,7 @@ technologies = {
 		xp_boost_cost = 35
 		xp_research_bonus = 0.3
 
-		start_year = 2285
+		start_year = 2284
 		folder = {
 			name = fallout_infantry_folder
 			position = { x = @Row_power y = @Col_10 }
@@ -3048,7 +3048,7 @@ technologies = {
 			}
 			modifier = {
 				factor = 10
-				date > "2287.1.1"
+				date > "2285.1.1"
 			}
 		}
 	}
@@ -3080,7 +3080,7 @@ technologies = {
 		xp_boost_cost = 35
 		xp_research_bonus = 0.3
 
-		start_year = 2285
+		start_year = 2284
 		folder = {
 			name = fallout_infantry_folder
 			position = { x = @Row_specopsmiddle y = @Col_10 }
@@ -3107,7 +3107,7 @@ technologies = {
 			}
 			modifier = {
 				factor = 10
-				date > "2288.1.1"
+				date > "2287.1.1"
 			}
 		}
 	}
@@ -3140,7 +3140,7 @@ technologies = {
 		xp_boost_cost = 35
 		xp_research_bonus = 0.3
 
-		start_year = 2286
+		start_year = 2282
 		folder = {
 			name = fallout_infantry_folder
 			position = { x = @Row_specopsmiddle y = @Col_5 }
