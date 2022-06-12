@@ -406,7 +406,17 @@ spriteTypes = {
 		texturefile = "gfx/interface/equipment/generic/composite.dds"
 		alwaystransparent = yes
 	}
-
+	spriteType = {
+		name = "GFX_fusion_core_pa_tech_medium"
+		texturefile = "gfx/interface/equipment/generic/fusion_core.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_weight_support_frame_pa_tech_2_medium"
+		texturefile = "gfx/interface/equipment/generic/microfusion_cell.dds"
+		alwaystransparent = yes
+	}
+	
 	spriteType = {
 		name = "GFX_pa_TX_28_tech_medium"
 		texturefile = "gfx/interface/equipment/generic/tx28.dds"
@@ -424,13 +434,115 @@ spriteTypes = {
 		texturefile = "gfx/interface/equipment/generic/harded.dds"
 		alwaystransparent = yes
 	}
-
+	spriteType = {
+		name = "GFX_weight_support_frame_pa_tech_1_medium"
+		texturefile = "gfx/interface/equipment/generic/weight_support_frame.dds"
+		alwaystransparent = yes
+	}
+	
 	spriteType = {
 		name = "GFX_pa_special_modules_tech_medium"
 		texturefile = "gfx/interface/equipment/generic/special.dds"
 		alwaystransparent = yes
 	}
-	
+
+	spriteType = {
+		name = "GFX_optimize_energy_tech_medium"
+		texturefile = "gfx/interface/equipment/generic/optimize_energy.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_welded_rebar_tech_medium"
+		texturefile = "gfx/interface/equipment/generic/welded_rebar.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_welded_rebar_tech_medium"
+		texturefile = "gfx/interface/equipment/generic/welded_rebar.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_iternal_database_tech_medium"
+		texturefile = "gfx/interface/equipment/generic/iternal_database.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_recon_sensors_tech_medium"
+		texturefile = "gfx/interface/equipment/generic/recon_sensors.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_night_vision_pa_tech_medium"
+		texturefile = "gfx/interface/equipment/generic/night_vision.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_thermal_vision_pa_tech_medium"
+		texturefile = "gfx/interface/equipment/generic/thermal_vision.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_vats_interface_pa_tech_medium"
+		texturefile = "gfx/interface/equipment/generic/vats_interface.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_kynetic_dynamo_pa_tech_medium"
+		texturefile = "gfx/interface/equipment/generic/kynetic_dynamo.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_core_assembly_tech_medium"
+		texturefile = "gfx/interface/equipment/generic/core_assembly.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_pa_stealth_boy_tech_medium"
+		texturefile = "gfx/interface/equipment/generic/stealth_boy.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_active_armor_tech_medium"
+		texturefile = "gfx/interface/equipment/generic/active_armor.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_jet_pack_tech_medium"
+		texturefile = "gfx/interface/equipment/generic/jet_pack.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_explosive_vent_tech_medium"
+		texturefile = "gfx/interface/equipment/generic/explosive_vent.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_emergency_protocol_tech_medium"
+		texturefile = "gfx/interface/equipment/generic/emergency_protocol.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_tesla_coul_tech_medium"
+		texturefile = "gfx/interface/equipment/generic/tesla_coul.dds"
+		alwaystransparent = yes
+	}
+
+
 
 	spriteType = {
 		name = "GFX_power_armour_enclave_1_medium"
@@ -565,7 +677,7 @@ spriteTypes = {
 	}
 
 	spriteType = {
-		name = "GFX_pa_high_pressure_hydraulics_tech_medium"
+		name = "GFX_high_pressure_hydraulics_tech_medium"
 		texturefile = "gfx/interface/technologies/high_pressure_hydraulics_icon.dds"
 		alwaystransparent = yes
 	}
@@ -573,18 +685,6 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_simple_servo_tech_medium"
 		texturefile = "gfx/interface/technologies/simple_servo_icon.dds"
-		alwaystransparent = yes
-	}
-
-	spriteType = {
-		name = "GFX_weight_support_frame_pa_tech_1_medium"
-		texturefile = "gfx/interface/technologies/weight_support_rame_pa_tech_1_icon.dds"
-		alwaystransparent = yes
-	}
-
-	spriteType = {
-		name = "GFX_weight_support_frame_pa_tech_2_medium"
-		texturefile = "gfx/interface/technologies/weight_support_rame_pa_tech_2_icon.dds"
 		alwaystransparent = yes
 	}
 

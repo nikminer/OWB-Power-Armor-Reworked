@@ -27,10 +27,10 @@
  armour_primitive_servo:0 "Primitive servos"
  armour_primitive_servo_desc:0 "Primitive servos created in conditions of lack of resources and lack of necessary experience in the maintenance of power armor, however, these servos allow power armor to perform tasks in the absence of an alternative."
 
- armour_simple_servo:0 "Simple servos"
+ armour_simple_servo:0 "Kinetic servoss"
  armour_simple_servo_desc:0 "These servos are almost indistinguishable from standard servos, however, they have some minor defects that sometimes manifest themselves during combat."
 
- armour_advance_servo:0 "Advance servos"
+ armour_advance_servo:0 "Optimized servos"
  armour_advance_servo_desc:0 "These servos meet all the standards of the pre-war era, thanks to them, the mobility of power armor increases significantly."
 
  armour_high_pressure_hydraulic_servo:0 "High pressure hydraulic servo"
@@ -68,3 +68,22 @@
 
  armour_reacon_sensors:0 "Recon Sensors"
  armour_reacon_sensors_desc:0 "Long-range sensors allow you to receive information about the actions of the enemy on the battlefield."
+
+ armour_vats_interface:0 "V.A.T.S. Interface"
+ armour_thermal_vision_desc:0 "Vault-Tec Assisted Targeting system - The development of Vault-Tec, analyzing the enemy, helping to identify and aim soldiers at the enemy's vulnerable spot on the battlefield"
+
+ armour_explosive_vent:0 "Explosive vent"
+ armour_explosive_vent_desc:0 "When installed on power armor, explosive vents increase the radius of damage during a shock landing."
+
+ armour_core_assembly:0 "Core assembly"
+ armour_core_assembly_desc:0 "After installation, increases the refresh rate of interaction with the power armor, making it more responsive."
+
+ armour_stealth_boy:0 "Stealth Boy"
+ armour_stealth_boy_desc:0 "When mounted on power armor, Stealth Boy activates stealth mode, effectively making the armor user almost invisible."
+
+ armour_emergency_protocol:0 "Emergency protocol"
+ armour_emergency_protocol_desc:0 "Expands the privileges of the power armor in emergency situations, overloading servos and other systems in order to save the operator of the power armor."
+
+ armour_welded_rebar:0 "Welded rebar"
+ armour_welded_rebar_desc:0 "Fittings and other scrap metal welded to the power armor in the hope of reducing the damage received."
+ 

@@ -83,24 +83,32 @@ equipments = {
 			count < 2
 		}	
 		module_count_limit = {
+			module = armour_explosive_vent
+			count < 3
+		}
+		module_count_limit = {
+			module = armour_emergency_protocol
+			count < 2
+		}
+		module_count_limit = {
+			module = armour_stealth_boy
+			count < 2
+		}
+		module_count_limit = {
+			module = armour_core_assembly
+			count < 2
+		}
+		module_count_limit = {
 			module  = armour_tesla_coil
 			count < 3
 		}
 
-		module_count_limit = {
-			module  = armour_internal_database
-			count < 2
-		}
 		module_count_limit = {
 			module = armour_jet_pack
 			count < 2
 		}
 		module_count_limit = {
 			module = armour_kinetic_dynamo
-			count < 2
-		}
-		module_count_limit = {
-			module = armour_reacon_sensors
 			count < 2
 		}
 
@@ -111,17 +119,9 @@ equipments = {
 		}
 
 		fuel_consumption = 0
-		if = {
-			limit = {
-				ROOT = {
-					has_country_flag = is_brotherhood_nation
-				}
-			}
-			build_cost_ic = 4
-		}
-		else = {
-			build_cost_ic = 8
-		}
+
+		build_cost_ic = 8
+		
 		
 		maximum_speed = 4
 
@@ -177,17 +177,7 @@ equipments = {
 		fuel_consumption = 0
 
 		reliability = 0.8
-		if = {
-			limit = {
-				ROOT = {
-					has_country_flag = is_brotherhood_nation
-				}
-			}
-			build_cost_ic = 7
-		}
-		else = {
-			build_cost_ic = 9
-		}
+		build_cost_ic = 9
 
 		resources = {
 			metal = 3
@@ -218,17 +208,7 @@ equipments = {
 
 		fuel_consumption = 0.3
 
-		if = {
-			limit = {
-				ROOT = {
-					has_country_flag = is_brotherhood_nation
-				}
-			}
-			build_cost_ic = 8
-		}
-		else = {
-			build_cost_ic = 11.5
-		}
+		build_cost_ic = 11.5
 
 		resources = {
 			metal = 3
@@ -257,17 +237,7 @@ equipments = {
 
 		fuel_consumption = 0.3
 
-		if = {
-			limit = {
-				ROOT = {
-					has_country_flag = is_brotherhood_nation
-				}
-			}
-			build_cost_ic = 9
-		}
-		else = {
-			build_cost_ic = 15
-		}
+		build_cost_ic = 15
 
 		resources = {
 			metal = 3
@@ -297,25 +267,13 @@ equipments = {
 
 		fuel_consumption = 0.4
 
-		if = {
-			limit = {
-				ROOT = {
-					has_country_flag = is_brotherhood_nation
-				}
-			}
-			build_cost_ic = 10
-		}
-		else = {
-			build_cost_ic = 17
-		}
+		build_cost_ic = 17
 
 		resources = {
 			composites = 2
 			advanced = 1
 			water = 2
-			energy = 1
 		}
-
 	}
 	
 	#------------------------
@@ -349,7 +307,6 @@ equipments = {
 			metal = 2
 			circuitry = 1
 			water = 1
-			energy = 1
 		}
 	}
 
@@ -379,7 +336,6 @@ equipments = {
 		resources = {
 			metal = 2
 			water = 2
-			energy = 2
 			advanced = 1
 		}
 	}
@@ -410,7 +366,6 @@ equipments = {
 			composites = 3
 			advanced = 2
 			water = 1
-			energy = 1
 		}
 	}
 
@@ -439,7 +394,6 @@ equipments = {
 			composites = 3
 			advanced = 2
 			water = 1
-			energy = 2
 		}
 	}
 
@@ -497,7 +451,6 @@ equipments = {
 			composites = 2
 			advanced = 1
 			water = 2
-			energy = 1
 		}
 	}
 
@@ -526,7 +479,6 @@ equipments = {
 			composites = 3
 			advanced = 2
 			water = 1
-			energy = 1
 		}
 	}
 }

@@ -75,56 +75,7 @@
   prewar_infantry_kit:0 "Prewar Infantry Kit"
   prewar_infantry_kit_desc:0 "By reinstating the infantry kit provided by the US military before the war we can achieve an army that rivals those of pre-war superpowers; truly an awe-inspiring thought."
 
- #----------------------------
- # Power Armour
- #----------------------------
-  wasteland_pa_tech:0 "Stripped Power Armour"
-  wasteland_pa_tech_desc:0 ""
-
-  weight_support_frame_pa_tech_1:0 "Power Armour Support Frame"
-  weight_support_frame_pa_tech_1_desc:0 ""
-
-  weight_support_frame_pa_tech_2:0 "Power Armour Frame Hardening"
-  weight_support_frame_pa_tech_2_desc:0 ""
-
-  scav_pa_tech:0 "Scavenged Power Armour"
-  scav_pa_tech_desc:0 "The poor man's  , often cobbled together from spare parts and broken scraps. Not as effective as regular T-45d but much better than mere metal armour."
-
-  t45d_pa_tech:0 "T-45d Power Armour"
-  t45d_pa_tech_desc:0 "T-45d was initially deployed in 2067, being used to great effect in Alaska during the Anchorage Reclamation, but over the course of the operation it began to show its flaws. While not perfect, the T-45d has its place as a relatively cheap and effective heavy weapons platform."
-
-  t51b_pa_tech:0 "T-51b Power Armour"
-  t51b_pa_tech_desc:0 "The king of pre-war  . Improvements in its design and materiels meant that, in 2076 when the armour was first deployed in battle, it served admirably in the fight against Chinese aggression. Even after the war, suits of T-51b armour continue to function brilliantly, only outclassed by postwar designs."
-
-  pa_TX_28_tech:0 "Micronuclear reactor TX-28"
-  pa_TX_28_tech_desc:0 "A 60 kW micronuclear reactor, used before the war as the main source of energy in power armor, this device is located in an isolated container on the back."
-
-  pa_composite_armor_tech:0 "Composite armor"
-  pa_composite_armor_tech_desc:0 "Composite armor attached to the frame of power armor, allows you to move faster on the battlefield, but protects worse."
-
-  pa_harded_plate_tech:0 "Harded armor"
-  pa_harded_plate_tech_desc:0 "Reinforced armor attached to the frame of power armor, allows you to better protect the soldier, but seriously slows down movement on the battlefield."
-  
-  pa_special_modules_tech:0 "Special Modules"
-  pa_special_modules_tech_desc:0 "Thanks to the understanding of the basic structure of power armor, we can develop special modules for more effective activities on the battlefield."
-  
-  power_armour_enclave1:0 "Advanced Power Armour"
-  power_armour_enclave1_desc:0 "Designed after the bombs fell by the survivors of the American Government—the Enclave—it entered service in 2220 and proved itself to be vastly superiour to any previously developed  ."
-
-  power_armour_enclave2:0 "Advanced Power Armour MKII"
-  power_armour_enclave2_desc:0 "Developed decades after its predecessor, Advanced Power Armour MKII improves on the daunting military prowess of the armour before it. Numerous minor improvements, along with stronger ceramics and a complete composite build, allowed this design to achieve better results despite its lighter build."
-
-  power_armour_bos:0 "Washington Advanced Armor"
-  power_armour_bos_desc:0 ""
-
-  power_armour_legion:0 "Segmentata"
-  power_armour_legion_desc:0 ""
-
-  power_armour_raider:0 "Raider Power Armour"
-  power_armour_raider_desc:0 ""
-
-  texas_brotherhood_pa_tech:0 "Vault-Tec Power Armour"
-  texas_brotherhood_pa_tech_desc:0 "A vault-tec attempt at creating functional power armour."
+ 
 
   spec_ops_equipment_tech_1:0 "Special Forces Gear Tier 1"
   spec_ops_equipment_tech_1_desc:0 ""
@@ -138,12 +89,7 @@
   spec_ops_equipment_tech_5_desc:0 ""
   hardening_armour_tech:0 "Armour Hardening"
   hardening_armour_tech_desc:0 "Special spray coating, advanced metallurgy, or intuitive design and construction. No matter the implementation, sturdier armour makes for hardier soldiers."
-  simple_servo_tech:0 "Simple Servos"
-  simple_servo_tech_desc:0 "Basic hydraulic servos with supplementary motors help augment our troopers in stripped armour be a little more dexterous, and opens up the possibility for restoration of damaged pre-war equipment."
-  advanced_servo_tech:0 "Advanced Servos"
-  advanced_servo_tech_desc:0 "Internal mechanisms with near parity to pre-war designs will not only improve the mobility of our troops in the field, but they will also open the door to a new world of Power Armour development. With this, our understanding of pre-war technology inches ever closer to the dawn of the Great War."
-  pa_high_pressure_hydraulics_tech:0 "High Pressure Hydraulics"
-  pa_high_pressure_hydraulics_tech_desc:0 "The development of further augmented hydraulic systems results in the ability to not only increase the speed of our Power Armoured forces, but also the possibility of mounting heavier armour plating to our frames."
+  
   ballistic_fibre_tech:0 "Ballistic Fibres"
   ballistic_fibre_tech_desc:0 "The development of ballistically resistant materials such as kevlar or teflon, and their use in load bearing equipment and armour variants, mean increased survivability for our special forces."
   stealth_boy_tech:0 "Stealth Boys"

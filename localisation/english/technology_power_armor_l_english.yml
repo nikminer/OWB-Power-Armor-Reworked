@@ -1,0 +1,132 @@
+﻿l_english:
+  fallout_power_armor_folder:0 "Power Armor"
+  fallout_power_armor_folder_desc:0 ""
+#----------------------------
+# Header
+#----------------------------
+  HEADER_ARMOR:0 "Armor"
+  HEADER_CHASSIS:0 "Chassis"
+  HEADER_SERVOS:0 "Servos"
+  HEADER_POWER:0 "Power Plant"
+  HEADER_SPECIAL_HELMET:0 "Special Modules (Helmet)"
+  HEADER_SPECIAL_TORSO:0 "Special Modules (Torso)"
+  HEADER_SPECIAL_LEGS:0 "Special Modules (Legs)"
+
+
+#----------------------------
+# Armor
+#----------------------------
+  weight_support_frame_pa_tech_1:0 "Power Armour Frame Hardening"
+  weight_support_frame_pa_tech_1_desc:0 "Strengthening the frame of the power armor will allow us to attach additional plate sheets."
+
+  welded_rebar_tech:0 "Welded rebar"
+  welded_rebar_tech_desc:0 "Fittings and other scrap metal welded to the power armor in the hope of reducing the damage received."
+
+  pa_composite_armor_tech:0 "Composite armor"
+  pa_composite_armor_tech_desc:0 "Composite armor attached to the frame of power armor, allows you to move faster on the battlefield, but protects worse."
+
+  pa_harded_plate_tech:0 "Harded armor"
+  pa_harded_plate_tech_desc:0 "Reinforced armor attached to the frame of power armor, allows you to better protect the soldier, but seriously slows down movement on the battlefield."
+#----------------------------
+# Chasies
+#----------------------------
+  wasteland_pa_tech:0 "Stripped Power Armour"
+  wasteland_pa_tech_desc:0 ""
+
+  scav_pa_tech:0 "Scavenged Power Armour"
+  scav_pa_tech_desc:0 "The poor man's  , often cobbled together from spare parts and broken scraps. Not as effective as regular T-45d but much better than mere metal armour."
+
+  t45d_pa_tech:0 "T-45d Power Armour"
+  t45d_pa_tech_desc:0 "T-45d was initially deployed in 2067, being used to great effect in Alaska during the Anchorage Reclamation, but over the course of the operation it began to show its flaws. While not perfect, the T-45d has its place as a relatively cheap and effective heavy weapons platform."
+
+  t51b_pa_tech:0 "T-51b Power Armour"
+  t51b_pa_tech_desc:0 "The king of pre-war  . Improvements in its design and materiels meant that, in 2076 when the armour was first deployed in battle, it served admirably in the fight against Chinese aggression. Even after the war, suits of T-51b armour continue to function brilliantly, only outclassed by postwar designs."
+#----------------------------
+# Power
+#----------------------------
+  weight_support_frame_pa_tech_2:0 "Microfusion cell"
+  weight_support_frame_pa_tech_2_desc:0 "Simple microfusion cell used to power energy weapons can also be used to power power armor, however, they discharge very quickly during active operations."
+
+  optimize_energy_tech:0 "Optimization energy consumption"
+  optimize_energy_tech_desc:0 ""
+
+  fusion_core_pa_tech:0 "Fusion core"
+  fusion_core_pa_tech_desc:0 "AA fairly rare universal fuel cell, allows you to continuously fuel any kind of power armor, as well as heavy types of energy weapons or even entire settlements of survivors."
+
+  pa_TX_28_tech:0 "Micronuclear reactor TX-28"
+  pa_TX_28_tech_desc:0 "A 60 kW micronuclear reactor, used before the war as the main source of energy in power armor, this device is located in an isolated container on the back." 
+#----------------------------
+# Servos
+#----------------------------
+  simple_servo_tech:0 "Kinetic servoss"
+  simple_servo_tech_desc:0 "Basic hydraulic servos with supplementary motors help augment our troopers in stripped armour be a little more dexterous, and opens up the possibility for restoration of damaged pre-war equipment."
+
+  advanced_servo_tech:0 "Optimized servos"
+  advanced_servo_tech_desc:0 "Internal mechanisms with near parity to pre-war designs will not only improve the mobility of our troops in the field, but they will also open the door to a new world of Power Armour development. With this, our understanding of pre-war technology inches ever closer to the dawn of the Great War."
+
+  high_pressure_hydraulics_tech:0 "High Pressure Hydraulics"
+  high_pressure_hydraulics_tech_desc:0 "The development of further augmented hydraulic systems results in the ability to not only increase the speed of our Power Armoured forces, but also the possibility of mounting heavier armour plating to our frames."
+#----------------------------
+# Special
+#----------------------------
+  pa_special_modules_tech:0 "Special Modules"
+  pa_special_modules_tech_desc:0 "Thanks to the understanding of the basic structure of power armor, we can develop special modules for more effective activities on the battlefield."
+ # Head
+  iternal_database_tech:0 "Internal Database"
+  iternal_database_tech_desc:0 "Expands the capabilities of the power armor on-board computer, which increases the effectiveness of armor on the battlefield."
+
+  recon_sensors_tech:0 "Recon Sensors"
+  recon_sensors_tech_desc:0 "Long-range sensors allow you to receive information about the actions of the enemy on the battlefield."
+
+  night_vision_pa_tech:0 "Night Vision Devices"
+  night_vision_pa_tech_desc:0 "Infrared based imaging technology, when implemented into spotter's scopes and specialized combat goggles, dramatically increases night time effectiveness."
+
+  thermal_vision_pa_tech:0 "Thermal Vision Devices"
+  thermal_vision_pa_tech_desc:0 "Thermally based imaging technology works without an infrared transmitter or ambient light, further increasing the nighttime effectiveness of our forces."
+
+  vats_interface_pa_tech:0 "V.A.T.S. Interface"
+  vats_interface_pa_tech_desc:0 "Vault-Tec Assisted Targeting system - The development of Vault-Tec, analyzing the enemy, helping to identify and aim soldiers at the enemy's vulnerable spot on the battlefield."
+ # Torso
+  kynetic_dynamo_pa_tech:0 "Kinetic Dynamo"
+  kynetic_dynamo_pa_tech_desc:0 "Allows the power armor to extinguish incoming kinetic energy or enhance outgoing."
+  
+  core_assembly_tech:0 "Core assembly"
+  core_assembly_tech_desc:0 "After installation, increases the refresh rate of interaction with the power armor, making it more responsive."
+
+  pa_stealth_boy_tech:0 "Stealth Boys"
+  pa_stealth_boy_tech_desc:0 "Personal modulated refraction technology, called by their pre-war name Stealth Boys, can be implemented to great affect in surprise ambushes, information gathering, and other clandestine missions."
+
+  active_armor_tech:0 "Active armor"
+  active_armor_tech_desc:0 "Provides additional attack protection increases melee damage."
+
+  jet_pack_tech:0 "Jet Pack"
+  jet_pack_tech_desc:0 "Allows the power armor to better overcome various obstacles, rivers, swamps, barricades, or just hang in the air for a while."
+ # Legs
+  explosive_vent_tech:0 "Explosive vent"
+  explosive_vent_tech_desc:0 "When installed on power armor, explosive vents increase the radius of damage during a shock landing."
+
+  emergency_protocol_tech:0 "Emergency protocol"
+  emergency_protocol_tech_desc:0 "Expands the privileges of the power armor in emergency situations, overloading servos and other systems in order to save the operator of the power armor."
+
+  tesla_coul_tech:0 "Tesla coil"
+  tesla_coul_tech_desc:0 "Cause additional energy damage."
+#-------------------------
+# Special Power Armour
+#-------------------------
+  power_armour_enclave1:0 "Advanced Power Armour"
+  power_armour_enclave1_desc:0 "Designed after the bombs fell by the survivors of the American Government—the Enclave—it entered service in 2220 and proved itself to be vastly superiour to any previously developed  ."
+
+  power_armour_enclave2:0 "Advanced Power Armour MKII"
+  power_armour_enclave2_desc:0 "Developed decades after its predecessor, Advanced Power Armour MKII improves on the daunting military prowess of the armour before it. Numerous minor improvements, along with stronger ceramics and a complete composite build, allowed this design to achieve better results despite its lighter build."
+
+  power_armour_bos:0 "Washington Advanced Armor"
+  power_armour_bos_desc:0 ""
+
+  power_armour_legion:0 "Segmentata"
+  power_armour_legion_desc:0 ""
+
+  power_armour_raider:0 "Raider Power Armour"
+  power_armour_raider_desc:0 ""
+
+  texas_brotherhood_pa_tech:0 "Vault-Tec Power Armour"
+  texas_brotherhood_pa_tech_desc:0 "A vault-tec attempt at creating functional power armour."

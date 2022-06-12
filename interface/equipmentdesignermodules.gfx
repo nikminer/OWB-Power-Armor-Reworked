@@ -53,7 +53,12 @@ spriteTypes = {
 		name = "GFX_EMI_armour_standard_plate"
 		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/plate_module_standart.dds"
 	}
-	
+
+	spriteType = {
+		name = "GFX_EMI_armour_welded_rebar"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/armour_welded_rebar.dds"
+	}
+
 	spriteType = {
 		name = "GFX_EMI_armour_composite_plate"
 		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/plate_module_composite.dds"
@@ -66,15 +71,25 @@ spriteTypes = {
 ###################################################
 # PowerArmor Helmet
 ###################################################
-
+	spriteType = {
+		name = "GFX_EMI_armour_internal_database"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/internal_database.dds"
+	}
+	spriteType = {
+		name = "GFX_EMI_armour_reacon_sensors"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/reacon_sensors.dds"
+	}
 	spriteType = {
 		name = "GFX_EMI_armour_night_vision"
 		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/night_vision_icon.dds"
 	}
-
 	spriteType = {
 		name = "GFX_EMI_armour_thermal_vision"
 		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/thermal_vision_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_EMI_armour_vats_interface"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/armour_vats_interface.dds"
 	}
 ###################################################
 # PowerArmor Special
@@ -91,11 +106,6 @@ spriteTypes = {
 	}
 
 	spriteType = {
-		name = "GFX_EMI_armour_internal_database"
-		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/internal_database.dds"
-	}
-
-	spriteType = {
 		name = "GFX_EMI_armour_jet_pack"
 		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/jet_pack.dds"
 	}
@@ -106,7 +116,22 @@ spriteTypes = {
 	}
 
 	spriteType = {
-		name = "GFX_EMI_armour_reacon_sensors"
-		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/reacon_sensors.dds"
+		name = "GFX_EMI_armour_core_assembly"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/core_assembly.dds"
+	}
+
+	spriteType = {
+		name = "GFX_EMI_armour_stealth_boy"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/stealth_boy.dds"
+	}
+
+	spriteType = {
+		name = "GFX_EMI_armour_explosive_vent"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/explosive_vent.dds"
+	}
+
+	spriteType = {
+		name = "GFX_EMI_armour_emergency_protocol"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/emergency_protocol.dds"
 	}
 }

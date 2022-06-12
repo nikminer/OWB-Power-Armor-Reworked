@@ -1,0 +1,1824 @@
+technologies = {
+	@Col_1 = 8
+	@Col_2 = 12
+	@Col_3 = 16
+	@Col_4 = 20
+	@Col_5 = 24
+	@Col_6 = 28
+	@Col_7 = 32
+	@Col_8 = 36
+	@Col_9 = 40
+	@Col_10 = 44
+	@Col_11 = 48
+	@Col_11m = 50
+	@Col_12 = 52
+	@Col_13 = 56
+
+	@Row_armor = 0
+	@Row_chasies = 2
+	@Row_servos = 4
+	@Row_power = 6
+
+	@Row_special_helmet = 8
+	@Row_special_torso = 10
+	@Row_special_legs = 12
+
+
+#------------------------------------------
+# Chasies
+#------------------------------------------
+	stripped_pa_tech = {
+
+		enable_subunits = {
+			power_armour
+			power_armour_support
+		}
+		enable_equipment_modules  = {
+			armour_battery
+			armour_primitive_servo
+			armour_standard_plate
+		}
+		enable_equipments = {
+			power_armor_equipment_0
+		}
+
+		on_research_complete_limit = {
+			NOT = {
+				has_template_containing_unit = power_armour
+			}
+		}
+		on_research_complete = {
+			hidden_effect = {
+				load_oob = "unlock_power_armour"
+			}
+			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = unit_logger_rule
+						option = ENABLED
+					}
+				}
+				add_to_array = {
+					researched_techs = 222
+				}
+			}
+		}
+
+		dependencies = {
+			power_armour_tech_level_tribal = 1
+		}
+
+		path = {
+			leads_to_tech = weight_support_frame_pa_tech_1
+			research_cost_coeff = 1
+		}
+
+		path = {
+			leads_to_tech = pa_special_modules_tech
+			research_cost_coeff = 1
+		}
+
+		path = {
+			leads_to_tech = wasteland_pa_tech
+			research_cost_coeff = 1
+		}
+
+		path = {
+			leads_to_tech = weight_support_frame_pa_tech_2
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.3
+
+		start_year = 2275
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_chasies y = @Col_1 }
+		}
+
+		categories = {
+			power_armor_tech_category
+			civilized_tech_category
+		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 5
+				has_country_flag = power_armor_doctrine_ai
+			}
+			modifier = {
+				factor = 10
+				date > "2281.1.1"
+			}
+		}
+	}
+
+	wasteland_pa_tech = {
+
+		enable_subunits = {
+			power_armour
+			power_armour_support
+		}
+		
+		enable_equipments = {
+			power_armor_equipment_1
+		}
+		on_research_complete_limit = {
+			NOT = {
+				has_template_containing_unit = power_armour
+			}
+		}
+		on_research_complete = {
+			hidden_effect = {
+				load_oob = "unlock_power_armour"
+			}
+			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = unit_logger_rule
+						option = ENABLED
+					}
+				}
+				add_to_array = {
+					researched_techs = 222
+				}
+			}
+		}
+
+		dependencies = {
+			power_armour_tech_level_settler = 1
+			stripped_pa_tech = 1
+		}
+
+		path = {
+			leads_to_tech = simple_servo_tech
+			research_cost_coeff = 1
+		}
+
+		path = {
+			leads_to_tech = scav_pa_tech
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.3
+
+		start_year = 2278
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_chasies y = @Col_2 }
+		}
+
+		categories = {
+			power_armor_tech_category
+			civilized_tech_category
+		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 5
+				has_country_flag = power_armor_doctrine_ai
+			}
+			modifier = {
+				factor = 10
+				date > "2281.1.1"
+			}
+		}
+	}
+
+	scav_pa_tech = {
+
+		enable_equipments = {
+			power_armor_equipment_2
+		}
+		enable_equipment_modules  = {
+			armour_fusion_core
+		}
+
+		on_research_complete = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = unit_logger_rule
+						option = ENABLED
+					}
+				}
+				add_to_array = {
+					researched_techs = 222
+				}
+			}
+		}
+
+		path = {
+			leads_to_tech = t45d_pa_tech
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.3
+
+		start_year = 2280
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_chasies y = @Col_5 }
+		}
+
+		dependencies = {
+			power_armour_tech_level_settler = 1
+			wasteland_pa_tech = 1
+		}
+
+		categories = {
+			power_armor_tech_category
+			civilized_tech_category
+		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 5
+				has_country_flag = power_armor_doctrine_ai
+			}
+			modifier = {
+				factor = 10
+				date > "2283.1.1"
+			}
+		}
+	}
+
+	t45d_pa_tech = {
+
+		enable_equipments = {
+			power_armor_equipment_3
+		}
+		
+		on_research_complete = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = unit_logger_rule
+						option = ENABLED
+					}
+				}
+				add_to_array = {
+					researched_techs = 223
+				}
+			}
+		}
+
+		path = {
+			leads_to_tech = t51b_pa_tech
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.3
+
+		start_year = 2282
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_chasies y = @Col_6 }
+		}
+
+		categories = {
+			power_armor_tech_category
+			scientific_tech_category
+		}
+
+		dependencies = {
+			power_armour_tech_level_scientific = 1
+			scav_pa_tech = 1
+		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 5
+				has_country_flag = power_armor_doctrine_ai
+			}
+			modifier = {
+				factor = 10
+				date > "2285.1.1"
+			}
+		}
+	}
+
+	t51b_pa_tech = {
+
+		enable_equipments = {
+			power_armor_equipment_4
+		}
+		
+		on_research_complete = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = unit_logger_rule
+						option = ENABLED
+					}
+				}
+				add_to_array = {
+					researched_techs = 225
+				}
+			}
+		}
+
+		research_cost = 2
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.3
+
+		start_year = 2284
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_chasies y = @Col_8 }
+		}
+
+		categories = {
+			power_armor_tech_category
+			scientific_tech_category
+		}
+
+		dependencies = {
+			power_armour_tech_level_scientific = 1
+			t45d_pa_tech = 1
+		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 5
+				has_country_flag = power_armor_doctrine_ai
+			}
+			modifier = {
+				factor = 10
+				date > "2285.1.1"
+			}
+		}
+	}
+#------------------------------------------
+# Armor
+#------------------------------------------
+	weight_support_frame_pa_tech_1 = {
+
+		category_power_armour = {
+			soft_attack = 0.05
+			defense = 0.05
+		}
+
+		path = {
+			leads_to_tech = welded_rebar_tech
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.3
+
+		start_year = 2278
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_armor y = @Col_2 }
+		}
+
+		categories = {
+			power_armor_tech_category
+			civilized_tech_category
+		}
+
+		dependencies = {
+			power_armour_tech_level_tribal = 1
+			stripped_pa_tech = 1
+		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 5
+				has_country_flag = power_armor_doctrine_ai
+			}
+			modifier = {
+				factor = 10
+				date > "2282.1.1"
+			}
+		}
+	}
+
+	welded_rebar_tech = {
+		enable_equipment_modules  = {
+			armour_welded_rebar
+		}
+		on_research_complete = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = unit_logger_rule
+						option = ENABLED
+					}
+				}
+				add_to_array = {
+					researched_techs = 224
+				}
+			}
+		}
+		path = {
+			leads_to_tech = pa_composite_armor_tech
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.3
+
+		start_year = 2283
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_armor y = @Col_4 }
+		}
+
+		categories = {
+			power_armor_tech_category
+			scientific_tech_category
+		}
+
+		dependencies = {
+			power_armour_tech_level_scientific = 1
+			weight_support_frame_pa_tech_1 = 1
+		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 5
+				has_country_flag = power_armor_doctrine_ai
+			}
+			modifier = {
+				factor = 10
+				date > "2284.1.1"
+			}
+		}
+	}
+
+	pa_composite_armor_tech = {
+		enable_equipment_modules  = {
+			armour_composite_plate
+		}
+		on_research_complete = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = unit_logger_rule
+						option = ENABLED
+					}
+				}
+				add_to_array = {
+					researched_techs = 224
+				}
+			}
+		}
+		path = {
+			leads_to_tech = pa_harded_plate_tech
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.3
+
+		start_year = 2283
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_armor y = @Col_6 }
+		}
+
+		categories = {
+			power_armor_tech_category
+			scientific_tech_category
+		}
+
+		dependencies = {
+			power_armour_tech_level_scientific = 1
+			welded_rebar_tech = 1
+		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 5
+				has_country_flag = power_armor_doctrine_ai
+			}
+			modifier = {
+				factor = 10
+				date > "2284.1.1"
+			}
+		}
+	}
+
+	pa_harded_plate_tech = {
+		enable_equipment_modules  = {
+			armour_harded_plate
+		}
+		on_research_complete = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = unit_logger_rule
+						option = ENABLED
+					}
+				}
+				add_to_array = {
+					researched_techs = 226
+				}
+			}
+		}
+
+		research_cost = 2
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.3
+
+		start_year = 2284
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_armor y = @Col_8 }
+		}
+
+		dependencies = {
+			power_armour_tech_level_scientific = 1
+			pa_composite_armor_tech = 1
+		}
+
+		categories = {
+			power_armor_tech_category
+			scientific_tech_category
+		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 5
+				has_country_flag = power_armor_doctrine_ai
+			}
+			modifier = {
+				factor = 10
+				date > "2287.1.1"
+			}
+		}
+	}
+#------------------------------------------
+# Servos
+#------------------------------------------
+	simple_servo_tech = {
+
+		enable_equipment_modules  = {
+			armour_simple_servo
+		}
+
+		path = {
+			leads_to_tech = advanced_servo_tech
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.3
+
+		start_year = 2280
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_servos y = @Col_5 }
+		}
+
+		categories = {
+			power_armor_tech_category
+			civilized_tech_category
+		}
+
+		dependencies = {
+			power_armour_tech_level_settler = 1
+			stripped_pa_tech = 1
+		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 5
+				has_country_flag = power_armor_doctrine_ai
+			}
+			modifier = {
+				factor = 10
+				date > "2282.1.1"
+			}
+		}
+	}
+
+	advanced_servo_tech = {
+
+		enable_equipment_modules  = {
+			armour_advance_servo
+		}
+
+		path = {
+			leads_to_tech = high_pressure_hydraulics_tech
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.3
+
+		start_year = 2281
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_servos y = @Col_6 }
+		}
+
+		categories = {
+			power_armor_tech_category
+			scientific_tech_category
+		}
+
+		dependencies = {
+			power_armour_tech_level_scientific = 1
+			simple_servo_tech = 1
+		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 5
+				has_country_flag = power_armor_doctrine_ai
+			}
+			modifier = {
+				factor = 10
+				date > "2284.1.1"
+			}
+		}
+	}
+
+	high_pressure_hydraulics_tech = {
+
+		enable_equipment_modules  = {
+			armour_high_pressure_hydraulic_servo
+		}
+
+		path = {
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.3
+
+		start_year = 2283
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_servos y = @Col_8 }
+		}
+
+		categories = {
+			power_armor_tech_category
+			scientific_tech_category
+		}
+
+		dependencies = {
+			power_armour_tech_level_scientific = 1
+			advanced_servo_tech = 1
+		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 5
+				has_country_flag = power_armor_doctrine_ai
+			}
+			modifier = {
+				factor = 10
+				date > "2285.1.1"
+			}
+		}
+	}
+
+#------------------------------------------
+# Energy
+#------------------------------------------
+	weight_support_frame_pa_tech_2 = {
+
+		enable_equipment_modules = {
+			armour_battery
+		}
+
+		path = {
+			leads_to_tech = optimize_energy_tech
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.3
+
+		start_year = 2278
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_power y = @Col_2 }
+		}
+
+		categories = {
+			power_armor_tech_category
+			civilized_tech_category
+		}
+
+		dependencies = {
+			power_armour_tech_level_tribal = 1
+			stripped_pa_tech = 1
+		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 5
+				has_country_flag = power_armor_doctrine_ai
+			}
+			modifier = {
+				factor = 10
+				date > "2282.1.1"
+			}
+		}
+	}
+	optimize_energy_tech = {
+
+		category_power_armour = {
+			fuel_consumption = -0.20
+		}
+
+		path = {
+			leads_to_tech = fusion_core_pa_tech
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.3
+
+		start_year = 2278
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_power y = @Col_3 }
+		}
+
+		categories = {
+			power_armor_tech_category
+			civilized_tech_category
+		}
+
+		dependencies = {
+			power_armour_tech_level_tribal = 1
+			weight_support_frame_pa_tech_2 = 1
+		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 5
+				has_country_flag = power_armor_doctrine_ai
+			}
+			modifier = {
+				factor = 10
+				date > "2282.1.1"
+			}
+		}
+	}
+	fusion_core_pa_tech = {
+
+		enable_equipment_modules = {
+			armour_fusion_core
+		}
+
+		path = {
+			leads_to_tech = pa_TX_28_tech
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.3
+
+		start_year = 2280
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_power y = @Col_5 }
+		}
+
+		categories = {
+			power_armor_tech_category
+			civilized_tech_category
+		}
+
+		dependencies = {
+			power_armour_tech_level_tribal = 1
+			optimize_energy_tech = 1
+		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 5
+				has_country_flag = power_armor_doctrine_ai
+			}
+			modifier = {
+				factor = 10
+				date > "2282.1.1"
+			}
+		}
+	}
+	pa_TX_28_tech = {
+
+		enable_equipment_modules  = {
+			armour_reactor_plant
+		}
+
+		research_cost = 2
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.3
+
+		start_year = 2284
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_power y = @Col_8 }
+		}
+
+		categories = {
+			power_armor_tech_category
+			scientific_tech_category
+		}
+
+		dependencies = {
+			power_armour_tech_level_scientific = 1
+			weight_support_frame_pa_tech_2 = 1
+		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 5
+				has_country_flag = power_armor_doctrine_ai
+			}
+			modifier = {
+				factor = 10
+				date > "2284.1.1"
+			}
+		}
+	}
+	
+#------------------------------------------
+# Special
+#------------------------------------------
+	pa_special_modules_tech = {	
+
+		category_power_armour = {
+			build_cost_ic = -0.1
+		}
+
+		path = {
+			leads_to_tech = iternal_database_tech
+			research_cost_coeff = 1
+		}
+
+		path = {
+			leads_to_tech = explosive_vent_tech
+			research_cost_coeff = 1
+		}
+
+		path = {
+			leads_to_tech = kynetic_dynamo_pa_tech
+			research_cost_coeff = 1
+		}
+
+		on_research_complete = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = unit_logger_rule
+						option = ENABLED
+					}
+				}
+				add_to_array = {
+					researched_techs = 227
+				}
+			}
+		}
+		research_cost = 0.2
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.3
+
+		start_year = 2278
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_special_torso y = @Col_2 }
+		}
+
+		categories = {
+			power_armor_tech_category
+			scientific_tech_category
+		}
+
+		dependencies = {
+			power_armour_tech_level_scientific = 1
+			stripped_pa_tech = 1
+		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 5
+				has_country_flag = power_armor_doctrine_ai
+			}
+			modifier = {
+				factor = 10
+				date > "2282.1.1"
+			}
+		}
+	}
+#------------------------------------------
+# Special (Helmet)
+#------------------------------------------
+	iternal_database_tech = {
+		enable_equipment_modules  = {
+			armour_internal_database
+		}
+
+		path = {
+			leads_to_tech = recon_sensors_tech
+			research_cost_coeff = 1
+		}
+		
+		on_research_complete = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = unit_logger_rule
+						option = ENABLED
+					}
+				}
+				add_to_array = {
+					researched_techs = 227
+				}
+			}
+		}
+		research_cost = 1
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.3
+
+		start_year = 2276
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_special_helmet y = @Col_3 }
+		}
+
+		categories = {
+			power_armor_tech_category
+			scientific_tech_category
+		}
+
+		dependencies = {
+			power_armour_tech_level_scientific = 1
+			pa_special_modules_tech = 1
+		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 5
+				has_country_flag = power_armor_doctrine_ai
+			}
+			modifier = {
+				factor = 10
+				date > "2282.1.1"
+			}
+		}
+	}
+	recon_sensors_tech = {
+		enable_equipment_modules  = {
+			armour_reacon_sensors
+		}
+
+		path = {
+			leads_to_tech = night_vision_pa_tech
+			research_cost_coeff = 1
+		}
+		
+		on_research_complete = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = unit_logger_rule
+						option = ENABLED
+					}
+				}
+				add_to_array = {
+					researched_techs = 227
+				}
+			}
+		}
+		research_cost = 1
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.3
+
+		start_year = 2280
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_special_helmet y = @Col_4 }
+		}
+
+		categories = {
+			power_armor_tech_category
+			scientific_tech_category
+		}
+
+		dependencies = {
+			power_armour_tech_level_scientific = 1
+			iternal_database_tech = 1
+		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 5
+				has_country_flag = power_armor_doctrine_ai
+			}
+			modifier = {
+				factor = 10
+				date > "2282.1.1"
+			}
+		}
+	}
+	night_vision_pa_tech = {
+		enable_equipment_modules = {
+			armour_night_vision
+		}
+		land_night_attack = 0.1
+
+		research_cost = 1
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.3
+
+		start_year = 2281
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_special_helmet y = @Col_5 }
+		}
+
+		path = {
+			leads_to_tech = thermal_vision_pa_tech
+			research_cost_coeff = 1
+		}
+
+		dependencies = {
+			special_forces_tech_level_settler = 1
+			recon_sensors_tech = 1
+		}
+
+		categories = {
+			power_armor_tech_category
+			civilized_tech_category
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 5
+				has_country_flag = power_armor_doctrine_ai
+			}
+			modifier = {
+				factor = 10
+				date > "2283.1.1"
+			}
+		}
+	}
+	thermal_vision_pa_tech = {
+		enable_equipment_modules = {
+			armour_thermal_vision
+		}
+		land_night_attack = 0.1
+
+		research_cost = 1
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.3
+		path = {
+			leads_to_tech = vats_interface_pa_tech
+			research_cost_coeff = 1
+		}
+		start_year = 2282
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_special_helmet y = @Col_6 }
+		}
+
+		categories = {
+			power_armor_tech_category
+			scientific_tech_category
+		}
+
+		dependencies = {
+			special_forces_tech_level_scientific = 1
+			night_vision_pa_tech = 1
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 5
+				has_country_flag = power_armor_doctrine_ai
+			}
+			modifier = {
+				factor = 10
+				date > "2284.1.1"
+			}
+		}
+	}
+	vats_interface_pa_tech = {
+		enable_equipment_modules = {
+			armour_vats_interface
+		}
+
+		research_cost = 1.5
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.3
+
+		start_year = 2284
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_special_helmet y = @Col_8 }
+		}
+
+		categories = {
+			power_armor_tech_category
+			scientific_tech_category
+		}
+
+		dependencies = {
+			special_forces_tech_level_scientific = 1
+			thermal_vision_pa_tech = 1
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 5
+				has_country_flag = power_armor_doctrine_ai
+			}
+			modifier = {
+				factor = 10
+				date > "2284.1.1"
+			}
+		}
+	}
+
+#------------------------------------------
+# Special (Torso)
+#------------------------------------------
+	kynetic_dynamo_pa_tech = {
+		enable_equipment_modules  = {
+			armour_kinetic_dynamo
+		}
+
+		path = {
+			leads_to_tech = core_assembly_tech
+			research_cost_coeff = 1
+		}
+
+		on_research_complete = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = unit_logger_rule
+						option = ENABLED
+					}
+				}
+				add_to_array = {
+					researched_techs = 227
+				}
+			}
+		}
+		research_cost = 1
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.3
+
+		start_year = 2277
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_special_torso y = @Col_3 }
+		}
+
+		categories = {
+			power_armor_tech_category
+			scientific_tech_category
+		}
+
+		dependencies = {
+			power_armour_tech_level_scientific = 1
+			pa_special_modules_tech = 1
+		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 5
+				has_country_flag = power_armor_doctrine_ai
+			}
+			modifier = {
+				factor = 10
+				date > "2282.1.1"
+			}
+		}
+	}
+	core_assembly_tech = {
+		enable_equipment_modules  = {
+			armour_core_assembly
+		}
+	
+		path = {
+			leads_to_tech = pa_stealth_boy_tech
+			research_cost_coeff = 1
+		}
+		
+		on_research_complete = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = unit_logger_rule
+						option = ENABLED
+					}
+				}
+				add_to_array = {
+					researched_techs = 227
+				}
+			}
+		}
+		research_cost = 1
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.3
+	
+		start_year = 2280
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_special_torso y = @Col_4 }
+		}
+	
+		categories = {
+			power_armor_tech_category
+			scientific_tech_category
+		}
+	
+		dependencies = {
+			power_armour_tech_level_scientific = 1
+			kynetic_dynamo_pa_tech = 1
+		}
+	
+		ai_will_do = {
+			factor = 1
+		
+			modifier = {
+				factor = 5
+				has_country_flag = power_armor_doctrine_ai
+			}
+			modifier = {
+				factor = 10
+				date > "2282.1.1"
+			}
+		}
+	}
+	pa_stealth_boy_tech = {
+		enable_equipment_modules  = {
+			armour_stealth_boy
+		}
+	
+		path = {
+			leads_to_tech = active_armor_tech
+			research_cost_coeff = 1
+		}
+		
+		on_research_complete = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = unit_logger_rule
+						option = ENABLED
+					}
+				}
+				add_to_array = {
+					researched_techs = 227
+				}
+			}
+		}
+		research_cost = 1
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.3
+	
+		start_year = 2281
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_special_torso y = @Col_5 }
+		}
+	
+		categories = {
+			power_armor_tech_category
+			scientific_tech_category
+		}
+	
+		dependencies = {
+			power_armour_tech_level_scientific = 1
+			core_assembly_tech = 1
+		}
+	
+		ai_will_do = {
+			factor = 1
+		
+			modifier = {
+				factor = 5
+				has_country_flag = power_armor_doctrine_ai
+			}
+			modifier = {
+				factor = 10
+				date > "2282.1.1"
+			}
+		}
+	}
+	active_armor_tech = {
+		enable_equipment_modules  = {
+			armour_active_armor
+		}
+	
+		path = {
+			leads_to_tech = jet_pack_tech
+			research_cost_coeff = 1
+		}
+		
+		on_research_complete = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = unit_logger_rule
+						option = ENABLED
+					}
+				}
+				add_to_array = {
+					researched_techs = 227
+				}
+			}
+		}
+		research_cost = 1
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.3
+	
+		start_year = 2281
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_special_torso y = @Col_6 }
+		}
+	
+		categories = {
+			power_armor_tech_category
+			scientific_tech_category
+		}
+	
+		dependencies = {
+			power_armour_tech_level_scientific = 1
+			pa_stealth_boy_tech = 1
+		}
+	
+		ai_will_do = {
+			factor = 1
+		
+			modifier = {
+				factor = 5
+				has_country_flag = power_armor_doctrine_ai
+			}
+			modifier = {
+				factor = 10
+				date > "2282.1.1"
+			}
+		}
+	}
+	jet_pack_tech = {
+		enable_equipment_modules  = {
+			armour_jet_pack
+		}
+	
+		
+		on_research_complete = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = unit_logger_rule
+						option = ENABLED
+					}
+				}
+				add_to_array = {
+					researched_techs = 227
+				}
+			}
+		}
+		research_cost = 1.5
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.3
+	
+		start_year = 2281
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_special_torso y = @Col_8 }
+		}
+	
+		categories = {
+			power_armor_tech_category
+			scientific_tech_category
+		}
+	
+		dependencies = {
+			power_armour_tech_level_scientific = 1
+			active_armor_tech = 1
+		}
+	
+		ai_will_do = {
+			factor = 1
+		
+			modifier = {
+				factor = 5
+				has_country_flag = power_armor_doctrine_ai
+			}
+			modifier = {
+				factor = 10
+				date > "2282.1.1"
+			}
+		}
+	}
+#------------------------------------------
+# Special (Legs)
+#------------------------------------------
+	explosive_vent_tech = {
+		enable_equipment_modules  = {
+			armour_explosive_vent
+		}
+
+		path = {
+			leads_to_tech = emergency_protocol_tech
+			research_cost_coeff = 1
+		}
+
+		on_research_complete = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = unit_logger_rule
+						option = ENABLED
+					}
+				}
+				add_to_array = {
+					researched_techs = 227
+				}
+			}
+		}
+		research_cost = 1
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.3
+
+		start_year = 2275
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_special_legs y = @Col_3 }
+		}
+
+		categories = {
+			power_armor_tech_category
+			scientific_tech_category
+		}
+
+		dependencies = {
+			power_armour_tech_level_scientific = 1
+			pa_special_modules_tech = 1
+		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 5
+				has_country_flag = power_armor_doctrine_ai
+			}
+			modifier = {
+				factor = 10
+				date > "2282.1.1"
+			}
+		}
+	}
+
+	emergency_protocol_tech = {
+		enable_equipment_modules  = {
+			armour_emergency_protocol
+		}
+	
+		path = {
+			leads_to_tech = tesla_coul_tech
+			research_cost_coeff = 1
+		}
+		
+		on_research_complete = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = unit_logger_rule
+						option = ENABLED
+					}
+				}
+				add_to_array = {
+					researched_techs = 227
+				}
+			}
+		}
+		research_cost = 1
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.3
+	
+		start_year = 2281
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_special_legs y = @Col_5 }
+		}
+	
+		categories = {
+			power_armor_tech_category
+			scientific_tech_category
+		}
+	
+		dependencies = {
+			power_armour_tech_level_scientific = 1
+			explosive_vent_tech = 1
+		}
+	
+		ai_will_do = {
+			factor = 1
+		
+			modifier = {
+				factor = 5
+				has_country_flag = power_armor_doctrine_ai
+			}
+			modifier = {
+				factor = 10
+				date > "2282.1.1"
+			}
+		}
+	}
+
+	tesla_coul_tech = {
+		enable_equipment_modules  = {
+			armour_tesla_coil
+		}
+	
+		
+		on_research_complete = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = unit_logger_rule
+						option = ENABLED
+					}
+				}
+				add_to_array = {
+					researched_techs = 227
+				}
+			}
+		}
+		research_cost = 1.5
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.3
+	
+		start_year = 2281
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_special_legs y = @Col_8 }
+		}
+	
+		categories = {
+			power_armor_tech_category
+			scientific_tech_category
+		}
+	
+		dependencies = {
+			power_armour_tech_level_scientific = 1
+			emergency_protocol_tech = 1
+		}
+	
+		ai_will_do = {
+			factor = 1
+		
+			modifier = {
+				factor = 5
+				has_country_flag = power_armor_doctrine_ai
+			}
+			modifier = {
+				factor = 10
+				date > "2282.1.1"
+			}
+		}
+	}
+
+#-------------------------
+# Special Power Armour
+#-------------------------
+	# Enclave Mk1
+	power_armour_enclave_1 = {
+		enable_equipments = {
+			enclave_power_armour_equipment_1
+		}
+		enable_equipment_modules  = {
+			armour_enclave_reactor_plant
+		}
+		path = {
+			leads_to_tech = power_armour_enclave_2
+			research_cost_coeff = 1
+		}
+
+		dependencies = {
+			power_armour_tech_level_scientific = 1
+			high_pressure_hydraulics_tech = 1
+			enclave_pa_unlock_tech = 1
+		}
+
+		research_cost = 4
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.5
+
+		start_year = 2285
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_chasies y = @Col_11 }
+		}
+
+		categories = {
+			power_armor_tech_category
+			scientific_tech_category
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 50
+				date > "2285.1.1"
+			}
+		}
+	}
+
+	# Enclave Mk2
+	power_armour_enclave_2 = {
+		enable_equipments = {
+			enclave_power_armour_equipment_2
+		}
+
+		dependencies = {
+			power_armour_tech_level_scientific = 1
+			enclave_pa_unlock_tech = 1
+		}
+
+		research_cost = 4
+		xp_research_type = army
+		xp_boost_cost = 35
+		xp_research_bonus = 0.5
+
+		start_year = 2287
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_chasies y = @Col_12 }
+		}
+
+		categories = {
+			power_armor_tech_category
+			scientific_tech_category
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 50
+				date > "2287.1.1"
+			}
+		}
+	}
+
+	texas_brotherhood_pa_tech = {
+
+		enable_subunits = {
+			power_armour
+			power_armour_support
+		}
+
+		enable_equipments = {
+			power_armor_equipment_tbh
+		}
+
+		dependencies = {
+			blocked_tech = 1
+		}
+
+		research_cost = 2
+		start_year = 2280
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_servos y = @Col_11 }
+		}
+
+		categories = {
+			power_armor_tech_category
+			civilized_tech_category
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	midwest_pa_tech = {
+
+		enable_equipments = {
+			power_armor_equipment_midwest
+		}
+
+		dependencies = {
+			blocked_tech = 1
+		}
+
+		research_cost = 2
+		start_year = 2280
+		folder = {
+			name = fallout_power_armor_folder
+			position = { x = @Row_servos y = @Col_12 }
+		}
+
+		categories = {
+			power_armor_tech_category
+			civilized_tech_category
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+}

@@ -1,0 +1,31 @@
+ideas = {
+###############################
+# Major Businesses
+###############################
+	construction_firm = {
+		designer = yes
+		knighlty_armaments = {
+			picture = company_knightly_armaments
+			allowed = {
+				is_brotherhood_nation_allowed_block = yes
+			}
+			available = {
+				is_brotherhood_nation = yes
+			}
+			visible = {
+				is_brotherhood_nation = yes
+			}
+			research_bonus = {
+				power_armor_tech_category = 0.10
+			}
+			equipment_bonus = {
+				power_armor_equipment = {
+					build_cost_ic = -0.5
+					instant = yes
+				}
+			}
+			traits = { bos_power_armor_manufacturer }
+		}
+
+	}
+}
