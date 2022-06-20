@@ -52,4 +52,52 @@ spriteTypes = {
 		textureFile = "gfx/interface/equipmentdesigner/tanks/generic/generic_light_tank_turret.dds"
 		legacy_lazy_load = no
 	}
+
+
+
+	spriteType = {
+		name = "GFX_TM_power_armor_servo"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/power_armor_servo.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_TM_power_armor_bg_servo"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/power_armor_bg_servo.dds"
+		legacy_lazy_load = no
+	}
+
+	spriteType = {
+		name = "GFX_TM_power_armor_helmet"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/power_armor_helmet.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_TM_power_armor_bg_helmet"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/power_armor_bg_helmet.dds"
+		legacy_lazy_load = no
+	}
+
+	spriteType = {
+		name = "GFX_TM_power_armor_plate"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/power_armor_plate.dds"
+		legacy_lazy_load = no
+	}
+
+	spriteType = {
+		name = "GFX_TM_power_armor_bg_plate"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/power_armor_bg_plate.dds"
+		legacy_lazy_load = no
+	}
+
+	spriteType = {
+		name = "GFX_TM_power_armor_plant"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/power_armor_plant.dds"
+		legacy_lazy_load = no
+	}
+
+	spriteType = {
+		name = "GFX_TM_power_armor_bg_plant"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/power_armor_bg_plant.dds"
+		legacy_lazy_load = no
+	}
 }
