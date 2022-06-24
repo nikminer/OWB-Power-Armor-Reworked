@@ -202,10 +202,6 @@ technologies = {
 		enable_equipments = {
 			power_armor_equipment_2
 		}
-		enable_equipment_modules  = {
-			armour_fusion_core
-		}
-
 		on_research_complete = {
 			if = {
 				limit = {
