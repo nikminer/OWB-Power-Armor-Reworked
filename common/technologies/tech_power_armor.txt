@@ -302,7 +302,7 @@ technologies = {
 		}
 
 		dependencies = {
-			power_armour_tech_level_scientific = 1
+			power_armour_tech_level_settler = 1
 			scav_pa_tech = 1
 		}
 
@@ -463,7 +463,7 @@ technologies = {
 		}
 
 		dependencies = {
-			power_armour_tech_level_scientific = 1
+			power_armour_tech_level_settler = 1
 			weight_support_frame_pa_tech_1 = 1
 		}
 
@@ -520,7 +520,7 @@ technologies = {
 		}
 
 		dependencies = {
-			power_armour_tech_level_scientific = 1
+			power_armour_tech_level_settler = 1
 			welded_rebar_tech = 1
 		}
 
@@ -667,7 +667,7 @@ technologies = {
 		}
 
 		dependencies = {
-			power_armour_tech_level_scientific = 1
+			power_armour_tech_level_settler = 1
 			simple_servo_tech = 1
 		}
 
@@ -963,7 +963,7 @@ technologies = {
 		}
 
 		dependencies = {
-			power_armour_tech_level_scientific = 1
+			power_armour_tech_level_tribal = 1
 			stripped_pa_tech = 1
 		}
 
@@ -1023,7 +1023,7 @@ technologies = {
 		}
 
 		dependencies = {
-			power_armour_tech_level_scientific = 1
+			power_armour_tech_level_tribal = 1
 			pa_special_modules_tech = 1
 		}
 
@@ -1080,7 +1080,7 @@ technologies = {
 		}
 
 		dependencies = {
-			power_armour_tech_level_scientific = 1
+			power_armour_tech_level_settler = 1
 			iternal_database_tech = 1
 		}
 
@@ -1167,7 +1167,7 @@ technologies = {
 		}
 
 		dependencies = {
-			special_forces_tech_level_scientific = 1
+			power_armour_tech_level_settler = 1
 			night_vision_pa_tech = 1
 		}
 
@@ -1265,7 +1265,7 @@ technologies = {
 		}
 
 		dependencies = {
-			power_armour_tech_level_scientific = 1
+			power_armour_tech_level_tribal = 1
 			pa_special_modules_tech = 1
 		}
 
@@ -1322,7 +1322,8 @@ technologies = {
 		}
 	
 		dependencies = {
-			power_armour_tech_level_scientific = 1
+			
+			power_armour_tech_level_settler = 1
 			kynetic_dynamo_pa_tech = 1
 		}
 	
@@ -1379,7 +1380,7 @@ technologies = {
 		}
 	
 		dependencies = {
-			power_armour_tech_level_scientific = 1
+			power_armour_tech_level_settler = 1
 			core_assembly_tech = 1
 		}
 	
@@ -1436,7 +1437,7 @@ technologies = {
 		}
 	
 		dependencies = {
-			power_armour_tech_level_scientific = 1
+			power_armour_tech_level_settler = 1
 			pa_stealth_boy_tech = 1
 		}
 	
@@ -1549,7 +1550,7 @@ technologies = {
 		}
 
 		dependencies = {
-			power_armour_tech_level_scientific = 1
+			power_armour_tech_level_tribal = 1
 			pa_special_modules_tech = 1
 		}
 
@@ -1607,7 +1608,7 @@ technologies = {
 		}
 	
 		dependencies = {
-			power_armour_tech_level_scientific = 1
+			power_armour_tech_level_settler = 1
 			explosive_vent_tech = 1
 		}
 	
