@@ -21,6 +21,12 @@ spriteTypes = {
 		textureFile = "gfx/interface/equipmentdesigner/power_armor/generic/t51_power_armor_blueprint.dds"
 		legacy_lazy_load = no
 	}
+
+	spriteType = {
+		name = "GFX_TC_power_armor_t60"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/generic/t60_power_armor_blueprint.dds"
+		legacy_lazy_load = no
+	}
 	spriteType = {
 		name = "GFX_TC_power_armor_x01"
 		textureFile = "gfx/interface/equipmentdesigner/power_armor/generic/x01_power_armor_blueprint.dds"

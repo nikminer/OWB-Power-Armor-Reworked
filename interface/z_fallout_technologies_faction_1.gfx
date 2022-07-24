@@ -1,0 +1,110 @@
+spriteTypes = {
+
+	# FACTION UNIQUES
+	# Alphabetic by TAG
+
+# ACH (Alamo Chapter)
+	spriteType = {
+		name = "GFX_ACH_t60_pa_tech_medium"
+		texturefile = "gfx/interface/equipment/cosmetic/pa/t60_outcasts.dds"
+		alwaystransparent = yes
+	}
+
+# ARR (Arroyo)
+	spriteType = {
+		name = "GFX_ARR_t60_pa_tech_medium"
+		texturefile = "gfx/interface/equipment/cosmetic/pa/t60_vault_tec.dds"
+		alwaystransparent = yes
+	}
+
+# BOO (Boomers)
+	spriteType = {
+		name = "GFX_BOO_t60_pa_tech_medium"
+		texturefile = "gfx/interface/equipment/cosmetic/pa/t60_vault_tec.dds"
+		alwaystransparent = yes
+	}
+
+# BOS (Brotherhood of Steel/West Coast)
+	spriteType = {
+		name = "GFX_BOS_t51b_pa_tech_medium"
+		texturefile = "gfx/interface/equipment/cosmetic/pa/t_51_icon_bos.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_BOS_t45d_pa_tech_medium"
+		texturefile = "gfx/interface/equipment/cosmetic/pa/t_45_bos_icon.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_BOS_t60_pa_tech_medium"
+		texturefile = "gfx/interface/equipment/cosmetic/pa/t60_bos.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_BOS_wasteland_pa_tech_medium"
+		texturefile = "gfx/interface/equipment/cosmetic/pa/stripped_power_armour_icon_moj.dds"
+		alwaystransparent = yes
+	}
+
+
+# MCA (MacArthur Base (Enclave))
+	spriteType = {
+		name = "GFX_MCA_t60_pa_tech_medium"
+		texturefile = "gfx/interface/equipment/cosmetic/pa/t60_onyx.dds"
+		alwaystransparent = yes
+	}
+
+
+# MOJ (Mojave Chapter)
+	spriteType = {
+		name = "GFX_MOJ_t60_pa_tech_medium"
+		texturefile = "gfx/interface/equipment/cosmetic/pa/t60_bos.dds"
+		alwaystransparent = yes
+	}
+
+
+# SOK (Sons of Kaga)
+	spriteType = {
+		name = "GFX_SOK_t60_pa_tech_medium"
+		texturefile = "gfx/interface/equipment/cosmetic/pa/t60_outcasts.dds"
+		alwaystransparent = yes
+	}
+
+
+# TBH (Texas Brotherhood)
+	spriteType = {
+		name = "GFX_TBH_t60_pa_tech_medium"
+		texturefile = "gfx/interface/equipment/cosmetic/pa/t60_outcasts.dds"
+		alwaystransparent = yes
+	}
+
+
+# TCA (The Cause)
+	spriteType = {
+		name = "GFX_TCA_t60_pa_tech_medium"
+		texturefile = "gfx/interface/equipment/cosmetic/pa/t60_winterized.dds"
+		alwaystransparent = yes
+	}
+
+# TEX (Texas Republic)
+	spriteType = {
+		name = "GFX_TEX_t60_pa_tech_medium"
+		texturefile = "gfx/interface/equipment/cosmetic/pa/t60_outcasts.dds"
+		alwaystransparent = yes
+	}
+
+# VLT (Vault City)
+	spriteType = {
+		name = "GFX_VLT_t60_pa_tech_medium"
+		texturefile = "gfx/interface/equipment/cosmetic/pa/t60_vault_tec.dds"
+		alwaystransparent = yes
+	}
+
+# WBH (Washington Brotherhood)
+	spriteType = {
+		name = "GFX_WBH_t60_pa_tech_medium"
+		texturefile = "gfx/interface/equipment/cosmetic/pa/t60_onyx.dds"
+		alwaystransparent = yes
+	}
+}
+

@@ -14,7 +14,378 @@ equipments = {
 
 		picture = archetype_power_armor_equipment
 
+		module_slots = {
+			helmet_slot = {
+				required = no
+				allowed_module_categories = {
+					armour_power_helmet_type
+				}
+			}
 
+			servo_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					armour_power_servo_type
+				}
+			}
+
+			armor_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					armour_power_plate_type
+				}
+			}
+
+			plant_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					armour_power_plant_type
+				}
+			}
+		}
+		
+		module_count_limit = {
+			module = armour_active_armor
+			count < 2
+		}	
+		module_count_limit = {
+			module = armour_explosive_vent
+			count < 3
+		}
+		module_count_limit = {
+			module = armour_emergency_protocol
+			count < 2
+		}
+		module_count_limit = {
+			module = armour_stealth_boy
+			count < 2
+		}
+		module_count_limit = {
+			module = armour_core_assembly
+			count < 2
+		}
+		module_count_limit = {
+			module  = armour_tesla_coil
+			count < 3
+		}
+
+		module_count_limit = {
+			module = armour_jet_pack
+			count < 2
+		}
+		module_count_limit = {
+			module = armour_kinetic_dynamo
+			count < 2
+		}
+
+		default_modules = {
+			servo_type_slot = armour_primitive_servo
+			armor_type_slot = armour_standard_plate
+			plant_type_slot = armour_battery
+		}
+
+		fuel_consumption = 0
+
+		build_cost_ic = 8
+		
+		
+		maximum_speed = 4
+
+		# Misc Abilities
+		reliability = 0.3
+		
+
+		# Defensive Abilities
+		breakthrough = 3
+		defense = 1
+		hardness = 0.3
+		armor_value = 20
+	}
+
+
+	power_armor_equipment_0 = {
+		archetype = power_armor_equipment
+
+		module_slots = {
+			helmet_slot = {
+				required = no
+				allowed_module_categories = {
+					armour_power_helmet_type
+				}
+			}
+
+			servo_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					armour_power_servo_type
+				}
+			}
+
+			armor_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					armour_power_plate_type
+				}
+			}
+
+			plant_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					armour_power_plant_type
+				}
+			}
+		}
+
+		priority = 10
+		visual_level = 0
+
+		breakthrough = 1.5
+		defense = 1.5
+		hardness = 0.4
+		armor_value = 15
+
+		fuel_consumption = 0
+
+		reliability = 0.5
+
+		resources = {
+			metal = 1
+			water = 1
+		}
+	}
+
+	# Stripped Power Armour
+	power_armor_equipment_1 = {
+		archetype = power_armor_equipment
+		parent = power_armor_equipment_0
+		
+		module_slots = {
+			helmet_slot = {
+				required = no
+				allowed_module_categories = {
+					armour_power_helmet_type
+				}
+			}
+
+			servo_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					armour_power_servo_type
+				}
+			}
+
+			armor_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					armour_power_plate_type
+				}
+			}
+
+			plant_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					armour_power_plant_type
+				}
+			}
+
+			special_type_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+		}
+		
+		priority = 20
+		visual_level = 0
+
+		breakthrough = 6
+		defense = 2
+		hardness = 0.6
+		armor_value = 20
+		soft_attack = 2
+		hard_attack = 1
+
+		fuel_consumption = 0
+
+		reliability = 0.6
+		build_cost_ic = 9
+
+		resources = {
+			metal = 3
+			water = 1
+		}
+	}
+
+	# Scavenged Power Armour
+	power_armor_equipment_2 = {
+		archetype = power_armor_equipment
+		parent = power_armor_equipment_1
+		
+		module_slots = {
+			helmet_slot = {
+				required = no
+				allowed_module_categories = {
+					armour_power_helmet_type
+				}
+			}
+
+			servo_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					armour_power_servo_type
+				}
+			}
+
+			armor_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					armour_power_plate_type
+				}
+			}
+
+			plant_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					armour_power_plant_type
+				}
+			}
+
+			special_type_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+
+			special_type_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+		}
+
+		priority = 40
+		visual_level = 1
+
+		reliability = 0.65
+
+		maximum_speed = 4.5
+
+		# Defensive Abilities
+		breakthrough = 9
+		defense = 4
+		hardness = 0.7
+		armor_value = 25
+		maximum_speed = 4.5
+		soft_attack = 4
+		hard_attack = 2
+
+		fuel_consumption = 0.3
+
+		build_cost_ic = 11.5
+
+		resources = {
+			metal = 3
+			circuitry = 1
+			water = 1
+		}
+	}
+
+	# T-45D
+	power_armor_equipment_3 = {
+		archetype = power_armor_equipment
+		parent = power_armor_equipment_2
+
+		module_slots = {
+			helmet_slot = {
+				required = no
+				allowed_module_categories = {
+					armour_power_helmet_type
+				}
+			}
+
+			servo_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					armour_power_servo_type
+				}
+			}
+
+			armor_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					armour_power_plate_type
+				}
+			}
+
+			plant_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					armour_power_plant_type
+				}
+			}
+
+			special_type_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+
+			special_type_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+
+			special_type_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+
+			special_type_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+		}
+
+		priority = 60
+		visual_level = 2
+
+		reliability = 0.75
+		breakthrough = 12
+		defense = 6
+		hardness = 0.75
+		armor_value = 30
+		soft_attack = 6
+		hard_attack = 3
+
+		maximum_speed = 4.5
+
+		fuel_consumption = 0.3
+
+		build_cost_ic = 15
+
+		resources = {
+			metal = 3
+			circuitry = 2
+			water = 1
+		}
+
+	}
+
+	# T-51B
+	power_armor_equipment_4 = {
+		archetype = power_armor_equipment
+		parent = power_armor_equipment_3
+		
 		module_slots = {
 			helmet_slot = {
 				required = no
@@ -78,184 +449,12 @@ equipments = {
 				}
 			}
 		}
-		module_count_limit = {
-			module = armour_active_armor
-			count < 2
-		}	
-		module_count_limit = {
-			module = armour_explosive_vent
-			count < 3
-		}
-		module_count_limit = {
-			module = armour_emergency_protocol
-			count < 2
-		}
-		module_count_limit = {
-			module = armour_stealth_boy
-			count < 2
-		}
-		module_count_limit = {
-			module = armour_core_assembly
-			count < 2
-		}
-		module_count_limit = {
-			module  = armour_tesla_coil
-			count < 3
-		}
 
-		module_count_limit = {
-			module = armour_jet_pack
-			count < 2
-		}
-		module_count_limit = {
-			module = armour_kinetic_dynamo
-			count < 2
-		}
-
-		default_modules = {
-			servo_type_slot = armour_primitive_servo
-			armor_type_slot = armour_standard_plate
-			plant_type_slot = armour_battery
-		}
-
-		fuel_consumption = 0
-
-		build_cost_ic = 8
 		
-		
-		maximum_speed = 4
-
-		# Misc Abilities
-		reliability = 0.9
-		
-
-		# Defensive Abilities
-		breakthrough = 3
-		defense = 1
-		hardness = 0.3
-		armor_value = 20
-	}
-
-
-	power_armor_equipment_0 = {
-		archetype = power_armor_equipment
-		module_slots = inherit
-
-		priority = 10
-		visual_level = 0
-
-		breakthrough = 1.5
-		defense = 1.5
-		hardness = 0.4
-		armor_value = 15
-
-		fuel_consumption = 0
-
-		reliability = 1.1
-
-		resources = {
-			metal = 1
-			water = 1
-		}
-	}
-
-	# Stripped Power Armour
-	power_armor_equipment_1 = {
-		archetype = power_armor_equipment
-		parent = power_armor_equipment_0
-		module_slots = inherit
-		priority = 20
-		visual_level = 0
-
-		breakthrough = 6
-		defense = 2
-		hardness = 0.5
-		armor_value = 20
-		soft_attack = 2
-		hard_attack = 1
-
-		fuel_consumption = 0
-
-		reliability = 1
-		build_cost_ic = 9
-
-		resources = {
-			metal = 3
-			water = 1
-		}
-	}
-
-	# Scavenged Power Armour
-	power_armor_equipment_2 = {
-		archetype = power_armor_equipment
-		parent = power_armor_equipment_1
-		module_slots = inherit
-		priority = 40
-		visual_level = 1
-
-		reliability = 1.1
-
-		maximum_speed = 4.5
-
-		# Defensive Abilities
-		breakthrough = 9
-		defense = 4
-		hardness = 0.6
-		armor_value = 25
-		maximum_speed = 4.5
-		soft_attack = 4
-		hard_attack = 2
-
-		fuel_consumption = 0.3
-
-		build_cost_ic = 11.5
-
-		resources = {
-			metal = 3
-			circuitry = 1
-			water = 1
-		}
-	}
-
-	# T-45D
-	power_armor_equipment_3 = {
-		archetype = power_armor_equipment
-		parent = power_armor_equipment_2
-		module_slots = inherit
-		priority = 60
-		visual_level = 2
-
-		reliability = 1.15
-		breakthrough = 12
-		defense = 6
-		hardness = 0.7
-		armor_value = 30
-		soft_attack = 6
-		hard_attack = 3
-
-		maximum_speed = 4.5
-
-		fuel_consumption = 0.3
-
-		build_cost_ic = 15
-
-		resources = {
-			metal = 3
-			circuitry = 2
-			water = 1
-		}
-
-	}
-
-	# T-51B
-	power_armor_equipment_4 = {
-		archetype = power_armor_equipment
-		parent = power_armor_equipment_3
-		module_slots = inherit
 		priority = 80
 		visual_level = 3
 
-		reliability = 1.2
+		reliability = 0.8
 		breakthrough = 15
 		defense = 8
 		hardness = 0.8
@@ -276,17 +475,171 @@ equipments = {
 		}
 	}
 	
+	# T-60
+	power_armor_equipment_5 = {
+		archetype = power_armor_equipment
+		parent = power_armor_equipment_4
+		
+		module_slots = {
+			helmet_slot = {
+				required = no
+				allowed_module_categories = {
+					armour_power_helmet_type
+				}
+			}
+
+			servo_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					armour_power_servo_type
+				}
+			}
+
+			armor_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					armour_power_plate_type
+				}
+			}
+
+			plant_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					armour_power_plant_type
+				}
+			}
+
+			special_type_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+
+			special_type_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+
+			special_type_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+
+			special_type_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+			special_type_slot_5 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+
+			special_type_slot_6 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+		}
+
+		priority = 100
+		visual_level = 4
+
+		reliability = 0.85
+		# Defensive Abilities
+		breakthrough = 18
+		defense = 10
+		hardness = 0.85
+		armor_value = 50
+		soft_attack = 10
+		hard_attack = 5
+
+		maximum_speed = 5
+
+		fuel_consumption = 0.5
+
+		build_cost_ic = 19
+
+		resources = {
+			composites = 3
+			advanced = 2
+			water = 1
+		}
+	}
+
+
 	#------------------------
 	# Unique
 	#------------------------
 	power_armor_equipment_tbh = {
 		archetype = power_armor_equipment
 		parent = power_armor_equipment_1
-		module_slots = inherit
+
+		module_slots = {
+			helmet_slot = {
+				required = no
+				allowed_module_categories = {
+					armour_power_helmet_type
+				}
+			}
+
+			servo_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					armour_power_servo_type
+				}
+			}
+
+			armor_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					armour_power_plate_type
+				}
+			}
+
+			plant_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					armour_power_plant_type
+				}
+			}
+
+			special_type_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+
+			special_type_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+
+			special_type_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+
+		}
+
 		priority = 30
 		visual_level = 6
 
-		reliability = 1
+		reliability = 0.6
 
 		maximum_speed = 5
 
@@ -314,11 +667,69 @@ equipments = {
 	power_armor_equipment_midwest = {
 		archetype = power_armor_equipment
 		parent = power_armor_equipment_3
-		module_slots = inherit
+		
+		module_slots = {
+			helmet_slot = {
+				required = no
+				allowed_module_categories = {
+					armour_power_helmet_type
+				}
+			}
+
+			servo_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					armour_power_servo_type
+				}
+			}
+
+			armor_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					armour_power_plate_type
+				}
+			}
+
+			plant_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					armour_power_plant_type
+				}
+			}
+
+			special_type_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+
+			special_type_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+
+			special_type_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+
+			special_type_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+		}
+
 		priority = 65
 		visual_level = 7
 
-		reliability = 1.05
+		reliability = 0.65
 		# Defensive Abilities
 		breakthrough = 13
 		defense = 5
@@ -343,11 +754,75 @@ equipments = {
 	enclave_power_armour_equipment_1 = {
 		archetype = power_armor_equipment
 		parent = power_armor_equipment_4
-		module_slots = inherit
+		
+		module_slots = {
+			helmet_slot = {
+				required = no
+				allowed_module_categories = {
+					armour_power_helmet_type
+				}
+			}
+
+			servo_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					armour_power_servo_type
+				}
+			}
+
+			armor_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					armour_power_plate_type
+				}
+			}
+
+			plant_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					armour_power_plant_type
+				}
+			}
+
+			special_type_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+
+			special_type_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+
+			special_type_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+
+			special_type_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+			special_type_slot_5 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+		}
+
 		priority = 125
 		visual_level = 5
 
-		reliability = 1.15
+		reliability = 0.75
 		# Defensive Abilities
 		breakthrough = 18
 		defense = 10
@@ -372,7 +847,78 @@ equipments = {
 	enclave_power_armour_equipment_2 = {
 		archetype = power_armor_equipment
 		parent = enclave_power_armour_equipment_1
-		module_slots = inherit
+		
+		module_slots = {
+			helmet_slot = {
+				required = no
+				allowed_module_categories = {
+					armour_power_helmet_type
+				}
+			}
+
+			servo_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					armour_power_servo_type
+				}
+			}
+
+			armor_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					armour_power_plate_type
+				}
+			}
+
+			plant_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					armour_power_plant_type
+				}
+			}
+
+			special_type_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+
+			special_type_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+
+			special_type_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+
+			special_type_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+			special_type_slot_5 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+			
+			special_type_slot_6 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
+		}
+
 		priority = 150
 		visual_level = 5
 
@@ -382,7 +928,7 @@ equipments = {
 		armor_value = 60
 		soft_attack = 12
 		hard_attack = 6
-		reliability = 1.2
+		reliability = 0.8
 
 		maximum_speed = 6
 
@@ -397,14 +943,14 @@ equipments = {
 		}
 	}
 
-	# Left for compatibility of saves
+# Left for compatibility of saves
 	power_armor_equipment_3_light = {
 		archetype = power_armor_equipment
 		parent = power_armor_equipment_3
 		priority = 50
 		visual_level = 2
 
-		reliability = 0.95
+		reliability = 0.65
 		# Defensive Abilities
 		breakthrough = 11
 		defense = 5
@@ -432,7 +978,7 @@ equipments = {
 		priority = 70
 		visual_level = 3
 
-		reliability = 0.95
+		reliability = 0.75
 		# Defensive Abilities
 		breakthrough = 13
 		defense = 7
@@ -451,34 +997,6 @@ equipments = {
 			composites = 2
 			advanced = 1
 			water = 2
-		}
-	}
-
-	power_armor_equipment_5 = {
-		archetype = power_armor_equipment
-		parent = power_armor_equipment_4
-		priority = 100
-		visual_level = 4
-
-		reliability = 0.95
-		# Defensive Abilities
-		breakthrough = 18
-		defense = 10
-		hardness = 0.90
-		armor_value = 50
-		soft_attack = 10
-		hard_attack = 5
-
-		maximum_speed = 5
-
-		fuel_consumption = 0.5
-
-		build_cost_ic = 19
-
-		resources = {
-			composites = 3
-			advanced = 2
-			water = 1
 		}
 	}
 }

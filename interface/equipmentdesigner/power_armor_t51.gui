@@ -55,7 +55,6 @@ guiTypes = {
 			}
 
 			################# MODULE SLOT: Servo #################
-			################# MODULE SLOT: Servo #################
 			containerWindowType = {
 				name = "servo_type_slot"
 				position = { x=0 y=0 }

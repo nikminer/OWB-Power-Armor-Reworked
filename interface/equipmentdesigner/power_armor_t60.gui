@@ -1,13 +1,13 @@
 guiTypes = {
 	containerWindowType = {
-		name = "equipment_designer_power_armor_equipment"
+		name = "equipment_designer_power_armor_equipment_5"
 		# NOTE: to keep aligned with the window "equipment_modules" in tank_designer_view.gui
 		position = { x=0 y=0 }
 		size = { width=508 height=248 }
 
 		iconType = {
 			name = "equipment_image_overlay"
-			spriteType = "GFX_TC_power_armor_chassis"
+			spriteType = "GFX_TC_power_armor_t60"
 			position = { x=0 y=0 }
 		}
 
@@ -185,6 +185,27 @@ guiTypes = {
 			}
 			containerWindowType = {
 				name = "special_type_slot_3"
+				position = { x=0 y=0 }
+				size = { width=100% height=100% }
+
+				#### MODULE: Todo ####
+			}
+			containerWindowType = {
+				name = "special_type_slot_4"
+				position = { x=0 y=0 }
+				size = { width=100% height=100% }
+
+				#### MODULE: Todo ####
+			}
+			containerWindowType = {
+				name = "special_type_slot_5"
+				position = { x=0 y=0 }
+				size = { width=100% height=100% }
+
+				#### MODULE: Todo ####
+			}
+			containerWindowType = {
+				name = "special_type_slot_6"
 				position = { x=0 y=0 }
 				size = { width=100% height=100% }
 
