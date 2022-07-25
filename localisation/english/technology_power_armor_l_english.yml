@@ -30,6 +30,9 @@
 #----------------------------
 # Chasies
 #----------------------------
+  stripped_pa_tech: "Studying the principles of power armor operation"
+  stripped_pa_tech_desc: "Before proceeding to the development of power armor, it is necessary to understand how to control it, this is a complex equipment in its device that requires careful training of operators."
+
   wasteland_pa_tech:0 "Stripped Power Armour"
   wasteland_pa_tech_desc:0 ""
 
