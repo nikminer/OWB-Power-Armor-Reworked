@@ -33,10 +33,6 @@ generic_power_armor_screens = {
 				armor_type_slot = armour_standard_plate
 				plant_type_slot = armour_battery
 				special_type_slot_1 = empty
-				special_type_slot_2 = empty
-				special_type_slot_3 = empty
-				special_type_slot_4 = empty
-				special_type_slot_5 = empty
 			}
 			upgrades = {
 			}
@@ -120,33 +116,6 @@ generic_power_armor_screens = {
 					}
 				}
 				special_type_slot_2 = {
-					any_of = {
-						armour_emergency_protocol
-						armour_core_assembly
-						armour_stealth_boy
-						armour_kinetic_dynamo
-						armour_explosive_vent
-					}
-				}
-				special_type_slot_3 = {
-					any_of = {
-						armour_emergency_protocol
-						armour_core_assembly
-						armour_stealth_boy
-						armour_kinetic_dynamo
-						armour_explosive_vent
-					}
-				}
-				special_type_slot_4 = {
-					any_of = {
-						armour_emergency_protocol
-						armour_core_assembly
-						armour_stealth_boy
-						armour_kinetic_dynamo
-						armour_explosive_vent
-					}
-				}
-				special_type_slot_5 = {
 					any_of = {
 						armour_emergency_protocol
 						armour_core_assembly
@@ -249,14 +218,6 @@ generic_power_armor_screens = {
 					}
 				}
 				special_type_slot_4 = {
-					any_of = {
-						armour_active_armor
-						armour_emergency_protocol
-						armour_core_assembly
-						armour_stealth_boy
-					}
-				}
-				special_type_slot_5 = {
 					any_of = {
 						armour_active_armor
 						armour_emergency_protocol
@@ -412,7 +373,7 @@ generic_power_armor_screens = {
 
 		target_variant = {
 			match_value = 5000
-			type = power_armor_equipment_5
+			type = power_armor_equipment_6
 			modules = {
 				helmet_slot = {
 					any_of = {

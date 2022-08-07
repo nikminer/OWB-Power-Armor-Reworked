@@ -32,6 +32,11 @@ technologies = {
 			armour_primitive_servo
 			armour_standard_plate
 		}
+		
+		enable_subunits = {
+			power_armour
+			power_armour_support
+		}
 
 		on_research_complete_limit = {
 			NOT = {
@@ -54,10 +59,6 @@ technologies = {
 					researched_techs = 222
 				}
 			}
-		}
-
-		dependencies = {
-
 		}
 
 		path = {
@@ -87,7 +88,7 @@ technologies = {
 
 		start_year = 2275
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_chasies y = @Col_1 }
 		}
 
@@ -111,11 +112,6 @@ technologies = {
 	}
 
 	wasteland_pa_tech = {
-
-		enable_subunits = {
-			power_armour
-			power_armour_support
-		}
 		
 		enable_equipments = {
 			power_armor_equipment_1
@@ -165,7 +161,7 @@ technologies = {
 
 		start_year = 2278
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_chasies y = @Col_2 }
 		}
 
@@ -219,7 +215,7 @@ technologies = {
 
 		start_year = 2280
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_chasies y = @Col_5 }
 		}
 
@@ -279,7 +275,7 @@ technologies = {
 
 		start_year = 2282
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_chasies y = @Col_6 }
 		}
 
@@ -339,7 +335,7 @@ technologies = {
 
 		start_year = 2284
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_chasies y = @Col_8 }
 		}
 
@@ -370,7 +366,7 @@ technologies = {
 	t60_pa_tech = {
 
 		enable_equipments = {
-			power_armor_equipment_5
+			power_armor_equipment_6
 		}
 		
 		on_research_complete = {
@@ -394,7 +390,7 @@ technologies = {
 
 		start_year = 2285
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_chasies y = @Col_9 }
 		}
 
@@ -443,7 +439,7 @@ technologies = {
 
 		start_year = 2278
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_armor y = @Col_2 }
 		}
 
@@ -500,7 +496,7 @@ technologies = {
 
 		start_year = 2283
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_armor y = @Col_4 }
 		}
 
@@ -557,7 +553,7 @@ technologies = {
 
 		start_year = 2283
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_armor y = @Col_6 }
 		}
 
@@ -610,7 +606,7 @@ technologies = {
 
 		start_year = 2284
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_armor y = @Col_8 }
 		}
 
@@ -658,7 +654,7 @@ technologies = {
 
 		start_year = 2280
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_servos y = @Col_5 }
 		}
 
@@ -704,7 +700,7 @@ technologies = {
 
 		start_year = 2281
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_servos y = @Col_6 }
 		}
 
@@ -749,7 +745,7 @@ technologies = {
 
 		start_year = 2283
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_servos y = @Col_8 }
 		}
 
@@ -798,7 +794,7 @@ technologies = {
 
 		start_year = 2278
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_power y = @Col_2 }
 		}
 
@@ -843,7 +839,7 @@ technologies = {
 
 		start_year = 2278
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_power y = @Col_3 }
 		}
 
@@ -888,7 +884,7 @@ technologies = {
 
 		start_year = 2280
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_power y = @Col_5 }
 		}
 
@@ -928,7 +924,7 @@ technologies = {
 
 		start_year = 2284
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_power y = @Col_8 }
 		}
 
@@ -1000,7 +996,7 @@ technologies = {
 
 		start_year = 2278
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_special_torso y = @Col_2 }
 		}
 
@@ -1060,7 +1056,7 @@ technologies = {
 
 		start_year = 2276
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_special_helmet y = @Col_3 }
 		}
 
@@ -1117,7 +1113,7 @@ technologies = {
 
 		start_year = 2280
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_special_helmet y = @Col_4 }
 		}
 
@@ -1157,7 +1153,7 @@ technologies = {
 
 		start_year = 2281
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_special_helmet y = @Col_5 }
 		}
 
@@ -1204,7 +1200,7 @@ technologies = {
 		}
 		start_year = 2282
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_special_helmet y = @Col_6 }
 		}
 
@@ -1242,7 +1238,7 @@ technologies = {
 
 		start_year = 2284
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_special_helmet y = @Col_8 }
 		}
 
@@ -1302,7 +1298,7 @@ technologies = {
 
 		start_year = 2277
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_special_torso y = @Col_3 }
 		}
 
@@ -1359,7 +1355,7 @@ technologies = {
 	
 		start_year = 2280
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_special_torso y = @Col_4 }
 		}
 	
@@ -1417,7 +1413,7 @@ technologies = {
 	
 		start_year = 2281
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_special_torso y = @Col_5 }
 		}
 	
@@ -1474,7 +1470,7 @@ technologies = {
 	
 		start_year = 2281
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_special_torso y = @Col_6 }
 		}
 	
@@ -1527,7 +1523,7 @@ technologies = {
 	
 		start_year = 2281
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_special_torso y = @Col_8 }
 		}
 	
@@ -1587,7 +1583,7 @@ technologies = {
 
 		start_year = 2275
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_special_legs y = @Col_3 }
 		}
 
@@ -1645,7 +1641,7 @@ technologies = {
 	
 		start_year = 2281
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_special_legs y = @Col_5 }
 		}
 	
@@ -1699,7 +1695,7 @@ technologies = {
 	
 		start_year = 2281
 		folder = {
-			name = fallout_power_armor_folder
+			name = fallout_power_armor_par_folder
 			position = { x = @Row_special_legs y = @Col_8 }
 		}
 	
@@ -1727,146 +1723,6 @@ technologies = {
 		}
 	}
 
-#-------------------------
-# Special Power Armour
-#-------------------------
-	# Enclave Mk1
-	power_armour_enclave_1 = {
-		enable_equipments = {
-			enclave_power_armour_equipment_1
-		}
-		enable_equipment_modules  = {
-			armour_enclave_reactor_plant
-		}
-		path = {
-			leads_to_tech = power_armour_enclave_2
-			research_cost_coeff = 1
-		}
 
-		dependencies = {
-			power_armour_tech_level_scientific = 1
-			high_pressure_hydraulics_tech = 1
-			enclave_pa_unlock_tech = 1
-		}
-
-		research_cost = 4
-		xp_research_type = army
-		xp_boost_cost = 35
-		xp_research_bonus = 0.5
-
-		start_year = 2285
-		folder = {
-			name = fallout_power_armor_folder
-			position = { x = @Row_chasies y = @Col_11 }
-		}
-
-		categories = {
-			power_armor_tech_category
-			scientific_tech_category
-		}
-
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 50
-				date > "2285.1.1"
-			}
-		}
-	}
-
-	# Enclave Mk2
-	power_armour_enclave_2 = {
-		enable_equipments = {
-			enclave_power_armour_equipment_2
-		}
-
-		dependencies = {
-			power_armour_tech_level_scientific = 1
-			enclave_pa_unlock_tech = 1
-		}
-
-		research_cost = 4
-		xp_research_type = army
-		xp_boost_cost = 35
-		xp_research_bonus = 0.5
-
-		start_year = 2287
-		folder = {
-			name = fallout_power_armor_folder
-			position = { x = @Row_chasies y = @Col_12 }
-		}
-
-		categories = {
-			power_armor_tech_category
-			scientific_tech_category
-		}
-
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 50
-				date > "2287.1.1"
-			}
-		}
-	}
-
-	texas_brotherhood_pa_tech = {
-
-		enable_subunits = {
-			power_armour
-			power_armour_support
-		}
-
-		enable_equipments = {
-			power_armor_equipment_tbh
-		}
-
-		dependencies = {
-			blocked_tech = 1
-		}
-
-		research_cost = 2
-		start_year = 2280
-		folder = {
-			name = fallout_power_armor_folder
-			position = { x = @Row_servos y = @Col_11 }
-		}
-
-		categories = {
-			power_armor_tech_category
-			civilized_tech_category
-		}
-
-		ai_will_do = {
-			factor = 0
-		}
-	}
-
-	midwest_pa_tech = {
-
-		enable_equipments = {
-			power_armor_equipment_midwest
-		}
-
-		dependencies = {
-			blocked_tech = 1
-		}
-
-		research_cost = 2
-		start_year = 2280
-		folder = {
-			name = fallout_power_armor_folder
-			position = { x = @Row_servos y = @Col_12 }
-		}
-
-		categories = {
-			power_armor_tech_category
-			civilized_tech_category
-		}
-
-		ai_will_do = {
-			factor = 0
-		}
-	}
 
 }

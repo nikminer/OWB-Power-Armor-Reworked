@@ -5,6 +5,7 @@ tags={
 }
 dependencies={
 	"Old World Blues"
+	"OWB: Tech Tree Rework"
 }
 picture="thumbnail.png"
 name="OWB: Power Armor Reworked"

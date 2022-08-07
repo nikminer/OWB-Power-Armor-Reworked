@@ -96,7 +96,7 @@ equipment_modules = {
 	}
 
 	armour_advance_servo = {
-		abbreviation = "sim"
+		abbreviation = "adv"
 		category = armour_power_servo_type
 		sfx = sfx_ui_sd_module_engine
 

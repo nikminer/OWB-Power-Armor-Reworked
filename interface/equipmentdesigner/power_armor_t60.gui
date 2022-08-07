@@ -1,6 +1,6 @@
 guiTypes = {
 	containerWindowType = {
-		name = "equipment_designer_power_armor_equipment_5"
+		name = "equipment_designer_power_armor_equipment_6"
 		# NOTE: to keep aligned with the window "equipment_modules" in tank_designer_view.gui
 		position = { x=0 y=0 }
 		size = { width=508 height=248 }

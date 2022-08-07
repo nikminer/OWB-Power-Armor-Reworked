@@ -1,8 +1,6 @@
 spriteTypes = {
 	
-
 	#Power Armour
-
 	spriteType = {
 		name = "GFX_wasteland_pa_tech_medium"
 		texturefile = "gfx/interface/equipment/generic/wasteland_power_armour_icon.dds"
@@ -28,6 +26,44 @@ spriteTypes = {
 	}
 
 	spriteType = {
+		name = "GFX_t51b_pa_tech_medium"
+		texturefile = "gfx/interface/equipment/generic/t_51_icon.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_t60_pa_tech_medium"
+		texturefile = "gfx/interface/equipment/generic/t60.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_power_armour_enclave_3_medium"
+		texturefile = "gfx/interface/equipment/generic/apa_mk3.dds"
+		alwaystransparent = yes
+	}
+
+
+
+	spriteType = {
+		name = "GFX_simple_servo_tech_medium"
+		texturefile = "gfx/interface/technologies/simple_servo_icon.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_advanced_servo_tech_medium"
+		texturefile = "gfx/interface/technologies/advanced_servo_icon.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_high_pressure_hydraulics_tech_medium"
+		texturefile = "gfx/interface/technologies/high_pressure_hydraulics_icon.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
 		name = "GFX_pa_composite_armor_tech_medium"
 		texturefile = "gfx/interface/equipment/generic/composite.dds"
 		alwaystransparent = yes
@@ -46,18 +82,6 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_pa_TX_28_tech_medium"
 		texturefile = "gfx/interface/equipment/generic/tx28.dds"
-		alwaystransparent = yes
-	}
-
-	spriteType = {
-		name = "GFX_t51b_pa_tech_medium"
-		texturefile = "gfx/interface/equipment/generic/t_51_icon.dds"
-		alwaystransparent = yes
-	}
-
-	spriteType = {
-		name = "GFX_t60_pa_tech_medium"
-		texturefile = "gfx/interface/equipment/generic/t60.dds"
 		alwaystransparent = yes
 	}
 	
