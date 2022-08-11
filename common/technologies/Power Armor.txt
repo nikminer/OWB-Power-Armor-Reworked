@@ -428,7 +428,7 @@ technologies = {
 		}
 
 		path = {
-			leads_to_tech = welded_rebar_tech
+			leads_to_tech = c_t45d_pa_tech
 			research_cost_coeff = 1
 		}
 
@@ -467,7 +467,7 @@ technologies = {
 		}
 	}
 
-	welded_rebar_tech = {
+	c_t45d_pa_tech = {
 		enable_equipment_modules  = {
 			armour_welded_rebar
 		}
@@ -485,7 +485,7 @@ technologies = {
 			}
 		}
 		path = {
-			leads_to_tech = pa_composite_armor_tech
+			leads_to_tech = c_t51b_pa_tech
 			research_cost_coeff = 1
 		}
 
@@ -524,7 +524,7 @@ technologies = {
 		}
 	}
 
-	pa_composite_armor_tech = {
+	c_t51b_pa_tech = {
 		enable_equipment_modules  = {
 			armour_composite_plate
 		}
@@ -542,7 +542,7 @@ technologies = {
 			}
 		}
 		path = {
-			leads_to_tech = pa_harded_plate_tech
+			leads_to_tech = h_t51b_pa_tech
 			research_cost_coeff = 1
 		}
 
@@ -564,7 +564,7 @@ technologies = {
 
 		dependencies = {
 			power_armour_tech_level_settler = 1
-			welded_rebar_tech = 1
+			c_t45d_pa_tech = 1
 		}
 
 		ai_will_do = {
@@ -581,7 +581,7 @@ technologies = {
 		}
 	}
 
-	pa_harded_plate_tech = {
+	h_t51b_pa_tech = {
 		enable_equipment_modules  = {
 			armour_harded_plate
 		}
@@ -612,7 +612,7 @@ technologies = {
 
 		dependencies = {
 			power_armour_tech_level_scientific = 1
-			pa_composite_armor_tech = 1
+			c_t51b_pa_tech = 1
 		}
 
 		categories = {

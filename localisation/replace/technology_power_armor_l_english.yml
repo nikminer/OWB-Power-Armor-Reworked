@@ -21,12 +21,19 @@
 
   welded_rebar_tech: "Welded rebar"
   welded_rebar_tech_desc: "Fittings and other scrap metal welded to the power armor in the hope of reducing the damage received."
+  c_t45d_pa_tech: "Welded rebar"
+  c_t45d_pa_tech_desc: "Fittings and other scrap metal welded to the power armor in the hope of reducing the damage received."
 
   pa_composite_armor_tech: "Composite armor"
   pa_composite_armor_tech_desc: "Composite armor attached to the frame of power armor, allows you to move faster on the battlefield, but protects worse."
+  c_t51b_pa_tech: "Composite armor"
+  c_t51b_pa_tech_desc: "Composite armor attached to the frame of power armor, allows you to move faster on the battlefield, but protects worse."
 
   pa_harded_plate_tech: "Harded armor"
   pa_harded_plate_tech_desc: "Reinforced armor attached to the frame of power armor, allows you to better protect the soldier, but seriously slows down movement on the battlefield."
+  h_t51b_pa_tech: "Harded armor"
+  h_t51b_pa_tech_desc: "Reinforced armor attached to the frame of power armor, allows you to better protect the soldier, but seriously slows down movement on the battlefield."
+
 #----------------------------
 # Chasies
 #----------------------------

@@ -113,12 +113,13 @@ spriteTypes = {
 		texturefile = "gfx/interface/equipment/generic/welded_rebar.dds"
 		alwaystransparent = yes
 	}
-
+	
 	spriteType = {
-		name = "GFX_welded_rebar_tech_medium"
+		name = "GFX_c_t45d_pa_tech_medium"
 		texturefile = "gfx/interface/equipment/generic/welded_rebar.dds"
 		alwaystransparent = yes
 	}
+
 
 	spriteType = {
 		name = "GFX_iternal_database_tech_medium"
