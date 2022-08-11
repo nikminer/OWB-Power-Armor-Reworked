@@ -73,11 +73,7 @@ spriteTypes = {
 		texturefile = "gfx/interface/equipment/generic/fusion_core.dds"
 		alwaystransparent = yes
 	}
-	spriteType = {
-		name = "GFX_weight_support_frame_pa_tech_2_medium"
-		texturefile = "gfx/interface/equipment/generic/microfusion_cell.dds"
-		alwaystransparent = yes
-	}
+
 	
 	spriteType = {
 		name = "GFX_pa_TX_28_tech_medium"
@@ -90,11 +86,7 @@ spriteTypes = {
 		texturefile = "gfx/interface/equipment/generic/harded.dds"
 		alwaystransparent = yes
 	}
-	spriteType = {
-		name = "GFX_weight_support_frame_pa_tech_1_medium"
-		texturefile = "gfx/interface/equipment/generic/weight_support_frame.dds"
-		alwaystransparent = yes
-	}
+	
 	
 	spriteType = {
 		name = "GFX_pa_special_modules_tech_medium"

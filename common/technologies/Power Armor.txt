@@ -91,7 +91,9 @@ technologies = {
 			name = fallout_power_armor_par_folder
 			position = { x = @Row_chasies y = @Col_1 }
 		}
-
+		dependencies = {
+			power_armour_tech_level_tribal = 1
+		}
 		categories = {
 			power_armor_tech_category
 			civilized_tech_category
@@ -140,7 +142,7 @@ technologies = {
 		}
 
 		dependencies = {
-			power_armour_tech_level_settler = 1
+			power_armour_tech_level_tribal = 1
 			stripped_pa_tech = 1
 		}
 
