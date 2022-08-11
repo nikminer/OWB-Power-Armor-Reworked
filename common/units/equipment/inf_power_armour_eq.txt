@@ -6,6 +6,8 @@ equipments = {
 	power_armor_equipment = {
 		is_archetype = yes
 		is_buildable = no
+		is_convertable = yes
+
 		type = armor
 		group_by = archetype
 
@@ -105,7 +107,7 @@ equipments = {
 
 	power_armor_equipment_0 = {
 		archetype = power_armor_equipment
-
+		is_convertable = yes
 		module_slots = {
 			helmet_slot = {
 				required = no
@@ -158,7 +160,7 @@ equipments = {
 	power_armor_equipment_1 = {
 		archetype = power_armor_equipment
 		parent = power_armor_equipment_0
-		
+		is_convertable = yes
 		module_slots = {
 			helmet_slot = {
 				required = no
@@ -221,7 +223,7 @@ equipments = {
 	power_armor_equipment_2 = {
 		archetype = power_armor_equipment
 		parent = power_armor_equipment_1
-		
+		is_convertable = yes
 		module_slots = {
 			helmet_slot = {
 				required = no
@@ -297,7 +299,7 @@ equipments = {
 	power_armor_equipment_3 = {
 		archetype = power_armor_equipment
 		parent = power_armor_equipment_2
-
+		is_convertable = yes
 		module_slots = {
 			helmet_slot = {
 				required = no
@@ -385,7 +387,7 @@ equipments = {
 	power_armor_equipment_4 = {
 		archetype = power_armor_equipment
 		parent = power_armor_equipment_3
-		
+		is_convertable = yes
 		module_slots = {
 			helmet_slot = {
 				required = no
@@ -479,7 +481,7 @@ equipments = {
 	power_armor_equipment_6 = {
 		archetype = power_armor_equipment
 		parent = power_armor_equipment_4
-		
+		is_convertable = yes
 		module_slots = {
 			helmet_slot = {
 				required = no
@@ -667,7 +669,7 @@ equipments = {
 	power_armor_equipment_midwest = {
 		archetype = power_armor_equipment
 		parent = power_armor_equipment_3
-		
+		is_convertable = yes
 		module_slots = {
 			helmet_slot = {
 				required = no
@@ -754,7 +756,7 @@ equipments = {
 	enclave_power_armour_equipment_1 = {
 		archetype = power_armor_equipment
 		parent = power_armor_equipment_4
-		
+		is_convertable = yes
 		module_slots = {
 			helmet_slot = {
 				required = no
@@ -847,7 +849,7 @@ equipments = {
 	enclave_power_armour_equipment_2 = {
 		archetype = power_armor_equipment
 		parent = enclave_power_armour_equipment_1
-		
+		is_convertable = yes
 		module_slots = {
 			helmet_slot = {
 				required = no
@@ -946,7 +948,7 @@ equipments = {
 	enclave_power_armour_equipment_3 = {
 		archetype = power_armor_equipment
 		parent = enclave_power_armour_equipment_2
-		
+		is_convertable = yes
 		module_slots = {
 			helmet_slot = {
 				required = no
