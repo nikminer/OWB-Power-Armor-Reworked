@@ -31,6 +31,8 @@ technologies = {
 		enable_equipment_modules  = {
 			armour_primitive_servo
 			armour_standard_plate
+			armour_default_helmet
+			armour_battery
 		}
 		
 		enable_subunits = {
@@ -780,8 +782,8 @@ technologies = {
 #------------------------------------------
 	weight_support_frame_pa_tech_2 = {
 
-		enable_equipment_modules = {
-			armour_battery
+		category_power_armour = {
+			fuel_consumption = -0.10
 		}
 
 		path = {
@@ -826,7 +828,7 @@ technologies = {
 	optimize_energy_tech = {
 
 		category_power_armour = {
-			fuel_consumption = -0.20
+			fuel_consumption = -0.10
 		}
 
 		path = {

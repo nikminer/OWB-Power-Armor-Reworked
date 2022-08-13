@@ -1,467 +1,191 @@
-
-generic_power_armor_screens = {
+power_armor = {
 	category = land
-	blocked_for = {
-	}
-
-	available_for = {
-	}
-
 	roles = {
-		land_light_tank
+		power_armour
 	}
 
 	priority = {
-		factor = 1000
+		factor = 2500
 	}
 
-	basic_wasteland_default = {
+	power_armor_1 = {
 		priority = {
-			factor = 1
-			modifier = { 
-				has_tech = wasteland_pa_tech
-				factor = 0
-			}
+			factor = 250	
 		}
 
-		target_variant = {
-			match_value = 1000
-			type = power_armor_equipment_1
-			modules = {
-				helmet_slot = empty
-				servo_type_slot = armour_primitive_servo
-				armor_type_slot = armour_standard_plate
-				plant_type_slot = armour_battery
-				special_type_slot_1 = empty
-			}
-			upgrades = {
-			}
+		enable = {
+			has_tech = wasteland_pa_tech
+			NOT = { has_tech = scav_pa_tech }
 		}
 
-		allowed_modules = {
-			armour_tesla_coil
-			armour_jet_pack
-			armour_vats_interface
-			armour_enclave_reactor_plant
-			armour_high_pressure_hydraulic_servo
-			armour_harded_plate
-			
-			armour_active_armor
-			armour_thermal_vision
-			armour_night_vision
-			armour_reactor_plant
-			armour_advance_servo
-			armour_composite_plate
-			
-			armour_emergency_protocol
-			armour_core_assembly
-			armour_stealth_boy
-			armour_reacon_sensors
-			armour_fusion_core
-			armour_simple_servo
-			armour_welded_rebar
-
-			armour_kinetic_dynamo
-			armour_explosive_vent
-			armour_internal_database
-			armour_battery
-			armour_standard_plate
-			armour_primitive_servo
-		}
-	}
-	basic_scav_default = {
-		priority = {
-			factor = 100
-			modifier = { 
-				has_tech = scav_pa_tech 
-				factor = 0 #let's not waste XP here
-			}
-		}
+		role_icon_index = 0
 
 		target_variant = {
 			match_value = 2000
-			type = power_armor_equipment_2
+			type = power_armor_equipment_1
 			modules = {
-				helmet_slot = {
-					any_of = {
-						armour_reacon_sensors
-						armour_internal_database
-					}
-				}
-				servo_type_slot = {
-					any_of = {
-						armour_simple_servo
-						armour_primitive_servo
-					}
-				}
-				armor_type_slot = {
-					any_of = {
-						armour_welded_rebar
-						armour_standard_plate
-					}
-				}
-				plant_type_slot = {
-					any_of = {
-						armour_fusion_core
-						armour_battery
-					}
-				}
-				special_type_slot_1 = {
-					any_of = {
-						armour_emergency_protocol
-						armour_core_assembly
-						armour_stealth_boy
-						armour_kinetic_dynamo
-						armour_explosive_vent
-					}
-				}
-				special_type_slot_2 = {
-					any_of = {
-						armour_emergency_protocol
-						armour_core_assembly
-						armour_stealth_boy
-						armour_kinetic_dynamo
-						armour_explosive_vent
-					}
-				}
-			}
-			upgrades = {
+				helmet_slot = armour_power_helmet_type
+				servo_type_slot = armour_power_servo_type
+				armor_type_slot = armour_power_plate_type
+				plant_type_slot = armour_power_plant_type
+				special_type_slot_1 = armour_power_special_type
+				special_type_slot_2 = armour_power_special_type
 			}
 		}
 
-		allowed_modules = {
-			armour_tesla_coil
-			armour_jet_pack
-			armour_vats_interface
-			armour_enclave_reactor_plant
-			armour_high_pressure_hydraulic_servo
-			armour_harded_plate
-			
-			armour_active_armor
-			armour_thermal_vision
-			armour_night_vision
-			armour_reactor_plant
-			armour_advance_servo
-			armour_composite_plate
-			
-			armour_emergency_protocol
-			armour_core_assembly
-			armour_stealth_boy
-			armour_reacon_sensors
-			armour_fusion_core
-			armour_simple_servo
-			armour_welded_rebar
-
-			armour_kinetic_dynamo
-			armour_explosive_vent
-			armour_internal_database
-			armour_battery
-			armour_standard_plate
-			armour_primitive_servo
+		allowed_modules = {			
+			armour_power_plant_type
+			armour_power_servo_type
+			armour_power_plate_type
+			armour_power_helmet_type
+			armour_power_special_type
 		}
 	}
-	basic_t45d_default = {
+
+	power_armor_2 = {
 		priority = {
-			factor = 100
-			modifier = { 
-				has_tech = t45d_pa_tech 
-				factor = 0 #let's not waste XP here
+			factor = 250	
+		}
+
+		enable = {
+			has_tech = scav_pa_tech
+			NOT = { has_tech = t45d_pa_tech }
+		}
+
+		role_icon_index = 0
+
+		target_variant = {
+			match_value = 2500
+			type = power_armor_equipment_2
+			modules = {
+				helmet_slot = armour_power_helmet_type
+				servo_type_slot = armour_power_servo_type
+				armor_type_slot = armour_power_plate_type
+				plant_type_slot = armour_power_plant_type
+				special_type_slot_1 = armour_power_special_type
+				special_type_slot_2 = armour_power_special_type
+				special_type_slot_3 = armour_power_special_type
 			}
 		}
+
+		allowed_modules = {			
+			armour_power_plant_type
+			armour_power_servo_type
+			armour_power_plate_type
+			armour_power_helmet_type
+			armour_power_special_type
+		}
+	}
+
+	power_armor_3 = {
+		priority = {
+			factor = 250	
+		}
+
+		enable = {
+			has_tech = t45d_pa_tech
+			NOT = { has_tech = t51b_pa_tech }
+		}
+
+		role_icon_index = 0
 
 		target_variant = {
 			match_value = 3000
 			type = power_armor_equipment_3
 			modules = {
-				helmet_slot = {
-					any_of = {
-						armour_night_vision
-						armour_reacon_sensors
-					}
-				}
-				servo_type_slot = {
-					any_of = {
-						armour_advance_servo
-						armour_simple_servo
-					}
-				}
-				armor_type_slot = {
-					any_of = {
-						armour_composite_plate
-						armour_welded_rebar
-					}
-				}
-				plant_type_slot = armour_fusion_core
-				special_type_slot_1 = {
-					any_of = {
-						armour_active_armor
-						armour_emergency_protocol
-						armour_core_assembly
-						armour_stealth_boy
-					}
-				}
-				special_type_slot_2 = {
-					any_of = {
-						armour_active_armor
-						armour_emergency_protocol
-						armour_core_assembly
-						armour_stealth_boy
-					}
-				}
-				special_type_slot_3 = {
-					any_of = {
-						armour_active_armor
-						armour_emergency_protocol
-						armour_core_assembly
-						armour_stealth_boy
-						
-					}
-				}
-				special_type_slot_4 = {
-					any_of = {
-						armour_active_armor
-						armour_emergency_protocol
-						armour_core_assembly
-						armour_stealth_boy
-					}
-				}
-			}
-			upgrades = {
+				helmet_slot = armour_power_helmet_type
+				servo_type_slot = armour_power_servo_type
+				armor_type_slot = armour_power_plate_type
+				plant_type_slot = armour_power_plant_type
+
+				special_type_slot_1 = armour_power_special_type
+				special_type_slot_2 = armour_power_special_type
+				special_type_slot_3 = armour_power_special_type
+				special_type_slot_4 = armour_power_special_type
 			}
 		}
 
-		allowed_modules = {
-			armour_tesla_coil
-			armour_jet_pack
-			armour_vats_interface
-			armour_enclave_reactor_plant
-			armour_high_pressure_hydraulic_servo
-			armour_harded_plate
-			
-			armour_active_armor
-			armour_thermal_vision
-			armour_reactor_plant
-			armour_advance_servo
-			armour_composite_plate
-			
-			armour_night_vision
-			armour_emergency_protocol
-			armour_core_assembly
-			armour_stealth_boy
-			armour_reacon_sensors
-			armour_fusion_core
-			armour_simple_servo
-			armour_welded_rebar
+		allowed_modules = {			
+			armour_power_plant_type
+			armour_power_servo_type
+			armour_power_plate_type
+			armour_power_helmet_type
+			armour_power_special_type
 		}
 	}
-	basic_t51b_default = {
+
+	power_armor_4 = {
 		priority = {
-			factor = 100
-			modifier = { 
-				has_tech = t51b_pa_tech 
-				factor = 0 #let's not waste XP here
+			factor = 250	
+		}
+
+		enable = {
+			has_tech = t51b_pa_tech
+			NOT = { has_tech = t60_pa_tech }
+		}
+
+		role_icon_index = 0
+
+		target_variant = {
+			match_value = 3500
+			type = power_armor_equipment_4
+			modules = {
+				helmet_slot = armour_power_helmet_type
+				servo_type_slot = armour_power_servo_type
+				armor_type_slot = armour_power_plate_type
+				plant_type_slot = armour_power_plant_type
+
+				special_type_slot_1 = armour_power_special_type
+				special_type_slot_2 = armour_power_special_type
+				special_type_slot_3 = armour_power_special_type
+				special_type_slot_4 = armour_power_special_type
+				special_type_slot_5 = armour_power_special_type
 			}
 		}
+
+		allowed_modules = {			
+			armour_power_plant_type
+			armour_power_servo_type
+			armour_power_plate_type
+			armour_power_helmet_type
+			armour_power_special_type
+		}
+	}
+
+	power_armor_6 = {
+		priority = {
+			factor = 250	
+		}
+
+		enable = {
+			has_tech = t60_pa_tech
+		}
+
+		role_icon_index = 0
 
 		target_variant = {
 			match_value = 4000
-			type = power_armor_equipment_4
-			modules = {
-				helmet_slot = {
-					any_of = {
-						armour_vats_interface
-						armour_thermal_vision
-						armour_night_vision
-					}
-				}
-				servo_type_slot = {
-					any_of = {
-						armour_high_pressure_hydraulic_servo
-						armour_advance_servo
-					}
-				}
-				armor_type_slot = {
-					any_of = {
-						armour_harded_plate
-						armour_composite_plate
-					}
-				}
-				plant_type_slot = armour_reactor_plant
-				special_type_slot_1 = {
-					any_of = {
-						armour_tesla_coil
-						armour_jet_pack
-						armour_active_armor
-						armour_emergency_protocol
-						armour_core_assembly
-						armour_stealth_boy
-					}
-				}
-				special_type_slot_2 = {
-					any_of = {
-						armour_tesla_coil
-						armour_jet_pack
-						armour_active_armor
-						armour_emergency_protocol
-						armour_core_assembly
-						armour_stealth_boy
-					}
-				}
-				special_type_slot_3 = {
-					any_of = {
-						armour_tesla_coil
-						armour_jet_pack
-						armour_active_armor
-						armour_emergency_protocol
-						armour_core_assembly
-						armour_stealth_boy
-					}
-				}
-				special_type_slot_4 = {
-					any_of = {
-						armour_tesla_coil
-						armour_jet_pack
-						armour_active_armor
-						armour_emergency_protocol
-						armour_core_assembly
-						armour_stealth_boy
-					}
-				}
-				special_type_slot_5 = {
-					any_of = {
-						armour_tesla_coil
-						armour_jet_pack
-						armour_active_armor
-						armour_emergency_protocol
-						armour_core_assembly
-						armour_stealth_boy
-					}
-				}
-			}
-			upgrades = {
-			}
-		}
-
-		allowed_modules = {
-			armour_tesla_coil
-			armour_jet_pack
-			armour_vats_interface
-			armour_enclave_reactor_plant
-			armour_high_pressure_hydraulic_servo
-			armour_harded_plate
-			
-			armour_active_armor
-			armour_thermal_vision
-			armour_reactor_plant
-			armour_advance_servo
-			armour_composite_plate
-			
-			armour_night_vision
-			armour_emergency_protocol
-			armour_core_assembly
-			armour_stealth_boy
-		}
-	}
-	basic_t60_default = {
-		priority = {
-			factor = 100
-			modifier = { 
-				has_tech = t60_pa_tech 
-				factor = 0 #let's not waste XP here
-			}
-		}
-
-		target_variant = {
-			match_value = 5000
 			type = power_armor_equipment_6
 			modules = {
-				helmet_slot = {
-					any_of = {
-						armour_vats_interface
-					}
-				}
-				servo_type_slot = {
-					any_of = {
-						armour_high_pressure_hydraulic_servo
-					}
-				}
-				armor_type_slot = {
-					any_of = {
-						armour_harded_plate
-					}
-				}
-				plant_type_slot = armour_reactor_plant
-				special_type_slot_1 = {
-					any_of = {
-						armour_tesla_coil
-						armour_jet_pack
-						armour_active_armor
-						armour_emergency_protocol
-						armour_core_assembly
-						armour_stealth_boy
-					}
-				}
-				special_type_slot_2 = {
-					any_of = {
-						armour_tesla_coil
-						armour_jet_pack
-						armour_active_armor
-						armour_emergency_protocol
-						armour_core_assembly
-						armour_stealth_boy
-					}
-				}
-				special_type_slot_3 = {
-					any_of = {
-						armour_tesla_coil
-						armour_jet_pack
-						armour_active_armor
-						armour_emergency_protocol
-						armour_core_assembly
-						armour_stealth_boy
-					}
-				}
-				special_type_slot_4 = {
-					any_of = {
-						armour_tesla_coil
-						armour_jet_pack
-						armour_active_armor
-						armour_emergency_protocol
-						armour_core_assembly
-						armour_stealth_boy
-					}
-				}
-				special_type_slot_5 = {
-					any_of = {
-						armour_tesla_coil
-						armour_jet_pack
-						armour_active_armor
-						armour_emergency_protocol
-						armour_core_assembly
-						armour_stealth_boy
-					}
-				}
-			}
-			upgrades = {
+				helmet_slot = armour_power_helmet_type
+				servo_type_slot = armour_power_servo_type
+				armor_type_slot = armour_power_plate_type
+				plant_type_slot = armour_power_plant_type
+
+				special_type_slot_1 = armour_power_special_type
+				special_type_slot_2 = armour_power_special_type
+				special_type_slot_3 = armour_power_special_type
+				special_type_slot_4 = armour_power_special_type
+				special_type_slot_5 = armour_power_special_type
 			}
 		}
 
-		allowed_modules = {
-			armour_tesla_coil
-			armour_jet_pack
-			armour_vats_interface
-			armour_enclave_reactor_plant
-			armour_high_pressure_hydraulic_servo
-			armour_harded_plate
-			
-			armour_active_armor
-			armour_thermal_vision
-			armour_reactor_plant
-			
-			armour_night_vision
-			armour_emergency_protocol
-			armour_core_assembly
-			armour_stealth_boy
+		allowed_modules = {			
+			armour_power_plant_type
+			armour_power_servo_type
+			armour_power_plate_type
+			armour_power_helmet_type
+			armour_power_special_type
 		}
 	}
 }

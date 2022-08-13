@@ -4,7 +4,6 @@ equipment_modules = {
 ###################################################
 
 	armour_battery = {
-		abbreviation = "bat"
 		category = armour_power_plant_type
 		sfx = sfx_ui_sd_module_engine
 
@@ -16,9 +15,9 @@ equipment_modules = {
 	}
 
 	armour_fusion_core = {
-		abbreviation = "fus"
 		category = armour_power_plant_type
 		sfx = sfx_ui_sd_module_engine
+		parent = armour_battery
 
 		add_stats = {
 			fuel_consumption = 0.5
@@ -35,9 +34,9 @@ equipment_modules = {
 	}
 
 	armour_reactor_plant = {
-		abbreviation = "rea"
 		category = armour_power_plant_type
 		sfx = sfx_ui_sd_module_engine
+		parent = armour_fusion_core
 
 		add_stats = {
 			build_cost_ic = 8 
@@ -53,9 +52,10 @@ equipment_modules = {
 	}
 
 	armour_enclave_reactor_plant = {
-		abbreviation = "rea"
 		category = armour_power_plant_type
 		sfx = sfx_ui_sd_module_engine
+		parent = armour_reactor_plant
+
 
 		add_stats = {
 			build_cost_ic = 5 
@@ -72,7 +72,6 @@ equipment_modules = {
 ###################################################
 
 	armour_primitive_servo = {
-		abbreviation = "pri"
 		category = armour_power_servo_type
 		sfx = sfx_ui_sd_module_engine
 
@@ -84,9 +83,9 @@ equipment_modules = {
 	}
 
 	armour_simple_servo = {
-		abbreviation = "sim"
 		category = armour_power_servo_type
 		sfx = sfx_ui_sd_module_engine
+		parent = armour_primitive_servo
 
 		add_stats = {
 			build_cost_ic = 1
@@ -96,9 +95,9 @@ equipment_modules = {
 	}
 
 	armour_advance_servo = {
-		abbreviation = "adv"
 		category = armour_power_servo_type
 		sfx = sfx_ui_sd_module_engine
+		parent = armour_simple_servo
 
 		add_stats = {
 			build_cost_ic = 2
@@ -109,9 +108,9 @@ equipment_modules = {
 	}
 
 	armour_high_pressure_hydraulic_servo = {
-		abbreviation = "prs"
 		category = armour_power_servo_type
 		sfx = sfx_ui_sd_module_engine
+		parent = armour_advance_servo
 
 		add_stats = {
 			build_cost_ic = 3
@@ -125,7 +124,6 @@ equipment_modules = {
 # PowerArmor Plate
 ###################################################
 	armour_standard_plate = {
-		abbreviation = "std"
 		category = armour_power_plate_type
 		sfx = sfx_ui_sd_module_engine
 
@@ -134,10 +132,10 @@ equipment_modules = {
 	}
 
 	armour_welded_rebar = {
-		abbreviation = "wld"
 		category = armour_power_plate_type
 		sfx = sfx_ui_sd_module_engine
-
+		parent = armour_standard_plate
+		
 		add_stats = {
 			build_cost_ic = 0.4
 			fuel_consumption = 0.2
@@ -150,9 +148,9 @@ equipment_modules = {
 	}
 
 	armour_composite_plate = {
-		abbreviation = "cmp"
 		category = armour_power_plate_type
 		sfx = sfx_ui_sd_module_engine
+		parent = armour_welded_rebar
 
 		add_stats = {
 			reliability = 0.1
@@ -166,9 +164,9 @@ equipment_modules = {
 	}
 
 	armour_harded_plate = {
-		abbreviation = "hrd"
 		category = armour_power_plate_type
 		sfx = sfx_ui_sd_module_engine
+		parent = armour_composite_plate
 
 		add_stats = {
 			reliability = 0.1
@@ -186,10 +184,18 @@ equipment_modules = {
 ###################################################
 # PowerArmor Helmet
 ###################################################
-	armour_internal_database = {
-		abbreviation = "idb"
+	armour_default_helmet = {
 		category = armour_power_helmet_type
 		sfx = sfx_ui_sd_module_engine
+
+		add_stats = {
+			build_cost_ic = 0.05
+		}
+	}
+	armour_internal_database = {
+		category = armour_power_helmet_type
+		sfx = sfx_ui_sd_module_engine
+		parent = armour_default_helmet
 
 		add_stats = {
 			build_cost_ic = 0.5
@@ -198,9 +204,9 @@ equipment_modules = {
 	}
 
 	armour_reacon_sensors = {
-		abbreviation = "sen"
 		category = armour_power_helmet_type
 		sfx = sfx_ui_sd_module_engine
+		parent = armour_internal_database
 	
 		add_stats = {
 			build_cost_ic = 0.7
@@ -211,9 +217,9 @@ equipment_modules = {
 	}
 
 	armour_night_vision = {
-		abbreviation = "nht"
 		category = armour_power_helmet_type
 		sfx = sfx_ui_sd_module_engine
+		parent = armour_reacon_sensors
 
 		add_stats = {
 			soft_attack = 1
@@ -223,9 +229,9 @@ equipment_modules = {
 	}
 
 	armour_thermal_vision = {
-		abbreviation = "thr"
 		category = armour_power_helmet_type
 		sfx = sfx_ui_sd_module_engine
+		parent = armour_night_vision
 
 		add_stats = {
 			soft_attack = 2
@@ -236,9 +242,9 @@ equipment_modules = {
 	}
 
 	armour_vats_interface = {
-		abbreviation = "vats"
 		category = armour_power_helmet_type
 		sfx = sfx_ui_sd_module_engine
+		parent = armour_thermal_vision
 
 		add_stats = {
 			soft_attack = 3
@@ -251,37 +257,23 @@ equipment_modules = {
 ###################################################
 # PowerArmor Special
 ###################################################
-	armour_tesla_coil = {
-		abbreviation = "tes"
+
+	armour_explosive_vent = {
 		category = armour_power_special_type
 		sfx = sfx_ui_sd_module_engine
 
 		add_stats = {
-			soft_attack = 2
-			defense = 1
-			build_cost_ic = 1
-			fuel_consumption = 0.2
-			entrenchment = 1
-		}
-	}
-
-	armour_active_armor = {
-		abbreviation = "act"
-		category = armour_power_special_type
-		sfx = sfx_ui_sd_module_engine
-	
-		add_stats = {
-			defense = 2
-			build_cost_ic = 2
-			entrenchment = 2
+			build_cost_ic = 0.2
+			hard_attack = 0.2
+			breakthrough = 0.2
 		}
 	}
 
 	armour_jet_pack = {
-		abbreviation = "jet"
 		category = armour_power_special_type
 		sfx = sfx_ui_sd_module_engine
-	
+		parent = armour_explosive_vent
+
 		add_stats = {
 			build_cost_ic = 2
 			breakthrough = 2
@@ -293,10 +285,9 @@ equipment_modules = {
 	}
 
 	armour_kinetic_dynamo = {
-		abbreviation = "kin"
 		category = armour_power_special_type
 		sfx = sfx_ui_sd_module_engine
-	
+
 		add_stats = {
 			build_cost_ic = 1
 			soft_attack = 1
@@ -304,32 +295,7 @@ equipment_modules = {
 		}
 	}
 
-	armour_explosive_vent = {
-		abbreviation = "exp"
-		category = armour_power_special_type
-		sfx = sfx_ui_sd_module_engine
-	
-		add_stats = {
-			build_cost_ic = 0.2
-			hard_attack = 0.2
-			breakthrough = 0.2
-		}
-	}
-
-	armour_core_assembly = {
-		abbreviation = "asm"
-		category = armour_power_special_type
-		sfx = sfx_ui_sd_module_engine
-	
-		add_stats = {
-			build_cost_ic = 0.2
-			soft_attack = 0.2
-			maximum_speed = 0.3
-		}
-	}
-
 	armour_stealth_boy = {
-		abbreviation = "stl"
 		category = armour_power_special_type
 		sfx = sfx_ui_sd_module_engine
 	
@@ -340,11 +306,49 @@ equipment_modules = {
 		}
 	}
 
-	armour_emergency_protocol = {
-		abbreviation = "emg"
+	armour_active_armor = {
+		category = armour_power_special_type
+		sfx = sfx_ui_sd_module_engine
+		parent = armour_stealth_boy
+
+		add_stats = {
+			defense = 2
+			build_cost_ic = 2
+			entrenchment = 2
+		}
+	}
+
+	armour_tesla_coil = {
+		category = armour_power_special_type
+		sfx = sfx_ui_sd_module_engine
+		parent = armour_active_armor
+
+		add_stats = {
+			soft_attack = 2
+			defense = 1
+			build_cost_ic = 1
+			fuel_consumption = 0.2
+			entrenchment = 1
+		}
+	}
+
+
+	armour_core_assembly = {
 		category = armour_power_special_type
 		sfx = sfx_ui_sd_module_engine
 	
+		add_stats = {
+			build_cost_ic = 0.2
+			soft_attack = 0.2
+			maximum_speed = 0.3
+		}
+	}
+
+	armour_emergency_protocol = {
+		category = armour_power_special_type
+		sfx = sfx_ui_sd_module_engine
+		parent = armour_core_assembly
+
 		add_stats = {
 			defense = 1
 			maximum_speed = 0.5
@@ -352,5 +356,6 @@ equipment_modules = {
 			build_cost_ic = 0.5
 		}
 	}
+	
 
 }

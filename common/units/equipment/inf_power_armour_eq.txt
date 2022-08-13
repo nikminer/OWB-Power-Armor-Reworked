@@ -81,6 +81,7 @@ equipments = {
 		}
 
 		default_modules = {
+			helmet_slot = armour_default_helmet
 			servo_type_slot = armour_primitive_servo
 			armor_type_slot = armour_standard_plate
 			plant_type_slot = armour_battery
@@ -136,6 +137,13 @@ equipments = {
 					armour_power_plant_type
 				}
 			}
+		}
+
+		default_modules = {
+			helmet_slot = armour_default_helmet
+			servo_type_slot = armour_primitive_servo
+			armor_type_slot = armour_standard_plate
+			plant_type_slot = armour_battery
 		}
 
 		priority = 10
@@ -196,6 +204,14 @@ equipments = {
 					armour_power_special_type
 				}
 			}
+		}
+
+		default_modules = {
+			helmet_slot = armour_default_helmet
+			servo_type_slot = armour_primitive_servo
+			armor_type_slot = armour_standard_plate
+			plant_type_slot = armour_battery
+			special_type_slot_1 = empty
 		}
 		
 		priority = 20
@@ -266,6 +282,13 @@ equipments = {
 					armour_power_special_type
 				}
 			}
+
+			special_type_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
 		}
 
 		priority = 40
@@ -288,6 +311,16 @@ equipments = {
 
 		build_cost_ic = 11.5
 
+		default_modules = {
+			helmet_slot = armour_default_helmet
+			servo_type_slot = armour_primitive_servo
+			armor_type_slot = armour_standard_plate
+			plant_type_slot = armour_battery
+			special_type_slot_1 = empty
+			special_type_slot_2 = empty
+			special_type_slot_3 = empty
+		}
+		
 		resources = {
 			metal = 3
 			circuitry = 1
@@ -374,6 +407,17 @@ equipments = {
 		fuel_consumption = 0.3
 
 		build_cost_ic = 15
+
+		default_modules = {
+			helmet_slot = armour_default_helmet
+			servo_type_slot = armour_primitive_servo
+			armor_type_slot = armour_standard_plate
+			plant_type_slot = armour_battery
+			special_type_slot_1 = empty
+			special_type_slot_2 = empty
+			special_type_slot_3 = empty
+			special_type_slot_4 = empty
+		}
 
 		resources = {
 			metal = 3
@@ -469,6 +513,18 @@ equipments = {
 		fuel_consumption = 0.4
 
 		build_cost_ic = 17
+
+		default_modules = {
+			helmet_slot = armour_default_helmet
+			servo_type_slot = armour_primitive_servo
+			armor_type_slot = armour_standard_plate
+			plant_type_slot = armour_battery
+			special_type_slot_1 = empty
+			special_type_slot_2 = empty
+			special_type_slot_3 = empty
+			special_type_slot_4 = empty
+			special_type_slot_5 = empty
+		}
 
 		resources = {
 			composites = 2
@@ -571,6 +627,19 @@ equipments = {
 
 		build_cost_ic = 19
 
+		default_modules = {
+			helmet_slot = armour_default_helmet
+			servo_type_slot = armour_primitive_servo
+			armor_type_slot = armour_standard_plate
+			plant_type_slot = armour_battery
+			special_type_slot_1 = empty
+			special_type_slot_2 = empty
+			special_type_slot_3 = empty
+			special_type_slot_4 = empty
+			special_type_slot_5 = empty
+			special_type_slot_6 = empty
+		}
+
 		resources = {
 			composites = 3
 			advanced = 2
@@ -657,6 +726,16 @@ equipments = {
 		fuel_consumption = 0.3
 
 		build_cost_ic = 9
+
+		default_modules = {
+			helmet_slot = armour_default_helmet
+			servo_type_slot = armour_primitive_servo
+			armor_type_slot = armour_standard_plate
+			plant_type_slot = armour_battery
+			special_type_slot_1 = empty
+			special_type_slot_2 = empty
+			special_type_slot_3 = empty
+		}
 
 		resources = {
 			metal = 2
@@ -745,6 +824,17 @@ equipments = {
 		fuel_consumption = 0.3
 		
 		build_cost_ic = 15
+
+		default_modules = {
+			helmet_slot = armour_default_helmet
+			servo_type_slot = armour_primitive_servo
+			armor_type_slot = armour_standard_plate
+			plant_type_slot = armour_battery
+			special_type_slot_1 = empty
+			special_type_slot_2 = empty
+			special_type_slot_3 = empty
+			special_type_slot_4 = empty
+		}
 
 		resources = {
 			metal = 2
@@ -838,6 +928,18 @@ equipments = {
 		fuel_consumption = 0.6
 
 		build_cost_ic = 20
+
+		default_modules = {
+			helmet_slot = armour_default_helmet
+			servo_type_slot = armour_primitive_servo
+			armor_type_slot = armour_standard_plate
+			plant_type_slot = armour_battery
+			special_type_slot_1 = empty
+			special_type_slot_2 = empty
+			special_type_slot_3 = empty
+			special_type_slot_4 = empty
+			special_type_slot_5 = empty
+		}
 
 		resources = {
 			composites = 3
@@ -938,6 +1040,19 @@ equipments = {
 
 		build_cost_ic = 22.5
 
+		default_modules = {
+			helmet_slot = armour_default_helmet
+			servo_type_slot = armour_primitive_servo
+			armor_type_slot = armour_standard_plate
+			plant_type_slot = armour_battery
+			special_type_slot_1 = empty
+			special_type_slot_2 = empty
+			special_type_slot_3 = empty
+			special_type_slot_4 = empty
+			special_type_slot_5 = empty
+			special_type_slot_6 = empty
+		}
+
 		resources = {
 			composites = 3
 			advanced = 2
@@ -1018,6 +1133,13 @@ equipments = {
 					armour_power_special_type
 				}
 			}
+
+			special_type_slot_7 = {
+				required = no
+				allowed_module_categories = {
+					armour_power_special_type
+				}
+			}
 		}
 
 		priority = 200
@@ -1037,6 +1159,20 @@ equipments = {
 		fuel_consumption = 0.4
 
 		build_cost_ic = 22.5
+
+		default_modules = {
+			helmet_slot = armour_default_helmet
+			servo_type_slot = armour_primitive_servo
+			armor_type_slot = armour_standard_plate
+			plant_type_slot = armour_battery
+			special_type_slot_1 = empty
+			special_type_slot_2 = empty
+			special_type_slot_3 = empty
+			special_type_slot_4 = empty
+			special_type_slot_5 = empty
+			special_type_slot_6 = empty
+			special_type_slot_7 = empty
+		}
 
 		resources = {
 			composites = 3

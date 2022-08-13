@@ -72,6 +72,10 @@ spriteTypes = {
 # PowerArmor Helmet
 ###################################################
 	spriteType = {
+		name = "GFX_EMI_armour_default_helmet"
+		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/default_helmet.dds"
+	}	
+	spriteType = {
 		name = "GFX_EMI_armour_internal_database"
 		textureFile = "gfx/interface/equipmentdesigner/power_armor/modules/internal_database.dds"
 	}
