@@ -59,6 +59,9 @@
 
  armour_internal_database:0 "Internal Database"
  armour_internal_database_desc:0 "Expands the capabilities of the power armor on-board computer, which increases the effectiveness of armor on the battlefield."
+ 
+ armour_default_helmet:0 "Default Helmet"
+ armour_default_helmet_desc:0 "Default Helmet for power armor"
 
  armour_jet_pack:0 "Jet Pack"
  armour_jet_pack_desc:0 "Allows the power armor to better overcome various obstacles, rivers, swamps, barricades, or just hang in the air for a while."
