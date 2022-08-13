@@ -29,7 +29,6 @@ power_armor = {
 				armor_type_slot = armour_power_plate_type
 				plant_type_slot = armour_power_plant_type
 				special_type_slot_1 = armour_power_special_type
-				special_type_slot_2 = armour_power_special_type
 			}
 		}
 
