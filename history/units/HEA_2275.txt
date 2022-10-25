@@ -1,0 +1,138 @@
+﻿division_template = {
+	name = "Faithful Militia"
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 1 y = 0 }
+		militia = { x = 1 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Chosen Crusaders"
+	regiments = {
+		power_armour = { x = 0 y = 0 }
+		power_armour = { x = 0 y = 1 }
+		power_armour = { x = 1 y = 0 }
+		power_armour = { x = 1 y = 1 }
+	}
+	support = {
+		fireteam_support = { x = 0 y = 0 }
+		demolitions_support = { x = 1 Y = 0 }
+	}
+}
+
+division_template = {
+	name = "Faithful Warriors"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+	}
+	support = {
+		fireteam_support = { x = 0 y = 0 }
+		demolitions_support = { x = 1 Y = 0 }
+	}
+}
+
+units = {
+	division = {
+		name = "Gabriel's Sons"
+		location = 4489
+		division_template = "Chosen Crusaders"
+		start_experience_factor = 1.0
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Gate's Sons"
+		location = 16388
+		division_template = "Faithful Warriors"
+		start_experience_factor = 1.0
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Faithful Gunmen"
+		location = 16432
+		division_template = "Faithful Militia"
+		start_experience_factor = 1.0
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Steams's Sons"
+		location = 16431
+		division_template = "Faithful Warriors"
+		start_experience_factor = 1.0
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Faithful Militia"
+		location = 16423
+		division_template = "Faithful Militia"
+		start_experience_factor = 1.0
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Steams's Daugthers"
+		location = 16424
+		division_template = "Faithful Warriors"
+		start_experience_factor = 1.0
+		start_equipment_factor = 1.0
+	}
+}
+
+##### Starting Production #####
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+			creator = "HEA"
+		}
+		requested_factories = 1
+		progress = 0.5
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = {
+			type = demolitions_equipment_1
+			creator = "HEA"
+		}
+		requested_factories = 1
+		progress = 0.5
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = {
+			type = fireteam_equipment_1
+			creator = "HEA"
+		}
+		requested_factories = 1
+		progress = 0.5
+		efficiency = 100
+	}
+
+	create_equipment_variant = {
+		name = "Power Armor"
+		type = power_armor_equipment_1
+		parent_version = 0
+		modules = {
+			helmet_slot = armour_default_helmet
+			servo_type_slot = armour_primitive_servo
+			armor_type_slot = armour_standard_plate
+			plant_type_slot = armour_battery
+		}
+	}
+
+	add_equipment_production = {
+		equipment = {
+			version_name = "Power Armor"
+			type = power_armor_equipment_1
+			creator = "HEA"
+		}
+		requested_factories = 1
+		progress = 0.5
+		efficiency = 100
+	}
+}

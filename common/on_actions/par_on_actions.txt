@@ -2,6 +2,13 @@ on_actions = {
 	on_startup = {
 		effect = {
 			set_global_flag = PowerArmorReworked	
+
+			HEA = {
+				set_technology = {
+					wasteland_pa_tech = 1
+					popup = no
+				}
+			}
 		}
 	}
 }
