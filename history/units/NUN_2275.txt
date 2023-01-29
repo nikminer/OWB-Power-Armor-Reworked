@@ -1,7 +1,8 @@
 ﻿# Infantry
 	# Creating temlate
 		division_template = {
-			name = "Faithful Militia"
+			name = "Local Settler Defenders"
+			priority = 0
 			regiments = {
 				militia = { x = 0 y = 0 }
 				militia = { x = 0 y = 1 }
@@ -9,56 +10,49 @@
 				militia = { x = 1 y = 1 }
 			}
 		}
+
 		division_template = {
-			name = "Faithful Warriors"
+			name = "Expeditionary Force"
 			regiments = {
 				infantry = { x = 0 y = 0 }
 				infantry = { x = 0 y = 1 }
 				infantry = { x = 1 y = 0 }
 				infantry = { x = 1 y = 1 }
 				infantry = { x = 2 y = 0 }
-				infantry = { x = 2 y = 1 }
 			}
 			support = {
-				fireteam_support = { x = 0 y = 0 }
-				demolitions_support = { x = 1 Y = 0 }
+				recon_company = { x = 0 y = 0 }
 			}
 		}
-	# Units
+
+	##### Starting Army #####
 		units = {
 			division = {
-				name = "Gate's Sons"
-				location = 16388
-				division_template = "Faithful Warriors"
-				start_experience_factor = 1.0
+				name = "Kudluk's Company"
+				location = 14162
+				division_template = "Expeditionary Force"
+				start_experience_factor = 0.4
 				start_equipment_factor = 1.0
 			}
 			division = {
-				name = "Faithful Gunmen"
-				location = 16432
-				division_template = "Faithful Militia"
-				start_experience_factor = 1.0
+				name = "Cormorant's Security"
+				location = 14173
+				division_template = "Expeditionary Force"
+				start_experience_factor = 0.4
 				start_equipment_factor = 1.0
 			}
 			division = {
-				name = "Steams's Sons"
-				location = 16431
-				division_template = "Faithful Warriors"
-				start_experience_factor = 1.0
+				name = "Flin Flon Force"
+				location = 14177
+				division_template = "Expeditionary Force"
+				start_experience_factor = 0.4
 				start_equipment_factor = 1.0
 			}
 			division = {
-				name = "Faithful Militia"
-				location = 16423
-				division_template = "Faithful Militia"
-				start_experience_factor = 1.0
-				start_equipment_factor = 1.0
-			}
-			division = {
-				name = "Steams's Daugthers"
-				location = 16424
-				division_template = "Faithful Warriors"
-				start_experience_factor = 1.0
+				name = "Narrow Hills Heroes"
+				location = 14184
+				division_template = "Expeditionary Force"
+				start_experience_factor = 0.4
 				start_equipment_factor = 1.0
 			}
 		}
@@ -68,30 +62,22 @@
 			add_equipment_production = {
 				equipment = {
 					type = infantry_equipment_1
-					creator = "HEA"
+					creator = "NUN"
 				}
-				requested_factories = 1
-				progress = 0.5
+				requested_factories = 3
+				progress = 0.75
 				efficiency = 100
 			}
 			add_equipment_production = {
 				equipment = {
-					type = demolitions_equipment_1
-					creator = "HEA"
+					type = support_equipment_1
+					creator = "NUN"
 				}
 				requested_factories = 1
-				progress = 0.5
+				progress = 0.75
 				efficiency = 100
 			}
-			add_equipment_production = {
-				equipment = {
-					type = fireteam_equipment_1
-					creator = "HEA"
-				}
-				requested_factories = 1
-				progress = 0.5
-				efficiency = 100
-			}
+
 		}
 
 # Power Armor
@@ -104,7 +90,7 @@
 
 	# Creating temlate
 		division_template = {
-			name = "Chosen Crusaders"
+			name = "Nunavut Rangers"
 			regiments = {
 				power_armour = { x = 0 y = 0 }
 				power_armour = { x = 0 y = 1 }
@@ -112,30 +98,35 @@
 				power_armour = { x = 1 y = 1 }
 			}
 			support = {
-				fireteam_support = { x = 0 y = 0 }
-				demolitions_support = { x = 1 Y = 0 }
+				recon_company = { x = 0 y = 0 }
 			}
 		}
 	# Units
 		units = {
 			division = {
-				name = "Gabriel's Sons"
-				location = 4489
-				division_template = "Chosen Crusaders"
+				name = "Nunavut Wayfinders"
+				location = 14174
+				division_template = "Nunavut Rangers"
+				start_experience_factor = 1.0
+				start_equipment_factor = 1.0
+			}
+			division = {
+				name = "Ranger Reinforcements"
+				location = 14153
+				division_template = "Nunavut Rangers"
 				start_experience_factor = 1.0
 				start_equipment_factor = 1.0
 			}
 		}
-
 	##### Starting Production #####
 		instant_effect = {
 			add_equipment_production = {
 				equipment = {
 					type = power_armor_equipment_1
-					creator = "HEA"
+					creator = "NUN"
 				}
 				requested_factories = 1
-				progress = 0.5
+				progress = 0.75
 				efficiency = 100
 			}
 		}

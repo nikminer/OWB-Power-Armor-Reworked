@@ -1,0 +1,61 @@
+﻿# Infantry
+	# Creating temlate
+		division_template = {
+			name = "Militia Force"
+			regiments = {
+				militia = { x = 0 y = 0 }
+				militia = { x = 0 y = 1 }
+				militia = { x = 1 y = 0 }
+				militia = { x = 1 y = 1 }
+			}
+		}
+
+		division_template = {
+			name = "Security Team"
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 2 y = 0 }
+			}
+		}
+	# Units
+		units = {
+			division = {
+				name = "Vault 27 Security"
+				location = 6824
+				division_template = "Security Team"
+				start_experience_factor = 0.5
+				start_equipment_factor = 0.5
+			}
+		}	
+
+# Power Armor
+	instant_effect = {
+		set_technology = {
+			stripped_pa_tech = 1
+			wasteland_pa_tech = 1
+		}
+	}
+	# Creating temlate
+		division_template = {
+			name = "Remnants of the Ghosts"
+			regiments = {
+				power_armour = { x = 0 y = 0 }
+				power_armour = { x = 0 y = 1 }
+				power_armour = { x = 0 y = 2 }
+				power_armour = { x = 1 y = 0 }
+				power_armour = { x = 1 y = 1 }
+			}
+		}
+	# Units
+		units = {
+			division = {
+				name = "Remnants of the Ghosts"
+				location = 6700
+				division_template = "Remnants of the Ghosts"
+				start_experience_factor = 1.0
+				start_equipment_factor = 0.2
+			}
+		}

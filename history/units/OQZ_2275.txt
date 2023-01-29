@@ -1,0 +1,104 @@
+﻿# Infantry
+	# Creating temlate
+		division_template = {
+			name = "Militia Unit"
+			regiments = {
+				militia = { x = 0 y = 0 }
+				militia = { x = 0 y = 1 }
+				militia = { x = 1 y = 0 }
+				militia = { x = 1 y = 1 }
+			}
+		}
+
+		division_template = {
+			name = "Police Detachment"
+			regiments = {
+				heavy_infantry = { x = 0 y = 0 }
+				heavy_infantry = { x = 0 y = 1 }
+				heavy_infantry = { x = 1 y = 0 }
+				heavy_infantry = { x = 1 y = 1 }
+				heavy_infantry = { x = 1 y = 2 }
+			}
+		}
+
+		division_template = {
+			name = "Vanguard of Faith"
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 0 y = 2 }
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 1 y = 2 }
+			}
+		}
+	# Units
+		units = {
+			division = {
+				name = "Sioux Police Force"
+				location = 3743
+				division_template = "Police Detachment"
+				start_experience_factor = 0.2
+				start_equipment_factor = 1.0
+			}
+			division = {
+				name = "Balden Police Force"
+				location = 239
+				division_template = "Police Detachment"
+				start_experience_factor = 0.2
+				start_equipment_factor = 1.0
+			}
+			division = {
+				name = "Tunnel Bravo Team"
+				location = 3733
+				division_template = "Police Detachment"
+				start_experience_factor = 0.5
+				start_equipment_factor = 1.0
+			}
+			division = {
+				name = "Tunnel Chet Team"
+				location = 2482
+				division_template = "Police Detachment"
+				start_experience_factor = 0.5
+				start_equipment_factor = 1.0
+			}
+			division = {
+				name = "Gatekeeper Force"
+				location = 3694
+				division_template = "Police Detachment"
+				start_experience_factor = 0.5
+				start_equipment_factor = 1.0
+			}
+		}
+# Power Armor
+	instant_effect = {
+		set_technology = {
+			stripped_pa_tech = 1
+			wasteland_pa_tech = 1
+		}
+	}
+	# Creating temlate
+		division_template = {
+			name = "Balden Quarantine Guard"
+			regiments = {
+				power_armour = { x = 0 y = 0 }
+				power_armour = { x = 0 y = 1 }
+				power_armour = { x = 0 y = 2 }
+				power_armour = { x = 1 y = 0 }
+				power_armour = { x = 1 y = 1 }
+				power_armour = { x = 1 y = 2 }
+			}
+			support = {
+				recon_company = { x = 1 y = 0 }
+			}
+		}
+	# Units
+		units = {
+			division = {
+				name = "Recovered Power Armor"
+				location = 239
+				division_template = "Balden Quarantine Guard"
+				start_experience_factor = 1.0
+				start_equipment_factor = 1.0
+			}
+		}

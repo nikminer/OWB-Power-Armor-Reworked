@@ -1,0 +1,175 @@
+﻿# Infantry
+	# Creating temlate
+		division_template = {
+			name = "Militia Force"
+			regiments = {
+				militia = { x = 0 y = 0 }
+				militia = { x = 0 y = 1 }
+				militia = { x = 1 y = 0 }
+				militia = { x = 1 y = 1 }
+			}
+		}
+
+		division_template = {
+			name = "Infantry Force"
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 2 y = 0 }
+			}
+		}
+
+		division_template = {
+			name = "Infiltration Force"
+		
+			regiments = {
+				spec_ops = { x = 0 y = 0 }
+				spec_ops = { x = 0 y = 1 }
+				spec_ops = { x = 1 y = 0 }
+				spec_ops = { x = 1 y = 1 }
+			}
+			support = {
+				anti_tank_company = { x = 0 y = 0 }
+				recon_company = { x = 1 y = 0 }
+			}
+		}
+
+		division_template = {
+			name = "Brotherhood Knights"
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 2 y = 0 }
+			}
+		}
+	
+	# Units
+		units = {
+			division = {
+				division_name = {
+					is_name_ordered = yes
+					name_order = 1
+				}
+				location = 1038
+				division_template = "Infiltration Force"
+				start_experience_factor = 0.5
+				start_equipment_factor = 1.0
+			}
+			division = {
+				division_name = {
+					is_name_ordered = yes
+					name_order = 1
+				}
+				location = 1038
+				division_template = "Infantry Force"
+				start_experience_factor = 0.5
+				start_equipment_factor = 1.0
+			}
+			division = {
+				division_name = {
+					is_name_ordered = yes
+					name_order = 2
+				}
+				location = 1041
+				division_template = "Infantry Force"
+				start_experience_factor = 0.5
+				start_equipment_factor = 1.0
+			}
+			division = {
+				name = "Silicon Valley Knights"
+				location = 4835
+				division_template = "Brotherhood Knights"
+				start_experience_factor = 1.0
+				start_equipment_factor = 1.0
+			}
+			division = {
+				name = "Berkeley Knights"
+				location = 4613
+				division_template = "Brotherhood Knights"
+				start_experience_factor = 0.3
+				start_equipment_factor = 1.0
+			}
+		}
+
+	##### Starting Production #####
+		instant_effect = {
+			add_equipment_production = {
+				equipment = {
+					type = ballistic_equipment_1
+					creator = "SHI"
+				}
+				requested_factories = 1
+				progress = 0.75
+				efficiency = 100
+			}
+			add_equipment_production = {
+				equipment = {
+					type = spec_ops_equipment_1
+					creator = "SHI"
+				}
+				requested_factories = 1
+				progress = 0.75
+				efficiency = 100
+			}
+			add_equipment_production = {
+				equipment = {
+					type = support_equipment_1
+					creator = "SHI"
+				}
+				requested_factories = 1
+				progress = 0.75
+				efficiency = 100
+			}
+			add_equipment_production = {
+				equipment = {
+					type = anti_tank_equipment_1
+					creator = "SHI"
+				}
+				requested_factories = 1
+				progress = 0.75
+				efficiency = 100
+			}
+			add_equipment_production = {
+				equipment = {
+					type = supply_equipment_1
+					creator = "SHI"
+				}
+				requested_factories = 1
+				progress = 0.75
+				efficiency = 100
+			}
+		}
+
+# Power Armor
+	instant_effect = {
+		set_technology = {
+			stripped_pa_tech = 1
+			wasteland_pa_tech = 1
+		}
+	}
+	# Creating temlate
+		division_template = {
+			name = "Brotherhood Paladins"
+			regiments = {
+				power_armour = { x = 0 y = 0 }
+				power_armour = { x = 0 y = 1 }
+				power_armour = { x = 0 y = 2 }
+				power_armour = { x = 1 y = 0 }
+				power_armour = { x = 1 y = 1 }
+				power_armour = { x = 1 y = 2 }
+			}
+		}
+	# Units
+		units = {
+			division = {
+				name = "Golden Gate Paladins"
+				location = 2610
+				division_template = "Brotherhood Paladins"
+				start_experience_factor = 0.3
+				start_equipment_factor = 1.0
+			}
+		}
