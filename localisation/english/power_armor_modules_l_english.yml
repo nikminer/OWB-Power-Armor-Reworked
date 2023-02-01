@@ -1,92 +1,96 @@
 ﻿l_english:
- tank_designer_power_armor_equipment:0 "Power Armor"
-
- EQ_MOD_SLOT_helmet_slot_TITLE:0 "Helmet modifications"
- EQ_MOD_SLOT_servo_type_slot_TITLE:0 "Power armor servo"
- EQ_MOD_SLOT_plant_type_slot_TITLE:0 "Energy supply of power armor"
-
- EQ_MOD_CAT_armour_power_plate_type_TITLE:0 "Armor Type"
- EQ_MOD_CAT_armour_power_plant_type_TITLE:0 "Energy supply of power armor"
- EQ_MOD_CAT_armour_power_helmet_type_TITLE:0 "Helmet modifications"
- EQ_MOD_CAT_armour_power_servo_type_TITLE:0 "Power armor servo"
- EQ_MOD_CAT_armour_power_special_type_TITLE:0 "Special Modules"
+ tank_designer_power_armor_equipment: "Power Armor"
+ # Designer Type Slot
+  EQ_MOD_SLOT_helmet_slot_TITLE: "Helmet modifications"
+  EQ_MOD_SLOT_servo_type_slot_TITLE: "Power armor servo"
+  EQ_MOD_SLOT_plant_type_slot_TITLE: "Energy supply of power armor"
+  EQ_MOD_CAT_armour_power_plate_type_TITLE: "Armor Type"
+  EQ_MOD_CAT_armour_power_plant_type_TITLE: "Energy supply of   power armor"
+  EQ_MOD_CAT_armour_power_helmet_type_TITLE: "Helmet  modifications"
+  EQ_MOD_CAT_armour_power_servo_type_TITLE: "Power armor servo"
+  EQ_MOD_CAT_armour_power_special_type_TITLE: "Special Modules"
  ### EQUIPMENT MODULES ###
+  # Armor
+    armour_standard_plate: "Standard armor"
+    armour_standard_plate_desc: "The usual standard armor components are attached to the frame of the power armor."
 
- armour_battery:0 "Microfusion cell"
- armour_battery_desc:0 "Simple microfusion cell used to power energy weapons can also be used to power power armor, however, they discharge very quickly during active operations."
+    armour_composite_plate: "Composite armor"
+    armour_composite_plate_desc: "Composite armor attached to the frame of power armor, allows you to move faster on the battlefield, but protects worse."
+
+    armour_harded_plate: "Harded armor"
+    armour_harded_plate_desc: "Reinforced armor attached to the frame of power armor, allows you to better protect the soldier, but seriously slows down movement on the battlefield."
+
+    armour_welded_rebar: "Welded rebar"
+    armour_welded_rebar_desc: "Fittings and other scrap metal welded to the power armor in the hope of reducing the damage received."
+
+  # Power Plant
+    armour_battery: "Microfusion cell"
+    armour_battery_desc: "Simple microfusion cell used to power energy weapons can also be used to power power armor, however, they discharge very quickly during active operations."
  
- armour_fusion_core:0 "Fusion core"
- armour_fusion_core_desc:0 "A fairly rare universal fuel cell, allows you to continuously fuel any kind of power armor, as well as heavy types of energy weapons or even entire settlements of survivors."
+    armour_fusion_core: "Fusion core"
+    armour_fusion_core_desc: "A fairly rare universal fuel cell, allows you to continuously fuel any kind of power armor, as well as heavy types of energy weapons or even entire settlements of survivors."
 
- armour_reactor_plant:0 "Micronuclear reactor TX-28"
- armour_fusion_core_desc:0 "A 60 kW micronuclear reactor, used before the war as the main source of energy in power armor, this device is located in an isolated container on the back."
+    armour_reactor_plant: "Micronuclear reactor TX-28"
+    armour_reactor_plant_desc: "A 60 kW micronuclear reactor, used before the war as the main source of energy in power armor, this device is located in an isolated container on the back."
 
- armour_enclave_reactor_plant:0 "Enclave TX-28 micronuclear reactor"
- armour_enclave_reactor_plant_desc:0 "A 60 kW micronuclear reactor modified by the enclave to increase reliability due to improved cooling."
+    armour_enclave_reactor_plant: "Enclave TX-28 micronuclear reactor"
+    armour_enclave_reactor_plant_desc: "A 60 kW micronuclear reactor modified by the enclave to increase reliability due to improved cooling."
 
- armour_primitive_servo:0 "Primitive servos"
- armour_primitive_servo_desc:0 "Primitive servos created in conditions of lack of resources and lack of necessary experience in the maintenance of power armor, however, these servos allow power armor to perform tasks in the absence of an alternative."
+  # Servo
+    armour_primitive_servo: "Primitive servos"
+    armour_primitive_servo_desc: "Primitive servos created in conditions of lack of resources and lack of necessary experience in the maintenance of power armor, however, these servos allow power armor to perform tasks in the absence of an alternative."
 
- armour_simple_servo:0 "Kinetic servoss"
- armour_simple_servo_desc:0 "These servos are almost indistinguishable from standard servos, however, they have some minor defects that sometimes manifest themselves during combat."
+    armour_simple_servo: "Kinetic servos"
+    armour_simple_servo_desc: "These servos are almost indistinguishable from standard servos, however, they have some minor defects that sometimes manifest themselves during combat."
 
- armour_advance_servo:0 "Optimized servos"
- armour_advance_servo_desc:0 "These servos meet all the standards of the pre-war era, thanks to them, the mobility of power armor increases significantly."
+    armour_advance_servo: "Optimized servos"
+    armour_advance_servo_desc: "These servos meet all the standards of the pre-war era, thanks to them, the mobility of power armor increases significantly."
 
- armour_high_pressure_hydraulic_servo:0 "High pressure hydraulic servo"
- armour_high_pressure_hydraulic_servo_desc:0 "The improvement of the hydraulic system of the servos allows us to use heavier combat armor."
+    armour_high_pressure_hydraulic_servo: "High pressure hydraulic servo"
+    armour_high_pressure_hydraulic_servo_desc: "The improvement of the hydraulic system of the servos allows us to use heavier combat armor."
 
- armour_standard_plate:0 "Standard armor"
- armour_standard_plate_desc:0 "The usual standard armor components are attached to the frame of the power armor."
+  # Special
+    # Helmet
+      armour_default_helmet: "Default Helmet"
+      armour_default_helmet_desc: "Default Helmet for power armor"
 
- armour_composite_plate:0 "Composite armor"
- armour_composite_plate_desc:0 "Composite armor attached to the frame of power armor, allows you to move faster on the battlefield, but protects worse."
+      armour_internal_database: "Internal Database"
+      armour_internal_database_desc: "Expands the capabilities of the power armor on-board computer, which increases the effectiveness of armor on the battlefield."
 
- armour_harded_plate:0 "Harded armor"
- armour_harded_plate_desc:0 "Reinforced armor attached to the frame of power armor, allows you to better protect the soldier, but seriously slows down movement on the battlefield."
+      armour_reacon_sensors: "Recon Sensors"
+      armour_reacon_sensors_desc: "Long-range sensors allow you to receive information about the actions of the enemy on the battlefield."
 
- armour_night_vision:0 "Night vision"
- armour_night_vision_desc:0 "The night vision device embedded in the helmet makes it possible to significantly increase the effectiveness of power armor at night."
+      armour_night_vision: "Night vision"
+      armour_night_vision_desc: "The night vision device embedded in the helmet makes it possible to significantly increase the effectiveness of power armor at night."
 
- armour_thermal_vision:0 "Thermal vision"
- armour_thermal_vision_desc:0 "The thermal imager embedded in the helmet makes it possible to greatly increase the effectiveness of power armor at night and with low visibility."
+      armour_thermal_vision: "Thermal vision"
+      armour_thermal_vision_desc: "The thermal imager embedded in the helmet makes it possible to greatly increase the effectiveness of power armor at night and with low visibility."
 
- armour_tesla_coil:0 "Tesla coil"
- armour_tesla_coil_desc:0 "Cause additional energy damage."
+      armour_vats_interface: "V.A.T.S. Interface"
+      armour_vats_interfacedesc: "Vault-Tec Assisted Targeting system - The development of Vault-Tec, analyzing the enemy, helping to identify and aim soldiers at the enemy's vulnerable spot on the battlefield"
 
- armour_active_armor:0 "Active armor"
- armour_active_armor_desc:0 "Provides additional attack protection increases melee damage."
+    # Torso
+      armour_active_armor: "Active armor"
+      armour_active_armor_desc: "Provides additional attack protection increases melee damage."
 
- armour_internal_database:0 "Internal Database"
- armour_internal_database_desc:0 "Expands the capabilities of the power armor on-board computer, which increases the effectiveness of armor on the battlefield."
- 
- armour_default_helmet:0 "Default Helmet"
- armour_default_helmet_desc:0 "Default Helmet for power armor"
+      armour_core_assembly: "Core assembly"
+      armour_core_assembly_desc: "After installation, increases the refresh rate of interaction with the power armor, making it more responsive."
 
- armour_jet_pack:0 "Jet Pack"
- armour_jet_pack_desc:0 "Allows the power armor to better overcome various obstacles, rivers, swamps, barricades, or just hang in the air for a while."
+      armour_kinetic_dynamo: "Kinetic Dynamo"
+      armour_kinetic_dynamo_desc: "Allows the power armor to extinguish incoming kinetic energy or enhance outgoing."
 
- armour_kinetic_dynamo:0 "Kinetic Dynamo"
- armour_kinetic_dynamo_desc:0 "Allows the power armor to extinguish incoming kinetic energy or enhance outgoing."
+      armour_jet_pack: "Jet Pack"
+      armour_jet_pack_desc: "Allows the power armor to better overcome various obstacles, rivers, swamps, barricades, or just hang in the air for a while."
 
- armour_reacon_sensors:0 "Recon Sensors"
- armour_reacon_sensors_desc:0 "Long-range sensors allow you to receive information about the actions of the enemy on the battlefield."
+      armour_stealth_boy: "Stealth Boy"
+      armour_stealth_boy_desc: "When mounted on power armor, Stealth Boy activates stealth mode, effectively making the armor user almost invisible."
 
- armour_vats_interface:0 "V.A.T.S. Interface"
- armour_thermal_vision_desc:0 "Vault-Tec Assisted Targeting system - The development of Vault-Tec, analyzing the enemy, helping to identify and aim soldiers at the enemy's vulnerable spot on the battlefield"
+    # Legs
+      armour_explosive_vent: "Explosive vent"
+      armour_explosive_vent_desc: "When installed on power armor, explosive vents increase the radius of damage during a shock landing."
 
- armour_explosive_vent:0 "Explosive vent"
- armour_explosive_vent_desc:0 "When installed on power armor, explosive vents increase the radius of damage during a shock landing."
+      armour_tesla_coil: "Tesla coil"
+      armour_tesla_coil_desc: "Cause additional energy damage."
 
- armour_core_assembly:0 "Core assembly"
- armour_core_assembly_desc:0 "After installation, increases the refresh rate of interaction with the power armor, making it more responsive."
-
- armour_stealth_boy:0 "Stealth Boy"
- armour_stealth_boy_desc:0 "When mounted on power armor, Stealth Boy activates stealth mode, effectively making the armor user almost invisible."
-
- armour_emergency_protocol:0 "Emergency protocol"
- armour_emergency_protocol_desc:0 "Expands the privileges of the power armor in emergency situations, overloading servos and other systems in order to save the operator of the power armor."
-
- armour_welded_rebar:0 "Welded rebar"
- armour_welded_rebar_desc:0 "Fittings and other scrap metal welded to the power armor in the hope of reducing the damage received."
- 
+      armour_emergency_protocol: "Emergency protocol"
+      armour_emergency_protocol_desc: "Expands the privileges of the power armor in emergency situations, overloading servos and other systems in order to save the operator of the power armor."

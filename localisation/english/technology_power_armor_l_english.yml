@@ -1,18 +1,4 @@
 ﻿l_english:
-  fallout_power_armor_par_folder:0 "Power Armor"
-  fallout_power_armor_par_folder_desc:0 ""
-#----------------------------
-# Header
-#----------------------------
-  HEADER_ARMOR:0 "Armor"
-  HEADER_CHASSIS:0 "Chassis"
-  HEADER_SERVOS:0 "Servos"
-  HEADER_POWER:0 "Power Plant"
-  HEADER_SPECIAL_HELMET:0 "Special Modules (Helmet)"
-  HEADER_SPECIAL_TORSO:0 "Special Modules (Torso)"
-  HEADER_SPECIAL_LEGS:0 "Special Modules (Legs)"
-
-
 #----------------------------
 # Armor
 #----------------------------
@@ -55,6 +41,10 @@
   t60_pa_tech: "T-60 Power Armour"
   t60_pa_tech_desc: "The T-60 series of powered combat infantry armor is an evolution of the T-45 power armor design. It entered service after the conclusion of the Battle of Anchorage, mere months before the nuclear apocalypse, the T-60 was rapidly deployed and extensively used by the U.S. Army in all theaters. Deployments of military units in T-60 power armor included the domestic front, enforcing order in the nation. By the time of the Great War it was considered to be the most advanced model of power armor to see extensive use."
 
+  power_armor_equipment_6: "T-60 Power Armour"
+  power_armor_equipment_6_short: "T-60 PA"
+  power_armor_equipment_6_desc: "The T-60 series of powered combat infantry armor is an evolution of the T-45 power armor design. It entered service after the conclusion of the Battle of Anchorage, mere months before the nuclear apocalypse, the T-60 was rapidly deployed and extensively used by the U.S. Army in all theaters. Deployments of military units in T-60 power armor included the domestic front, enforcing order in the nation. By the time of the Great War it was considered to be the most advanced model of power armor to see extensive use."
+
 #----------------------------
 # Power
 #----------------------------
@@ -72,7 +62,7 @@
 #----------------------------
 # Servos
 #----------------------------
-  simple_servo_tech: "Kinetic servoss"
+  simple_servo_tech: "Kinetic servos"
   simple_servo_tech_desc: "Basic hydraulic servos with supplementary motors help augment our troopers in stripped armour be a little more dexterous, and opens up the possibility for restoration of damaged pre-war equipment."
 
   advanced_servo_tech: "Optimized servos"
@@ -144,3 +134,7 @@
 
   texas_brotherhood_pa_tech: "Vault-Tec Power Armour"
   texas_brotherhood_pa_tech_desc: "A vault-tec attempt at creating functional power armour."
+
+  enclave_power_armour_equipment_3: "Advanced Power Armour MKIII HellFire"
+  enclave_power_armour_equipment_3_short: "APA MKIII"
+  enclave_power_armour_equipment_3_desc: "A prototype version was developed and produced by the the Enclave within a few years following the Great War. The armor's development was not completed until 2277, at the Enclave's facility at Adams Air Force Base, after reallocating resources from other projects into the Hellfire project."
