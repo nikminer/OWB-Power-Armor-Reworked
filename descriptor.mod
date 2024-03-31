@@ -9,5 +9,5 @@ dependencies={
 }
 picture="thumbnail.png"
 name="OWB: Power Armor Reworked"
-supported_version="1.13.*"
+supported_version="1.14.*"
 remote_file_id="2818179211"
