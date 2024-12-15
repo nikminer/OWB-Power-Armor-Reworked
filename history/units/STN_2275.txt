@@ -1,0 +1,115 @@
+﻿division_template = {
+	name = "Stoon Servants"
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 1 y = 0 }
+		militia = { x = 1 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Dandy Mercenaries"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+}
+
+units = {
+	division = {
+		name = "Pierre's Last Resort"
+		location = 16401
+		division_template = "Dandy Mercenaries"
+		start_experience_factor = 0.4
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Scarlet Trappers"
+		location = 12881
+		division_template = "Dandy Mercenaries"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Grandoran Watchmen"
+		location = 14550
+		division_template = "Dandy Mercenaries"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Mutant Caretakers"
+		location = 14484
+		division_template = "Dandy Mercenaries"
+		start_experience_factor = 0.4
+		start_equipment_factor = 1.0
+	}
+}
+
+##### Starting Production #####
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+			creator = "STN"
+		}
+		requested_factories = 3
+		progress = 0.46
+		efficiency = 50
+	}
+}
+
+
+
+# Power Armor
+	instant_effect = {
+		set_technology = {
+			stripped_pa_tech = 1
+			wasteland_pa_tech = 1
+		}
+	}
+
+# Creating temlate
+	division_template = {
+		name = "Lettermen"
+		regiments = {
+			power_armour = { x = 0 y = 0 }
+			power_armour = { x = 0 y = 1 }
+			power_armour = { x = 1 y = 0 }
+			power_armour = { x = 1 y = 1 }
+		}
+	}
+# Units
+	units = {
+		division = {
+			name = "Sir Brandon's Knights"
+			location = 14554
+			division_template = "Lettermen"
+			start_experience_factor = 0.6
+			start_equipment_factor = 1.0
+		}
+		division = {
+			name = "Sir Griffin's Knights"
+			location = 14538
+			division_template = "Lettermen"
+			start_experience_factor = 0.6
+			start_equipment_factor = 1.0
+		}
+	}
+
+##### Starting Production #####
+	instant_effect = {
+		add_equipment_production = {
+			equipment = {
+				type = power_armor_equipment_1
+				creator = "STN"
+			}
+			requested_factories = 1
+			progress = 0.5
+			efficiency = 100
+		}
+	}

@@ -1,4 +1,4 @@
-version="1.6"
+version="1.6.1"
 tags={
 	"Technologies"
 	"Military"
@@ -9,5 +9,5 @@ dependencies={
 }
 picture="thumbnail.png"
 name="OWB: Power Armor Reworked"
-supported_version="1.14.*"
+supported_version="1.15.*"
 remote_file_id="2818179211"

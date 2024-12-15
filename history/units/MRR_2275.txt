@@ -1,0 +1,154 @@
+﻿##### Starting Division Templates #####
+division_template = {
+	name = "Locals"
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 1 y = 0 }
+		militia = { x = 1 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Republic Rangers"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 2 y = 0 }
+	}
+}
+
+##### Starting Army #####
+units = {
+	division = {
+		name = "Regional Marshals"
+		location = 12643
+		division_template = "Republic Rangers"
+		start_experience_factor = 0.35
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Regional Marshals"
+		location = 12613
+		division_template = "Republic Rangers"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Regional Marshals"
+		location = 12567
+		division_template = "Republic Rangers"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Regional Marshals"
+		location = 12570
+		division_template = "Republic Rangers"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Regional Marshals"
+		location = 12922
+		division_template = "Republic Rangers"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Regional Marshals"
+		location = 12580
+		division_template = "Republic Rangers"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Regional Marshals"
+		location = 12604
+		division_template = "Republic Rangers"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+}
+
+##### Starting Production #####
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+			creator = "MRR"
+		}
+		requested_factories = 2
+		progress = 0.35
+		efficiency = 50
+	}
+	add_equipment_production = {
+		equipment = {
+			type = demolitions_equipment_1
+			creator = "MRR"
+		}
+		requested_factories = 1
+		progress = 0.61
+		efficiency = 50
+	}
+}
+
+
+
+# Power Armor
+	instant_effect = {
+		set_technology = {
+			stripped_pa_tech = 1
+			wasteland_pa_tech = 1
+		}
+	}
+
+# Creating temlate
+	division_template = {
+		name = "Marshall's Finest"
+		regiments = {
+			power_armour = { x = 0 y = 0 }
+			power_armour = { x = 0 y = 1 }
+			power_armour = { x = 0 y = 2 }
+			power_armour = { x = 1 y = 0 }
+		}
+	}
+# Units
+	units = {
+		division = {
+			name = "Rapid City Marshals"
+			location = 12604
+			division_template = "Marshall's Finest"
+			start_experience_factor = 0.5
+			start_equipment_factor = 1.0
+		}
+		division = {
+			name = "Belle Fourche Marshals"
+			location = 12651
+			division_template = "Marshall's Finest"
+			start_experience_factor = 0.5
+			start_equipment_factor = 1.0
+		}
+		division = {
+			name = "Rozet Marshals"
+			location = 12926
+			division_template = "Marshall's Finest"
+			start_experience_factor = 0.5
+			start_equipment_factor = 1.0
+		}
+	}
+
+##### Starting Production #####
+	instant_effect = {
+		add_equipment_production = {
+			equipment = {
+				type = power_armor_equipment_1
+				creator = "MRR"
+			}
+			requested_factories = 1
+			progress = 0.5
+			efficiency = 100
+		}
+	}

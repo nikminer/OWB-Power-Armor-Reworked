@@ -1,0 +1,184 @@
+﻿##### Starting Division Templates #####
+division_template = {
+	name = "American Devout"
+	priority = 0
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 1 y = 0 }
+		militia = { x = 1 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Passing Mercenaries"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 2 y = 0 }
+	}
+}
+
+
+
+##### Starting Army #####
+units = {
+	division = {
+		name = "Fort Belknap Guards"
+		location = 13588
+		division_template = "American Devout"
+		start_experience_factor = 0.16
+		start_equipment_factor = 1.0
+		start_manpower_factor = 1.0
+	}
+	division = {
+		name = "Rocky Boys Guards"
+		location = 13614
+		division_template = "American Devout"
+		start_experience_factor = 0.15
+		start_equipment_factor = 1.0
+		start_manpower_factor = 1.0
+	}
+	division = {
+		name = "Roaming Zack Company Militants"
+		location = 13641
+		division_template = "American Devout"
+		start_experience_factor = 0.12
+		start_equipment_factor = 1.0
+		start_manpower_factor = 1.0
+	}
+	division = {
+		name = "Winifred Guards"
+		location = 12809
+		division_template = "American Devout"
+		start_experience_factor = 0.12
+		start_equipment_factor = 1.0
+		start_manpower_factor = 1.0
+	}
+	division = {
+		name = "Chester Guards"
+		location = 13599
+		division_template = "American Devout"
+		start_experience_factor = 0.12
+		start_equipment_factor = 1.0
+		start_manpower_factor = 1.0
+	}
+	division = {
+		name = "Hille Guards"
+		location = 14507
+		division_template = "American Devout"
+		start_experience_factor = 0.12
+		start_equipment_factor = 1.0
+		start_manpower_factor = 1.0
+	}
+	division = {
+		name = "Shelby Guards"
+		location = 13596
+		division_template = "American Devout"
+		start_experience_factor = 0.12
+		start_equipment_factor = 1.0
+		start_manpower_factor = 1.0
+	}
+	division = {
+		name = "Liberty Believers"
+		location = 13598
+		division_template = "American Devout"
+		start_experience_factor = 0.12
+		start_equipment_factor = 1.0
+		start_manpower_factor = 1.0
+	}
+	division = {
+		name = "Honour Defenders"
+		location = 12826
+		division_template = "Passing Mercenaries"
+		start_experience_factor = 0.12
+		start_equipment_factor = 1.0
+		start_manpower_factor = 1.0
+	}
+	division = {
+		name = "Passing Mercenaries"
+		location = 13606
+		division_template = "Passing Mercenaries"
+		start_experience_factor = 0.12
+		start_equipment_factor = 1.0
+		start_manpower_factor = 1.0
+	}
+	division = {
+		name = "Passing Mercenaries"
+		location = 13609
+		division_template = "Passing Mercenaries"
+		start_experience_factor = 0.12
+		start_equipment_factor = 1.0
+		start_manpower_factor = 1.0
+	}
+	division = {
+		name = "Passing Mercenaries"
+		location = 13607
+		division_template = "Passing Mercenaries"
+		start_experience_factor = 0.12
+		start_equipment_factor = 1.0
+		start_manpower_factor = 1.0
+	}
+}
+
+##### Starting Production #####
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+			creator = "HVR"
+		}
+		requested_factories = 3
+		progress = 0.75
+		efficiency = 100
+	}
+}
+
+
+
+
+# Power Armor
+	instant_effect = {
+		set_technology = {
+			stripped_pa_tech = 1
+			wasteland_pa_tech = 1
+		}
+	}
+
+
+# Creating temlate
+	division_template = {
+		name = "Warpriests"
+		regiments = {
+			power_armour = { x = 0 y = 0 }
+			power_armour = { x = 0 y = 1 }
+			power_armour = { x = 1 y = 0 }
+			power_armour = { x = 1 y = 1 }
+		}
+	}
+# Units
+	units = {
+		division = {
+			name = "Followers of Carver"
+			location = 13605
+			division_template = "Warpriests"
+			start_experience_factor = 0.6
+			start_equipment_factor = 1.0
+			start_manpower_factor = 1.0
+		}
+	}
+
+##### Starting Production #####
+	instant_effect = {
+		add_equipment_production = {
+			equipment = {
+				type = power_armor_equipment_1
+				creator = "HVR"
+			}
+			requested_factories = 1
+			progress = 0.5
+			efficiency = 100
+		}
+	}
